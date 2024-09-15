@@ -1,6 +1,8 @@
 import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { IWebpackOptions } from './types/webpackTypes';
 
-export function webpackLoaders(): webpack.RuleSetRule[] {
+export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] {
     const tsLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -8,16 +10,23 @@ export function webpackLoaders(): webpack.RuleSetRule[] {
     };
 
     const cssLoader = {
-            test: /\.s[ac]ss$/i,
-            use: [
-                // Creates `style` nodes from JS strings
-                "style-loader",
-                // Translates CSS into CommonJS
-                "css-loader",
-                // Compiles Sass to CSS
-                "sass-loader",
-            ],
-        };
+        test: /\.s[ac]ss$/i,
+        use: [
+            options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+                loader: 'css-loader',
+                options: {
+                    sourceMap: options.isDev,
+                    modules: {
+                        auto: true,
+                        localIdentName: options.isDev ? '[name]-[local]' : '[hash:base64]',
+                        exportLocalsConvention: 'camelCaseOnly',
+                    },
+                },
+            },
+            "sass-loader",
+        ],
+    };
 
     return [
         tsLoader,

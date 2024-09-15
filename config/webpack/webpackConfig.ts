@@ -4,6 +4,7 @@ import { webpackPlugins } from './webpackPlugins';
 import { webpackResolvers } from './webpackResolvers';
 import { webpackLoaders } from './webpackLoaders';
 import { webpackDevServer } from './webpackDevServer';
+import { webpackOptimization } from './webpackOptimization';
 
 export function webpackConfig(options: IWebpackOptions): webpack.Configuration {
 const { mode, paths, isDev } = options;
@@ -17,8 +18,9 @@ const { mode, paths, isDev } = options;
         },
         plugins: webpackPlugins(options),
         resolve: webpackResolvers(),
+        optimization: webpackOptimization(),
         module: {
-            rules: webpackLoaders(),
+            rules: webpackLoaders(options),
         },
         devtool: isDev ? 'inline-source-map' : false,
         devServer: isDev ? webpackDevServer(options) : undefined,
