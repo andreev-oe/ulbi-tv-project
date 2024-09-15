@@ -1,11 +1,12 @@
-import { IWebpackConfig } from './types/webpackTypes';
+import { IWebpackOptions } from './types/webpackTypes';
 import webpack from 'webpack';
 import { webpackPlugins } from './webpackPlugins';
 import { webpackResolvers } from './webpackResolvers';
 import { webpackLoaders } from './webpackLoaders';
+import { webpackDevServer } from './webpackDevServer';
 
-export function webpackConfig(options: IWebpackConfig): webpack.Configuration {
-const { mode, paths } = options;
+export function webpackConfig(options: IWebpackOptions): webpack.Configuration {
+const { mode, paths, isDev } = options;
     return {
         mode: mode,
         entry: paths.entry,
@@ -19,5 +20,7 @@ const { mode, paths } = options;
         module: {
             rules: webpackLoaders(),
         },
+        devtool: isDev ? 'inline-source-map' : false,
+        devServer: isDev ? webpackDevServer(options) : undefined,
     };
 };
