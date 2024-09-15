@@ -18,7 +18,7 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
                 options: {
                     sourceMap: options.isDev,
                     modules: {
-                        auto: true,
+                        auto: (path: string) => path.includes('.module.'),
                         localIdentName: options.isDev ? '[name]-[local]' : '[hash:base64]',
                         exportLocalsConvention: 'camelCaseOnly',
                     },
