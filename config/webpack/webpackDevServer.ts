@@ -6,5 +6,6 @@ export function webpackDevServer(options: IWebpackOptions): Configuration {
     return {
         port: port,
         open: true,
+        historyApiFallback: true,
     };
 }
