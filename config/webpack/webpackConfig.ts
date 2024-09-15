@@ -17,7 +17,7 @@ const { mode, paths, isDev } = options;
             clean: true,
         },
         plugins: webpackPlugins(options),
-        resolve: webpackResolvers(),
+        resolve: webpackResolvers(options),
         optimization: webpackOptimization(),
         module: {
             rules: webpackLoaders(options),
