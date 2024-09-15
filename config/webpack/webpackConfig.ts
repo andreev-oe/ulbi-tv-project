@@ -25,4 +25,4 @@ const { mode, paths, isDev } = options;
         devtool: isDev ? 'inline-source-map' : false,
         devServer: isDev ? webpackDevServer(options) : undefined,
     };
-};
+}

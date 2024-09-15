@@ -9,4 +9,4 @@ export function webpackResolvers(options: IWebpackOptions): webpack.ResolveOptio
         mainFiles: ['index'],
         alias: {},
     };
-};
+}

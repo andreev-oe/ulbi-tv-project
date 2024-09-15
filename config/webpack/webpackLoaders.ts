@@ -32,4 +32,4 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
         tsLoader,
         cssLoader
     ];
-};
+}

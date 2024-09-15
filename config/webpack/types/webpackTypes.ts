@@ -17,4 +17,4 @@ export interface IWebpackOptions {
     paths: IBuildPaths;
     isDev: boolean;
     port: number;
-};
+}
