@@ -5,13 +5,14 @@ export const classNames = ({
     conditionalClasses = {},
     additionalClasses = [],
 }: {
-    rootClass: string,
-    conditionalClasses?: TCLassNames,
-    additionalClasses?: string[]
-}): string => [
-    rootClass,
-    ...Object.entries(conditionalClasses)
-        .filter(([_className, value]) => Boolean(value))
-        .map(([className, _value]) => className),
-    ...additionalClasses.filter(Boolean),
-].join(' ');
+    rootClass: string;
+    conditionalClasses?: TCLassNames;
+    additionalClasses?: string[];
+}): string =>
+    [
+        rootClass,
+        ...Object.entries(conditionalClasses)
+            .filter(([_className, value]) => Boolean(value))
+            .map(([className, _value]) => className),
+        ...additionalClasses.filter(Boolean),
+    ].join(' ');

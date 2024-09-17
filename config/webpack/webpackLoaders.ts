@@ -52,11 +52,5 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
         ],
     };
 
-    return [
-        babelLoader,
-        tsLoader,
-        cssLoader,
-        svgLoader,
-        fileLoader,
-    ];
+    return [babelLoader, tsLoader, cssLoader, svgLoader, fileLoader];
 }
