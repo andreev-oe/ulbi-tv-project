@@ -11,7 +11,7 @@ export const App = () => {
 
     return (
         <div className={classNames({ rootClass: 'app', additionalClasses: [theme] })}>
-            <Suspense fallback={<div>Загрузка языков...</div>}>
+            <Suspense fallback={<div>...</div>}>
                 <NavBar />
                 <div className="content-page">
                     <SideBar />
