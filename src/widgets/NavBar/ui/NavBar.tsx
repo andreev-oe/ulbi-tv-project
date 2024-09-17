@@ -7,6 +7,11 @@ interface NavBarProps {
     className?: string;
 }
 
+export enum Routes {
+    MAIN = '/',
+    ABOUT = '/about',
+}
+
 export const NavBar = (props: NavBarProps) => {
     const { className } = props;
     const { t } = useTranslation();
@@ -14,10 +19,10 @@ export const NavBar = (props: NavBarProps) => {
     return (
         <div className={classNames({ rootClass: classes.NavBar, additionalClasses: [className] })}>
             <div className={classes.links}>
-                <AppLink theme={AppLinkThemes.PRIMARY} to="/">
+                <AppLink theme={AppLinkThemes.PRIMARY} to={Routes.MAIN}>
                     {t('Главная')}
                 </AppLink>
-                <AppLink theme={AppLinkThemes.PRIMARY} to="/about">
+                <AppLink theme={AppLinkThemes.PRIMARY} to={Routes.ABOUT}>
                     {t('О нас')}
                 </AppLink>
             </div>
