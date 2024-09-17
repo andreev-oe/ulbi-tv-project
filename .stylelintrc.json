@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-prettier",
+    "stylelint-config-css-modules"
+  ],
+  "rules": {
+    "selector-class-pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
+    "indentation": 4
+  }
+}
