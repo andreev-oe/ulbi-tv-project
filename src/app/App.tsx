@@ -10,7 +10,7 @@ export const App = () => {
     const { theme } = useTheme();
 
     return (
-        <div className={classNames({rootClass: 'app', additionalClasses: [theme]})}>
+        <div className={classNames({ rootClass: 'app', additionalClasses: [theme] })}>
             <Suspense fallback={<div>Загрузка языков...</div>}>
                 <NavBar />
                 <div className="content-page">
@@ -20,4 +20,4 @@ export const App = () => {
             </Suspense>
         </div>
     );
-}
+};

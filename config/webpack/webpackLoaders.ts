@@ -7,11 +7,11 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
         test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules/,
         use: {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-                presets: ['@babel/preset-env']
-            }
-        }
+                presets: ['@babel/preset-env'],
+            },
+        },
     };
 
     const tsLoader = {
@@ -34,7 +34,7 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
                     },
                 },
             },
-            "sass-loader",
+            'sass-loader',
         ],
     };
 
@@ -43,7 +43,7 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
         use: ['@svgr/webpack'],
     };
 
-    const fileLoader ={
+    const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,
         use: [
             {

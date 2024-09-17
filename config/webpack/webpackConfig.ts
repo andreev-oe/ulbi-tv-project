@@ -1,5 +1,5 @@
-import { IWebpackOptions } from './types/webpackTypes';
 import webpack from 'webpack';
+import { IWebpackOptions } from './types/webpackTypes';
 import { webpackPlugins } from './webpackPlugins';
 import { webpackResolvers } from './webpackResolvers';
 import { webpackLoaders } from './webpackLoaders';
@@ -7,9 +7,9 @@ import { webpackDevServer } from './webpackDevServer';
 import { webpackOptimization } from './webpackOptimization';
 
 export function webpackConfig(options: IWebpackOptions): webpack.Configuration {
-const { mode, paths, isDev } = options;
+    const { mode, paths, isDev } = options;
     return {
-        mode: mode,
+        mode,
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',

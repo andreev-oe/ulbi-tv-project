@@ -1,10 +1,10 @@
-import { IWebpackOptions } from './types/webpackTypes';
 import { Configuration } from 'webpack-dev-server';
+import { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackDevServer(options: IWebpackOptions): Configuration {
     const { port } = options;
     return {
-        port: port,
+        port,
         open: true,
         historyApiFallback: true,
     };

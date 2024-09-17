@@ -3,7 +3,6 @@ import webpack from 'webpack';
 import { webpackConfig } from './config/webpack/webpackConfig';
 import { IBuildPaths, IWebpackEnv } from './config/webpack/types/webpackTypes';
 
-
 const config = (env: IWebpackEnv) => {
     const paths: IBuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -17,9 +16,9 @@ const config = (env: IWebpackEnv) => {
     const isDev = mode === 'development';
 
     const config: webpack.Configuration = webpackConfig({
-        mode: mode,
-        paths: paths,
-        isDev: isDev,
+        mode,
+        paths,
+        isDev,
         port: PORT,
     });
     return config;
