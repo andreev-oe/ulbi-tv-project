@@ -20,7 +20,6 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
                     modules: {
                         auto: (path: string) => path.includes('.module.'),
                         localIdentName: options.isDev ? '[name]-[local]' : '[hash:base64]',
-                        exportLocalsConvention: 'camelCaseOnly',
                     },
                 },
             },
