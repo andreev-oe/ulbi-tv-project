@@ -1,15 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
+import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import classes from './NavBar.module.scss';
 
 interface NavBarProps {
     className?: string;
-}
-
-export enum Routes {
-    MAIN = '/',
-    ABOUT = '/about',
 }
 
 export const NavBar = (props: NavBarProps) => {
@@ -19,10 +15,10 @@ export const NavBar = (props: NavBarProps) => {
     return (
         <div className={classNames({ rootClass: classes.NavBar, additionalClasses: [className] })}>
             <div className={classes.links}>
-                <AppLink theme={AppLinkThemes.PRIMARY} to={Routes.MAIN}>
+                <AppLink theme={AppLinkThemes.PRIMARY} to={RoutePath[AppRoutes.MAIN]}>
                     {t('Главная')}
                 </AppLink>
-                <AppLink theme={AppLinkThemes.PRIMARY} to={Routes.ABOUT}>
+                <AppLink theme={AppLinkThemes.PRIMARY} to={RoutePath[AppRoutes.ABOUT]}>
                     {t('О нас')}
                 </AppLink>
             </div>
