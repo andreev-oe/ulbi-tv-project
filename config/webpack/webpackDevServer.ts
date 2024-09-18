@@ -7,5 +7,8 @@ export function webpackDevServer(options: IWebpackOptions): Configuration {
         port,
         open: true,
         historyApiFallback: true,
+        client: {
+            overlay: false,
+        },
     };
 }
