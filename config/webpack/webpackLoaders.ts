@@ -1,6 +1,6 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { IWebpackOptions } from './types/webpackTypes';
+import { webpackCssLoader } from './webpackCssLoader';
 
 export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] {
     const babelLoader = {
@@ -20,23 +20,7 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
         exclude: /node_modules/,
     };
 
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    sourceMap: options.isDev,
-                    modules: {
-                        auto: (path: string) => path.includes('.module.'),
-                        localIdentName: options.isDev ? '[name]-[local]' : '[hash:base64]',
-                    },
-                },
-            },
-            'sass-loader',
-        ],
-    };
+    const cssLoader = webpackCssLoader(options.isDev);
 
     const svgLoader = {
         test: /\.svg$/i,
