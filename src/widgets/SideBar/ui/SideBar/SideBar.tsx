@@ -16,13 +16,14 @@ export const SideBar = ({ className }: SideBarProps) => {
 
     return (
         <div
+            data-testid="sidebar"
             className={classNames({
                 rootClass: classes.SideBar,
                 conditionalClasses: { [classes.collapsed]: collapsed },
                 additionalClasses: [className],
             })}
         >
-            <button type="button" onClick={onToggle}>
+            <button data-testid="sidebar-toggle" type="button" onClick={onToggle}>
                 {t('Переключить')}
             </button>
             <div className={classes.switchers}>
