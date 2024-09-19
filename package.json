@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unit": "jest --config './config/jest/jest.config.ts'",
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
+    "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:styles:fix": "stylelint 'src/**/*.{scss,css}' --fix",
+    "unit": "jest --config './config/jest/jest.config.ts'",
     "build:dev": "webpack --env mode=development",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
-    "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
-    "lint:styles": "stylelint 'src/**/*.{scss,css}'",
-    "lint:styles:fix": "stylelint 'src/**/*.{scss,css}' --fix"
+    "lint:styles": "stylelint 'src/**/*.{scss,css}'"
   },
   "keywords": [],
   "author": "",
