@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { IWebpackOptions } from './types/webpackTypes';
-import { webpackCssLoader } from './webpackCssLoader';
+import { webpackCssLoader } from './loaders/webpackCssLoader';
+import { webpackSvgLoader } from './loaders/webpackSvgLoader';
 
 export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] {
     const babelLoader = {
@@ -22,10 +23,7 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
 
     const cssLoader = webpackCssLoader(options.isDev);
 
-    const svgLoader = {
-        test: /\.svg$/i,
-        use: ['@svgr/webpack'],
-    };
+    const svgLoader = webpackSvgLoader();
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,

@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import classes from './NavBar.module.scss';
 
-interface NavBarProps {
+interface INavBarProps {
     className?: string;
 }
 
-export const NavBar = (props: NavBarProps) => {
+export const NavBar = (props: INavBarProps) => {
     const { className } = props;
     const { t } = useTranslation();
 

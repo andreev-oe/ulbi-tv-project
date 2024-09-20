@@ -5,11 +5,11 @@ import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
 import classes from './SideBar.module.scss';
 
-interface SideBarProps {
+interface ISideBarProps {
     className?: string;
 }
 
-export const SideBar = ({ className }: SideBarProps) => {
+export const SideBar = ({ className }: ISideBarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
     const onToggle = () => setCollapsed((prev) => !prev);
