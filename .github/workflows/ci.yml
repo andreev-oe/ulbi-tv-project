@@ -24,7 +24,7 @@ jobs:
       - name: Запуск линтера typescript
         run: npm run lint:ts
       - name: Запуск линтера stylelint
-        run: npm run lint:style
+        run: npm run lint:styles
       - name: Запуск тестов Jest
         run: npm run test:unit
       - name: Запусков сборки Storybook
