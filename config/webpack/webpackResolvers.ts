@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+
 import { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackResolvers(options: IWebpackOptions): webpack.ResolveOptions {

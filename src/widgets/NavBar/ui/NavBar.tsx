@@ -1,7 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
+
 import classes from './NavBar.module.scss';
 
 interface INavBarProps {

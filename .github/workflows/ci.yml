@@ -22,7 +22,7 @@ jobs:
       - name: Сборка проекта
         run: npm run build:prod
       - name: Запуск линтера typescript
-        run: npm run lint:ts npm run lint:style
+        run: npm run lint:ts
       - name: Запуск линтера stylelint
         run: npm run lint:style
       - name: Запуск тестов Jest

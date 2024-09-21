@@ -1,7 +1,7 @@
-import { RouteProps } from 'react-router-dom';
-import { MainPageLazy } from 'pages/MainPage';
 import { AboutPageLazy } from 'pages/AboutPage';
+import { MainPageLazy } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
+import { RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
     MAIN = 'main',

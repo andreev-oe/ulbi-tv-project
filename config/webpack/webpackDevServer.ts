@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack-dev-server';
+
 import { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackDevServer(options: IWebpackOptions): Configuration {

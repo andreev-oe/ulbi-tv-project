@@ -1,8 +1,9 @@
-import webpack from 'webpack';
 import path from 'path';
-import { IBuildPaths } from '../webpack/types/webpackTypes';
+import webpack from 'webpack';
+
 import { webpackCssLoader } from '../webpack/loaders/webpackCssLoader';
 import { webpackSvgLoader } from '../webpack/loaders/webpackSvgLoader';
+import { IBuildPaths } from '../webpack/types/webpackTypes';
 
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: IBuildPaths = {

@@ -1,8 +1,9 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
+import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
+
 import { NavBar } from './NavBar';
 
 export default {

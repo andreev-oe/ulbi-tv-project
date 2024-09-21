@@ -1,11 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+
 import classes from './Loader.module.scss';
 
-interface LoaderProps {
+interface ILoaderProps {
     className?: string;
 }
 
-export const Loader = ({ className }: LoaderProps) => {
+export const Loader = ({ className }: ILoaderProps) => {
     return (
         <div className={classNames({ rootClass: classes.ldsEllipsis, additionalClasses: [className] })}>
             <div />

@@ -1,10 +1,11 @@
 import webpack from 'webpack';
+
 import { IWebpackOptions } from './types/webpackTypes';
+import { webpackDevServer } from './webpackDevServer';
+import { webpackLoaders } from './webpackLoaders';
+import { webpackOptimization } from './webpackOptimization';
 import { webpackPlugins } from './webpackPlugins';
 import { webpackResolvers } from './webpackResolvers';
-import { webpackLoaders } from './webpackLoaders';
-import { webpackDevServer } from './webpackDevServer';
-import { webpackOptimization } from './webpackOptimization';
 
 export function webpackConfig(options: IWebpackOptions): webpack.Configuration {
     const { mode, paths, isDev } = options;

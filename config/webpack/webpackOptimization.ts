@@ -1,5 +1,5 @@
-import webpack from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
+import webpack from 'webpack';
 
 export function webpackOptimization(): webpack.Configuration['optimization'] {
     return {
