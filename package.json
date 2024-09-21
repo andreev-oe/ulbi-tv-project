@@ -11,6 +11,7 @@
     "test:unit": "jest --config './config/jest/jest.config.ts'",
     "test:ui": "loki test",
     "test:ui:approve": "loki approve",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "build:dev": "webpack --env mode=development",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
     "lint:styles": "stylelint 'src/**/*.{scss,css}'",

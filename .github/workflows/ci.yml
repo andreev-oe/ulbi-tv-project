@@ -1,0 +1,34 @@
+name: build, lint, test
+run-name: ${{ github.actor }} сделал ${{ github.event_name }} в ${{ github.repository }}
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+            node-version: [17.x]
+    steps:
+      - uses: actions/checkout@v4
+      - run: Запуск Node.js ${{ matrix.node-version }} с помощью GitHub Actions
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Установка зависимостей
+        run: npm install
+      - name: Сборка проекта
+        run: npm run build:prod
+      - name: Запуск линтера typescript
+        run: npm run lint:ts npm run lint:style
+      - name: Запуск линтера stylelint
+        run: npm run lint:style
+      - name: Запуск тестов Jest
+        run: npm run test:unit
+      - name: Запусков сборки Storybook
+        run: storybook:build
+      - name: Запуск тестов Loki
+        run: test:ui:ci
+
