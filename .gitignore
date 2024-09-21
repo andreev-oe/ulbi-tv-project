@@ -2,4 +2,6 @@ node_modules
 build
 storybook-static
 .idea
+.loki/report.json
+.loki/report.html
 .DS_Store
