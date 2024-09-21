@@ -2,24 +2,35 @@ import { ButtonHTMLAttributes, FC } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import classes from './Button.module.scss';
+import Styles from './Button.module.scss';
 
-export enum ThemeButton {
+export enum ButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
+}
+
+export enum ButtonSize {
+    S = 'size_s',
+    M = 'size_m',
+    L = 'size_l',
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    theme?: ThemeButton;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
 }
 
-export const Button: FC<IButtonProps> = ({ className, children, theme, ...other }: IButtonProps) => (
+export const Button: FC<IButtonProps> = ({ className, children, theme, square, size, ...other }: IButtonProps) => (
     <button
         type="button"
         className={classNames({
-            rootClass: classes.Button,
-            additionalClasses: [className, classes[theme]],
+            rootClass: Styles.Button,
+            conditionalClasses: { [Styles.square]: square },
+            additionalClasses: [className, Styles[theme], Styles[size]],
         })}
         {...other}
     >

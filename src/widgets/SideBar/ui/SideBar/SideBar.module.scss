@@ -1,3 +1,5 @@
+@import 'app/styles/variables/common';
+
 .SideBar {
     background: var(--inverted-bg-color);
     height: calc(100vh - var(--navbar-height));
@@ -6,16 +8,60 @@
     width: var(--sidebar-width);
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     align-items: center;
-    bottom: 20px;
+    bottom: $base * 5;
     display: flex;
-    gap: 20px;
+    gap: $base * 5;
     justify-content: center;
     position: absolute;
     width: 100%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: $base * 5;
+    margin-left: $base * 7.5;
+    margin-top: $base * 4;
+}
+
+.link {
+    align-items: center;
+    color: var(--inverted-secondary-color);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: $base * 2;
+    height: $base * 8;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.linkText {
+    display: block;
+    white-space: nowrap;
+}
+
+.toggler {
+    bottom: $base * 8;
+    position: absolute;
+    right: -$base * 8;
+    z-index: 1;
+}
+
+.icon {
+    fill: var(--inverted-secondary-color);
+    flex-shrink: 0;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .linkText {
+        display: none;
+    }
+
+    .switchers {
+        flex-direction: column;
+    }
 }

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import classes from './Loader.module.scss';
+import Styles from './Loader.module.scss';
 
 interface ILoaderProps {
     className?: string;
@@ -8,7 +8,7 @@ interface ILoaderProps {
 
 export const Loader = ({ className }: ILoaderProps) => {
     return (
-        <div className={classNames({ rootClass: classes.ldsEllipsis, additionalClasses: [className] })}>
+        <div className={classNames({ rootClass: Styles.ldsEllipsis, additionalClasses: [className] })}>
             <div />
             <div />
             <div />

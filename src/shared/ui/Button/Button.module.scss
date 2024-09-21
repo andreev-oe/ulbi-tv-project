@@ -1,6 +1,9 @@
+@import 'app/styles/variables/common';
+
 .Button {
     color: var(--primary-color);
     cursor: pointer;
+    padding: $base * 2.5 $base * 3.5;
 }
 
 .clear {
@@ -15,5 +18,50 @@
     background: none;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 10px 15px;
+}
+
+.background {
+    background: var(--inverted-bg-color);
+    border: 0;
+    color: var(--primary-color);
+}
+
+.backgroundInverted {
+    background: var(--bg-color);
+    border: 0;
+    color: var(--inverted-primary-color);
+}
+
+.square {
+    padding: 0;
+}
+
+.square.size_s {
+    font: var(--font-s);
+    height: var(--font-line-s);
+    width: var(--font-line-s);
+}
+
+.square.size_m {
+    font: var(--font-m);
+    height: var(--font-line-m);
+    width: var(--font-line-m);
+}
+
+.square.size_l {
+    font: var(--font-l);
+    height: var(--font-line-l);
+    width: var(--font-line-l);
+}
+
+.size_s {
+    font: var(--font-s);
+}
+
+.size_m {
+    font: var(--font-m);
+}
+
+.size_l {
+    font: var(--font-l);
 }

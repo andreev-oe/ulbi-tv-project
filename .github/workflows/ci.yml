@@ -21,12 +21,16 @@ jobs:
         run: npm install
       - name: Сборка проекта
         run: npm run build:prod
+        if: always()
       - name: Запуск линтера typescript
         run: npm run lint:ts
+        if: always()
       - name: Запуск линтера stylelint
         run: npm run lint:styles
+        if: always()
       - name: Запуск тестов Jest
         run: npm run test:unit
+        if: always()
       - name: Запусков сборки Storybook
         run: npm run storybook:build
       - name: Запуск тестов Loki
