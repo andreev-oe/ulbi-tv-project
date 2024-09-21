@@ -10,6 +10,7 @@ module.exports = {
         'prettier',
         'plugin:prettier/recommended',
         'plugin:i18next/recommended',
+        'plugin:react-hooks/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -19,8 +20,10 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-import-helpers'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-import-helpers', 'react-hooks'],
     rules: {
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
@@ -80,6 +83,8 @@ module.exports = {
                 },
             },
         ],
+        'jsx-a11y/no-static-element-interactions': ['off'],
+        'jsx-a11y/click-events-have-key-events': ['off'],
     },
     globals: {
         __IS_DEV__: true,

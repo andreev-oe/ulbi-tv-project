@@ -1,4 +1,3 @@
-import './styles/index.scss';
 import { Suspense } from 'react';
 
 import { AppRouter } from 'app/providers/route';
