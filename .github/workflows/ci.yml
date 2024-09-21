@@ -13,7 +13,7 @@ jobs:
             node-version: [17.x]
     steps:
       - uses: actions/checkout@v4
-      - run: Запуск Node.js ${{ matrix.node-version }} с помощью GitHub Actions
+      - name: Запуск Node.js ${{ matrix.node-version }} с помощью GitHub Actions
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
