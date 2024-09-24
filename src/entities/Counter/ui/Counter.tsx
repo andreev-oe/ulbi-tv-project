@@ -18,11 +18,15 @@ export const Counter = () => {
 
     return (
         <div>
-            <h1>
+            <h1 data-testid="Counter-title">
                 {t('Значение')} = {counterValue}
             </h1>
-            <Button onClick={increment}>{t('Прибавить')}</Button>
-            <Button onClick={decrement}>{t('Убавить')}</Button>
+            <Button data-testid="Counter-increment-btn" onClick={increment}>
+                {t('Прибавить')}
+            </Button>
+            <Button data-testid="Counter-decrement-btn" onClick={decrement}>
+                {t('Убавить')}
+            </Button>
         </div>
     );
 };

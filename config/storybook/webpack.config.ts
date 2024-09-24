@@ -12,10 +12,13 @@ export default ({ config }: { config: webpack.Configuration }) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
+    const definePlugin = new webpack.DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+    });
     const svgRegExp = /svg/;
     const svgLoader = webpackSvgLoader();
-
-    config.resolve.modules.push(paths.src);
+    config.resolve.modules.unshift(paths.src);
+    config.plugins.push(definePlugin);
     config.resolve.extensions.push('.ts', '.tsx');
     config.module.rules.push(webpackCssLoader(true));
     // eslint-disable-next-line no-param-reassign

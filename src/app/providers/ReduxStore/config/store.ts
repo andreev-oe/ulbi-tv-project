@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 
-import { IStateSchema } from './StateSchema';
+import { ICounterStateSchema } from './StateSchema';
 
-export const createReduxStore = (initialState: IStateSchema) => {
-    return configureStore<IStateSchema>({
+export const createReduxStore = (initialState: ICounterStateSchema) => {
+    return configureStore<ICounterStateSchema>({
         reducer: {
             counter: counterReducer,
         },

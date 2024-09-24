@@ -1,8 +1,9 @@
 import { addDecorator } from '@storybook/react';
-import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import { StoryDecorator } from 'shared/config/storybook/decorators/StyleDecorator';
+import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
+import { ReduxStoreDecorator } from 'shared/config/storybook/decorators/ReduxStoreDecorator';
 import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator';
+import { StoryDecorator } from 'shared/config/storybook/decorators/StyleDecorator';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -15,4 +16,5 @@ export const parameters = {
 };
 addDecorator(StoryDecorator);
 addDecorator(RouterDecorator);
+addDecorator(ReduxStoreDecorator({ counter: { value: 10 } }));
 addDecorator(GlobalThemeDecorator(Theme.LIGHT));

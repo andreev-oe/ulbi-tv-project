@@ -1,4 +1,3 @@
-import path from 'path';
 import webpack from 'webpack';
 
 import { IWebpackOptions } from './types/webpackTypes';
@@ -7,10 +6,7 @@ export function webpackResolvers(options: IWebpackOptions): webpack.ResolveOptio
     return {
         extensions: ['.tsx', '.ts', '.js'],
         preferAbsolute: true,
-        modules: ['node_modules', options.paths.src],
+        modules: [options.paths.src, 'node_modules'],
         mainFiles: ['index'],
-        alias: {
-            entities: path.resolve(__dirname, '..', '..', 'src', 'entities'),
-        },
     };
 }

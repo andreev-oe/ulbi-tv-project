@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { getCounter } from '../getCounter/getCounter';
+import { getCounterState } from '../getCounter/getCounterState';
 
-export const getCounterValue = createSelector(getCounter, (counter) => counter.value);
+export const getCounterValue = createSelector(getCounterState, (counter) => counter.value);
