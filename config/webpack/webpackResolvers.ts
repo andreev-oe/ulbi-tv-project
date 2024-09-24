@@ -1,3 +1,4 @@
+import path from 'path';
 import webpack from 'webpack';
 
 import { IWebpackOptions } from './types/webpackTypes';
@@ -8,6 +9,8 @@ export function webpackResolvers(options: IWebpackOptions): webpack.ResolveOptio
         preferAbsolute: true,
         modules: ['node_modules', options.paths.src],
         mainFiles: ['index'],
-        alias: {},
+        alias: {
+            entities: path.resolve(__dirname, '..', '..', 'src', 'entities'),
+        },
     };
 }

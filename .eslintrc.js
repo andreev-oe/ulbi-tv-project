@@ -38,6 +38,8 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        'no-param-reassign': 'off',
+        'object-shorthand': 'off',
         'i18next/no-literal-string': [
             'error',
             {

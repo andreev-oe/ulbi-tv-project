@@ -2,10 +2,13 @@
   "Войти": "LogIn",
   "Главная": "Main",
   "Загрузка...": "Loading...",
+  "Значение": "Value",
   "Короткий перевод": "En",
   "Обновить страницу": "Reload page",
-  "Произошла ошибка": "Error occered",
+  "Прибавить": "Increment",
   "Сгенерировать ошибку": "Generate error",
   "Страница не найдена": "Page not found",
-  "Тестовый перевод": "Test translation"
+  "Тестовый перевод": "Test translation",
+  "Убавить": "Decrement",
+  "О нас": "About"
 }
