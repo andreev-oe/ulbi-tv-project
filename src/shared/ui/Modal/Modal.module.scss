@@ -21,16 +21,6 @@
     transition: transform 0.3s;
 }
 
-.content.light {
-    background: var(--bg-color);
-    color: var(--primary-color);
-}
-
-.content.dark {
-    background: var(--inverted-bg-color);
-    color: var(--inverted-primary-color);
-}
-
 .overlay {
     align-items: center;
     background-color: var(--overlay-color);
