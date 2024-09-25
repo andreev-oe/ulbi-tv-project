@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
-import { ICounterStateSchema, ReduxStoreProvider } from 'app/providers/ReduxStore';
+import { IStateSchema, ReduxStoreProvider } from 'app/providers/ReduxStore';
 
-export const ReduxStoreDecorator = (initialState: ICounterStateSchema) => (StoryComponent: Story) => {
+export const ReduxStoreDecorator = (initialState: IStateSchema) => (StoryComponent: Story) => {
     return (
-        <ReduxStoreProvider initialState={initialState as ICounterStateSchema}>
+        <ReduxStoreProvider initialState={initialState as IStateSchema}>
             <StoryComponent />
         </ReduxStoreProvider>
     );

@@ -1,4 +1,6 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+
+import { defaultTheme } from '../ui/ThemeProvider';
 
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
@@ -16,6 +18,10 @@ export const useTheme = (): IUseThemeResult => {
         document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
+
+    useEffect(() => {
+        document.body.className = defaultTheme;
+    }, []);
 
     return { theme, toggleTheme };
 };

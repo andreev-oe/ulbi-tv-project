@@ -1,5 +1,7 @@
-import { ICounterSchema } from 'entities/Counter/model/types/CounterSchema';
+import { ICounterSchema } from 'entities/Counter';
+import { IUserSchema } from 'entities/User';
 
-export interface ICounterStateSchema {
+export interface IStateSchema {
     counter: ICounterSchema;
+    user: IUserSchema;
 }

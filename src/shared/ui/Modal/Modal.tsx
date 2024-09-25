@@ -1,6 +1,5 @@
 import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
 
-import { useTheme } from 'app/providers/themeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 
@@ -11,16 +10,17 @@ interface IModalProps {
     children?: ReactNode;
     isOpen: boolean;
     onClose: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 250;
 
-export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => {
+export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProps) => {
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const { theme } = useTheme();
-
     const [isModalClosing, setIsModalClosing] = React.useState(false);
+
+    const [isMounted, setIsMopunted] = React.useState(false);
 
     const handleCloseModal = useCallback(() => {
         setIsModalClosing(true);
@@ -45,6 +45,12 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
 
     useEffect(() => {
         if (isOpen) {
+            setIsMopunted(true);
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
             window.addEventListener('keydown', handleEscKey);
         }
         return () => {
@@ -52,6 +58,10 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
             window.removeEventListener('keydown', handleEscKey);
         };
     }, [isOpen, handleEscKey]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
@@ -63,10 +73,7 @@ export const Modal = ({ className, children, isOpen, onClose }: IModalProps) => 
                 })}
             >
                 <div onClick={handleCloseModal} className={Styles.overlay}>
-                    <div
-                        onClick={handleContentClick}
-                        className={classNames({ rootClass: Styles.content, additionalClasses: [Styles[theme]] })}
-                    >
+                    <div onClick={handleContentClick} className={classNames({ rootClass: Styles.content })}>
                         {children}
                     </div>
                 </div>

@@ -46,7 +46,7 @@
     bottom: $base * 8;
     position: absolute;
     right: -$base * 8;
-    z-index: 1;
+    z-index: var(--default-z-index);
 }
 
 .icon {
