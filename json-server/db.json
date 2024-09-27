@@ -10,6 +10,11 @@
     { "id": "2", "text": "another comment about post 1", "postId": "1" }
   ],
   "profile": {
-    "name": "typicode"
-  }
+    "name": "typicode",
+    "username": "oleg",
+    "password": "123"
+  },
+  "users": [
+    { "id": "1", "username": "oleg", "password": "123" }
+  ]
 }

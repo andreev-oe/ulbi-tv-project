@@ -84,3 +84,12 @@ SquareSizeLInverted.args = {
     size: ButtonSize.L,
     theme: ButtonTheme.BACKGROUND_INVERTED,
 };
+
+export const Disabled: ComponentStory<typeof Button> = Template.bind({});
+Disabled.args = {
+    children: '>',
+    square: true,
+    size: ButtonSize.L,
+    theme: ButtonTheme.OUTLINE,
+    disabled: true,
+};
