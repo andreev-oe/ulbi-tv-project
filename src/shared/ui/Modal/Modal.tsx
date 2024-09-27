@@ -20,7 +20,7 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProp
 
     const [isModalClosing, setIsModalClosing] = React.useState(false);
 
-    const [isMounted, setIsMopunted] = React.useState(false);
+    const [isMounted, setIsMounted] = React.useState(false);
 
     const handleCloseModal = useCallback(() => {
         setIsModalClosing(true);
@@ -45,7 +45,7 @@ export const Modal = ({ className, children, isOpen, onClose, lazy }: IModalProp
 
     useEffect(() => {
         if (isOpen) {
-            setIsMopunted(true);
+            setIsMounted(true);
         }
     }, [isOpen]);
 

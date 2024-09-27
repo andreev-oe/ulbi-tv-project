@@ -11,6 +11,10 @@
   "Тестовый перевод": "Test translation",
   "Убавить": "Decrement",
   "О нас": "About",
-  "Введите логин": "Введите логин",
-  "Введите пароль": "Введите пароль"
+  "Введите логин": "Enter login",
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Auth form",
+  "Вы ввели неправильный логин или пароль": "You enter incorrect username or password",
+  "Перевод": "Translate",
+  "Выйти": "Logout"
 }
