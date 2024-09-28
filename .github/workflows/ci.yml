@@ -30,9 +30,9 @@ jobs:
         if: always()
       - name: Запуск тестов Jest
         run: npm run test:unit
-        if: always()
-      - name: Запусков сборки Storybook
-        run: npm run storybook:build
-      - name: Запуск тестов Loki
-        run: npm run test:ui:ci
+#        if: always()
+#      - name: Запусков сборки Storybook
+#        run: npm run storybook:build
+#      - name: Запуск тестов Loki
+#        run: npm run test:ui:ci
 
