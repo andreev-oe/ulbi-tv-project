@@ -54,7 +54,7 @@ export const NavBar = (props: INavBarProps) => {
                 <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onOpenModal}>
                     {t('Войти')}
                 </Button>
-                <LoginModal isOpen={isAuthModalOpened} onClose={onCloseModal} />
+                {isAuthModalOpened && <LoginModal isOpen={isAuthModalOpened} onClose={onCloseModal} />}
             </div>
         </div>
     );

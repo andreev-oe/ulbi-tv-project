@@ -22,8 +22,9 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-import-helpers', 'react-hooks'],
     rules: {
+        'react/jsx-no-useless-fragment': 'off',
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
@@ -44,7 +45,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid'],
+                ignoreAttribute: ['data-testid', 'name'],
             },
         ],
         '@typescript-eslint/no-unused-vars': [

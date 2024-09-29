@@ -1,3 +1,7 @@
-import { lazy } from 'react';
+import { FC, lazy } from 'react';
 
-export const AboutPageLazy = lazy(() => import('./AboutPage').then((module) => ({ default: module.AboutPage })));
+import { ILoginFormProps } from 'features/AuthByUserName/ui/LoginForm/LoginForm';
+
+export const AboutPageLazy = lazy<FC<ILoginFormProps>>(() =>
+    import('./AboutPage').then((module) => ({ default: module.AboutPage })),
+);
