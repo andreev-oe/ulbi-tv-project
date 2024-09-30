@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { getUserAuthData, userActions } from 'entities/User';
+import { userAuthDataSelector, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +20,7 @@ export const NavBar = (props: INavBarProps) => {
 
     const dispatch = useDispatch();
 
-    const authData = useSelector(getUserAuthData);
+    const authData = useSelector(userAuthDataSelector);
 
     const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
 

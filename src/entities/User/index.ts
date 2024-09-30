@@ -1,6 +1,5 @@
-import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData/getUserAuthData';
-import { IUser, IUserSchema } from 'entities/User/model/types/userSchema';
-
+import { userAuthDataSelector } from './model/selectors/getUserAuthData/userAuthDataSelector';
 import { userActions, userReducer } from './model/slice/userSlice';
+import { IUser, IUserSchema } from './model/types/userSchema';
 
-export { userActions, userReducer, IUser, IUserSchema, getUserAuthData };
+export { userActions, userReducer, IUser, IUserSchema, userAuthDataSelector };
