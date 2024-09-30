@@ -18,7 +18,7 @@ export const ComponentRender = (component: ReactNode, options?: IComponentRender
     return render(
         <ReduxStoreProvider initialState={initialState as IStateSchema}>
             <MemoryRouter initialEntries={[route]}>
-                <I18nextProvider i18n={i18nForTests} />
+                <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
             </MemoryRouter>
         </ReduxStoreProvider>,
     );
