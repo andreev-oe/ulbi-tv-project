@@ -1,14 +1,14 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { ComponentRender } from 'shared/lib/tests/renderWithRouter/ComponentRender';
 
 import { SideBar } from './SideBar';
 
 describe('SideBar', () => {
-    test('to be in the document', () => {
+    test('Находится в документе', async () => {
         ComponentRender(<SideBar />);
-        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        await waitFor(() => expect(screen.getByTestId('sidebar')).toBeInTheDocument());
     });
-    test('toggle', () => {
+    test('Сворачивается', () => {
         ComponentRender(<SideBar />);
         const toggleButton = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();

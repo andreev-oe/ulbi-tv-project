@@ -1,15 +1,15 @@
 import { userEvent } from '@storybook/testing-library';
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import { ComponentRender } from 'shared/lib/tests/renderWithRouter/ComponentRender';
 
 import { Counter } from './Counter';
 
 describe('Counter', () => {
-    test('Находится в документе', () => {
+    test('Находится в документе', async () => {
         ComponentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         });
-        expect(screen.getByTestId('Counter-title')).toHaveTextContent('10');
+        await waitFor(() => expect(screen.getByTestId('Counter-title')).toHaveTextContent('10'));
     });
     test('Прибавить 1', () => {
         ComponentRender(<Counter />, {
