@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 import { Counter } from './Counter';
 
 export default {
     title: 'widget/Counter',
     component: Counter,
+    decorators: [
+        (Story) => (
+            <Suspense fallback={<Loader />}>
+                <Story />
+            </Suspense>
+        ),
+    ],
 } as ComponentMeta<typeof Counter>;
 
 const Template: ComponentStory<typeof Counter> = () => <Counter />;
