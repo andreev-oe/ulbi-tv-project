@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
@@ -14,7 +14,7 @@ interface ISideBarProps {
     className?: string;
 }
 
-export const SideBar = ({ className }: ISideBarProps) => {
+export const SideBar = memo(({ className }: ISideBarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const onToggle = () => setCollapsed((prev) => !prev);
 
@@ -49,4 +49,6 @@ export const SideBar = ({ className }: ISideBarProps) => {
             </div>
         </div>
     );
-};
+});
+
+SideBar.displayName = 'SideBar';

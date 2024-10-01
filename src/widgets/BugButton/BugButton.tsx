@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 
-export const BugButton = () => {
+export const BugButton = memo(() => {
     const [error, setError] = useState(false);
     const { t } = useTranslation();
 
@@ -19,4 +19,6 @@ export const BugButton = () => {
     }, [error]);
 
     return <Button onClick={onThrowError}>{t('Сгенерировать ошибку')}</Button>;
-};
+});
+
+BugButton.displayName = 'BugButton';

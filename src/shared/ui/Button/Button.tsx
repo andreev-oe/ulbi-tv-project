@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -26,25 +26,21 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-export const Button: FC<IButtonProps> = ({
-    className,
-    children,
-    theme,
-    square,
-    size,
-    disabled,
-    ...other
-}: IButtonProps) => (
-    <button
-        type="button"
-        className={classNames({
-            rootClass: Styles.Button,
-            conditionalClasses: { [Styles.square]: square, [Styles.disabled]: disabled },
-            additionalClasses: [className, Styles[theme], Styles[size]],
-        })}
-        disabled={disabled}
-        {...other}
-    >
-        {children}
-    </button>
+export const Button: FC<IButtonProps> = memo(
+    ({ className, children, theme, square, size, disabled, ...other }: IButtonProps) => (
+        <button
+            type="button"
+            className={classNames({
+                rootClass: Styles.Button,
+                conditionalClasses: { [Styles.square]: square, [Styles.disabled]: disabled },
+                additionalClasses: [className, Styles[theme], Styles[size]],
+            })}
+            disabled={disabled}
+            {...other}
+        >
+            {children}
+        </button>
+    ),
 );
+
+Button.displayName = 'Button';

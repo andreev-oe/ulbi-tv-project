@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -9,7 +9,7 @@ interface INotFoundPageProps {
     className?: string;
 }
 
-export const NotFoundPage: FC<INotFoundPageProps> = ({ className }) => {
+export const NotFoundPage = memo(({ className }: INotFoundPageProps) => {
     const { t } = useTranslation();
 
     return (
@@ -17,4 +17,6 @@ export const NotFoundPage: FC<INotFoundPageProps> = ({ className }) => {
             <h1>{t('Страница не найдена')}</h1>
         </div>
     );
-};
+});
+
+NotFoundPage.displayName = 'NotFoundPage';

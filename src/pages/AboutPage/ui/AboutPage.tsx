@@ -1,7 +1,9 @@
+import { memo } from 'react';
+
 import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 
-export const AboutPage = () => {
+export const AboutPage = memo(() => {
     const { t } = useTranslation('about');
 
     return (
@@ -10,4 +12,6 @@ export const AboutPage = () => {
             <Counter />
         </div>
     );
-};
+});
+
+AboutPage.displayName = 'AboutPage';

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import { userAuthDataSelector, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
@@ -14,7 +14,7 @@ interface INavBarProps {
     className?: string;
 }
 
-export const NavBar = (props: INavBarProps) => {
+export const NavBar = memo((props: INavBarProps) => {
     const { className } = props;
 
     const { t } = useTranslation();
@@ -59,4 +59,6 @@ export const NavBar = (props: INavBarProps) => {
             </div>
         </div>
     );
-};
+});
+
+NavBar.displayName = 'NavBar';

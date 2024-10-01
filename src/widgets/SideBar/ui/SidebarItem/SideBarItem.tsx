@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
@@ -11,7 +13,7 @@ interface ISideBarItemProps {
     collapsed: boolean;
 }
 
-export const SideBarItem = ({ item, collapsed }: ISideBarItemProps) => {
+export const SideBarItem = memo(({ item, collapsed }: ISideBarItemProps) => {
     const { t } = useTranslation();
 
     return (
@@ -27,4 +29,6 @@ export const SideBarItem = ({ item, collapsed }: ISideBarItemProps) => {
             <span className={Styles.linkText}>{t(item.text)}</span>
         </AppLink>
     );
-};
+});
+
+SideBarItem.displayName = 'SideBarItem';
