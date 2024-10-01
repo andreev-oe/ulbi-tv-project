@@ -1,0 +1,30 @@
+@import 'app/styles/variables/common';
+
+.link {
+    align-items: center;
+    color: var(--inverted-secondary-color);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: $base * 2;
+    height: $base * 8;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.linkText {
+    display: block;
+    white-space: nowrap;
+}
+
+.icon {
+    fill: var(--inverted-secondary-color);
+    flex-shrink: 0;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .linkText {
+        display: none;
+    }
+}
