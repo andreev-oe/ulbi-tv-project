@@ -90,7 +90,8 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': ['off'],
     },
     globals: {
-        __IS_DEV__: true,
+        __IS_DEV__: 'readonly',
+        __API__: 'readonly',
     },
     overrides: [
         {

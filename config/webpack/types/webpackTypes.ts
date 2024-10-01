@@ -10,6 +10,7 @@ export interface IBuildPaths {
 export interface IWebpackEnv {
     mode: TBuildMode;
     port: number;
+    apiUrl: string;
 }
 
 export interface IWebpackOptions {
@@ -17,4 +18,5 @@ export interface IWebpackOptions {
     paths: IBuildPaths;
     isDev: boolean;
     port: number;
+    apiUrl: string;
 }

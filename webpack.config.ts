@@ -15,11 +15,13 @@ const config = (env: IWebpackEnv) => {
     const mode = env.mode || 'development';
     const PORT = env.port || 3000;
     const isDev = mode === 'development';
+    const apiUrl = env.apiUrl || '';
 
     const config: webpack.Configuration = webpackConfig({
         mode,
         paths,
         isDev,
+        apiUrl,
         port: PORT,
     });
     return config;
