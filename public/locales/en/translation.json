@@ -16,5 +16,6 @@
   "Форма авторизации": "Auth form",
   "Вы ввели неправильный логин или пароль": "You enter incorrect username or password",
   "Перевод": "Translate",
-  "Выйти": "Logout"
+  "Выйти": "Logout",
+  "ProfilePage": "ProfilePage"
 }
