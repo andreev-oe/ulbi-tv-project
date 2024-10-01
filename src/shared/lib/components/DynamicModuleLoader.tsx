@@ -3,7 +3,8 @@ import { FC, useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 import { IReduxStoreWithManager } from 'app/providers/ReduxStore';
 import { TStateSchemaKey } from 'app/providers/ReduxStore/config/StateSchema';
-import { useDispatch, useStore } from 'react-redux';
+import { useStore } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export type TReducersList = {
     [name in TStateSchemaKey]?: Reducer;
@@ -19,7 +20,7 @@ interface IDynamicModuleLoaderProps {
 export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({ reducers, removeAfterUnmount, children }) => {
     const store = useStore() as IReduxStoreWithManager;
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         const rootReducers = store.reducerManager.getReducerMap();

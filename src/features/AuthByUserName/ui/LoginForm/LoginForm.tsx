@@ -1,9 +1,10 @@
 import { memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
@@ -28,7 +29,7 @@ const initialReducers: TReducersList = {
 export const LoginForm = memo(({ className }: ILoginFormProps) => {
     const { t } = useTranslation();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const isLoading = useSelector(loginIsLoadingSelector);
     const error = useSelector(loginErrorSelector);

@@ -26,3 +26,5 @@ export const createReduxStore = (initialState: IStateSchema, asyncReducers?: Red
 
     return store;
 };
+
+export type TAppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
