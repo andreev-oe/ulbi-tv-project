@@ -20,13 +20,14 @@ import Styles from './LoginForm.module.scss';
 
 export interface ILoginFormProps {
     className?: string;
+    onSuccess: () => void;
 }
 
 const initialReducers: TReducersList = {
     loginForm: loginReducer,
 };
 
-export const LoginForm = memo(({ className }: ILoginFormProps) => {
+export const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
     const { t } = useTranslation();
 
     const dispatch = useAppDispatch();
@@ -50,9 +51,12 @@ export const LoginForm = memo(({ className }: ILoginFormProps) => {
         [dispatch],
     );
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, username, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, username, password]);
 
     return (
         <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
