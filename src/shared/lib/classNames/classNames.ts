@@ -7,7 +7,7 @@ export const classNames = ({
 }: {
     rootClass: string;
     conditionalClasses?: TCLassNames;
-    additionalClasses?: string[];
+    additionalClasses?: Array<string | undefined>;
 }): string =>
     [
         rootClass,

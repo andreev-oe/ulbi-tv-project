@@ -1,0 +1,22 @@
+@import 'app/styles/variables/common';
+
+.ProfileCard {
+    border: 2px solid var(--inverted-bg-color);
+    padding: $base * 5;
+}
+
+.header {
+    display: flex;
+}
+
+.editButton {
+    margin-left: auto;
+}
+
+.data {
+    margin-top: $base * 7.5;
+}
+
+.input {
+    margin-top: $base * 2.5;
+}

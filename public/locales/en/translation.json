@@ -17,5 +17,6 @@
   "Вы ввели неправильный логин или пароль": "You enter incorrect username or password",
   "Перевод": "Translate",
   "Выйти": "Logout",
-  "ProfilePage": "ProfilePage"
+  "ProfilePage": "ProfilePage",
+  "Ошибка запроса": "Ошибка запроса"
 }
