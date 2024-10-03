@@ -32,7 +32,7 @@ export const Button: FC<IButtonProps> = memo(
         children,
         theme = ButtonTheme.OUTLINE,
         square,
-        size = ButtonSize.M,
+        size = ButtonSize.S,
         disabled,
         ...other
     }: IButtonProps) => (

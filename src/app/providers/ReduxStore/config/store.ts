@@ -17,7 +17,7 @@ export const createReduxStore = (initialState: IStateSchema, asyncReducers?: Red
     const reducerManager = createReducerManager(rootReducer);
 
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as unknown as ReducersMapObject<IStateSchema>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
