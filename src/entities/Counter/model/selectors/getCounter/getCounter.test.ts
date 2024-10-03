@@ -1,11 +1,10 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/ReduxStore';
 
 import { getCounterState } from './getCounterState';
 
 describe('getCounter', () => {
     test('Возвращает стейт счетчика', () => {
-        const state: DeepPartial<IStateSchema> = {
+        const state: TDeepPartial<IStateSchema> = {
             counter: {
                 value: 10,
             },

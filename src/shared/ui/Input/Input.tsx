@@ -19,7 +19,7 @@ export const Input = memo(({ className, value, onChange, type = 'text', label, a
 
     const [caretPosition, setCaretPosition] = useState(0);
 
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement | null>(null);
 
     const onBlur = () => {
         setIsFocused(false);
@@ -35,7 +35,7 @@ export const Input = memo(({ className, value, onChange, type = 'text', label, a
     };
 
     const onSelect = (e: ChangeEvent<HTMLInputElement>) => {
-        setCaretPosition(e?.target?.selectionStart);
+        setCaretPosition(e?.target?.selectionStart ?? 0);
     };
 
     useEffect(() => {

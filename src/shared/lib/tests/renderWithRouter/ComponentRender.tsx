@@ -1,6 +1,5 @@
 import { ReactNode, Suspense } from 'react';
 
-import { DeepPartial } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
 import { IStateSchema, ReduxStoreProvider } from 'app/providers/ReduxStore';
 import { I18nextProvider } from 'react-i18next';
@@ -11,7 +10,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 
 export interface IComponentRenderOptions {
     route?: string;
-    initialState?: DeepPartial<IStateSchema>;
+    initialState?: TDeepPartial<IStateSchema>;
 }
 
 export const ComponentRender = (component: ReactNode, options?: IComponentRenderOptions) => {

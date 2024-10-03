@@ -41,6 +41,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-param-reassign': 'off',
         'object-shorthand': 'off',
+        'no-undef': 'off',
         'i18next/no-literal-string': [
             'error',
             {

@@ -5,8 +5,8 @@ import { defaultTheme } from '../ui/ThemeProvider';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 interface IUseThemeResult {
-    toggleTheme: () => void;
-    theme: string;
+    toggleTheme?: () => void;
+    theme?: string;
 }
 
 export const useTheme = (): IUseThemeResult => {
@@ -14,7 +14,7 @@ export const useTheme = (): IUseThemeResult => {
 
     const toggleTheme = () => {
         const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
         document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
@@ -23,5 +23,5 @@ export const useTheme = (): IUseThemeResult => {
         document.body.className = defaultTheme;
     }, []);
 
-    return { theme, toggleTheme };
+    return { theme: theme ?? Theme.LIGHT, toggleTheme };
 };

@@ -1,11 +1,10 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/ReduxStore';
 
 import { userAuthDataSelector } from './userAuthDataSelector';
 
 describe('getUserAuthData.test', () => {
     test('Возвращает данные пользователя', () => {
-        const state: DeepPartial<IStateSchema> = {
+        const state: TDeepPartial<IStateSchema> = {
             user: {
                 authData: {
                     username: 'username',
@@ -19,11 +18,11 @@ describe('getUserAuthData.test', () => {
         });
     });
     test('Возвращает данные при пустом объекте', () => {
-        const state: DeepPartial<IStateSchema> = {
+        const state: TDeepPartial<IStateSchema> = {
             user: {
-                authData: {},
+                authData: undefined,
             },
         };
-        expect(userAuthDataSelector(state as IStateSchema)).toEqual({});
+        expect(userAuthDataSelector(state as IStateSchema)).toEqual(undefined);
     });
 });

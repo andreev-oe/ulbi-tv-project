@@ -18,3 +18,9 @@ declare module '*.svg' {
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
+
+type TDeepPartial<T> = T extends object
+    ? {
+          [P in keyof T]?: TDeepPartial<T[P]>;
+      }
+    : T;

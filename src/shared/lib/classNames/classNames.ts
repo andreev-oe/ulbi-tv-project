@@ -1,4 +1,4 @@
-type TCLassNames = Record<string, string | boolean>;
+type TClassNames = Record<string, string | boolean | undefined>;
 
 export const classNames = ({
     rootClass,
@@ -6,7 +6,7 @@ export const classNames = ({
     additionalClasses = [],
 }: {
     rootClass: string;
-    conditionalClasses?: TCLassNames;
+    conditionalClasses?: TClassNames;
     additionalClasses?: Array<string | undefined>;
 }): string =>
     [
