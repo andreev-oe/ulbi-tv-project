@@ -4,6 +4,7 @@ import { profileFormDataSelector } from './model/selectors/profileFormDataSelect
 import { profileIsLoadingSelector } from './model/selectors/profileIsLoadingSelector/profileIsLoadingSelector';
 import { profileReadonlySelector } from './model/selectors/profileReadonlySelector/profileReadonlySelector';
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 import { profileReducer, profileActions } from './model/slice/profileSlice';
 import { IProfile, IProfileSchema } from './model/types/types';
 import { ProfileCard } from './ui/ProfileCard/ProfileCard';
@@ -14,6 +15,7 @@ export {
     profileReducer,
     profileActions,
     fetchProfileData,
+    updateProfileData,
     profileDataSelector,
     profileFormDataSelector,
     profileErrorSelector,
