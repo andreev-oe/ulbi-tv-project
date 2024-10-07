@@ -1,5 +1,6 @@
 import { profileDataSelector } from './model/selectors/profileDataSelector/profileDataSelector';
 import { profileErrorSelector } from './model/selectors/profileErrorSelector/profileErrorSelector';
+import { profileFormDataSelector } from './model/selectors/profileFormDataSelector/profileFormDataSelector';
 import { profileIsLoadingSelector } from './model/selectors/profileIsLoadingSelector/profileIsLoadingSelector';
 import { profileReadonlySelector } from './model/selectors/profileReadonlySelector/profileReadonlySelector';
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
@@ -14,6 +15,7 @@ export {
     profileActions,
     fetchProfileData,
     profileDataSelector,
+    profileFormDataSelector,
     profileErrorSelector,
     profileIsLoadingSelector,
     profileReadonlySelector,

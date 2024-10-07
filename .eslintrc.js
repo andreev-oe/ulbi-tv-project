@@ -22,6 +22,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-import-helpers', 'react-hooks'],
     rules: {
+        'property-no-vendor-prefix': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',

@@ -8,7 +8,7 @@ type THTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'on
 
 interface IInputProps extends THTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     label?: string;
     autofocus?: boolean;
@@ -22,6 +22,8 @@ export const Input = memo(
         const [caretPosition, setCaretPosition] = useState(0);
 
         const ref = useRef<HTMLInputElement | null>(null);
+
+        const isCaretVisible = isFocused && !readonly;
 
         const onBlur = () => {
             setIsFocused(false);
@@ -69,7 +71,7 @@ export const Input = memo(
                         className={Styles.input}
                         {...other}
                     />
-                    {isFocused && <span className={Styles.caret} style={{ left: `${caretPosition * 9.6}px` }} />}
+                    {isCaretVisible && <span className={Styles.caret} style={{ left: `${caretPosition * 9.6}px` }} />}
                 </div>
             </div>
         );

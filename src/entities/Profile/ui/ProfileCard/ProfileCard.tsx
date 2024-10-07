@@ -14,42 +14,92 @@ interface IProfileCardProps {
     data?: IProfile;
     isLoading?: boolean;
     error?: string;
+    readonly?: boolean;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeLastname?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
 }
 
-export const ProfileCard = memo(({ className, data, isLoading, error }: IProfileCardProps) => {
-    const { t } = useTranslation('profile');
+export const ProfileCard = memo(
+    ({
+        className,
+        data,
+        isLoading,
+        error,
+        readonly,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangeCity,
+        onChangeAge,
+    }: IProfileCardProps) => {
+        const { t } = useTranslation('profile');
 
-    if (isLoading) {
-        return (
-            <div
-                className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className, Styles.loader] })}
-            >
-                <Loader />
-            </div>
-        );
-    }
+        if (isLoading) {
+            return (
+                <div
+                    className={classNames({
+                        rootClass: Styles.ProfileCard,
+                        additionalClasses: [className, Styles.loader],
+                    })}
+                >
+                    <Loader />
+                </div>
+            );
+        }
 
-    if (error) {
+        if (error) {
+            return (
+                <div
+                    className={classNames({
+                        rootClass: Styles.ProfileCard,
+                        additionalClasses: [className, Styles.error],
+                    })}
+                >
+                    <Text
+                        theme={ETextTheme.ERROR}
+                        title={t('Произошла ошибка при загрузке профиля')}
+                        text={t('Попробуйте перезагрузить страницу')}
+                        align={ETextALign.CENTER}
+                    />
+                </div>
+            );
+        }
+
         return (
-            <div
-                className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className, Styles.error] })}
-            >
-                <Text
-                    theme={ETextTheme.ERROR}
-                    title={t('Произошла ошибка при загрузке профиля')}
-                    text={t('Попробуйте перезагрузить страницу')}
-                    align={ETextALign.CENTER}
+            <div className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className] })}>
+                <Input
+                    value={data?.first}
+                    label={t('Ваше имя')}
+                    className={Styles.input}
+                    onChange={onChangeFirstname}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.lastname}
+                    label={t('Ваша фамилия')}
+                    className={Styles.input}
+                    onChange={onChangeLastname}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.age}
+                    label={t('Ваш возраст')}
+                    className={Styles.input}
+                    onChange={onChangeAge}
+                    readonly={readonly}
+                    type="number"
+                />
+                <Input
+                    value={data?.city}
+                    label={t('Ваш город')}
+                    className={Styles.input}
+                    onChange={onChangeCity}
+                    readonly={readonly}
                 />
             </div>
         );
-    }
-
-    return (
-        <div className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className] })}>
-            <Input value={data?.first} label={t('Ваше имя')} className={Styles.input} />
-            <Input value={data?.lastname} label={t('Ваша фамилия')} className={Styles.input} />
-        </div>
-    );
-});
+    },
+);
 
 ProfileCard.displayName = 'ProfileCard';

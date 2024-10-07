@@ -26,7 +26,11 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeaderProps) => {
     }, []);
 
     const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
+        dispatch(profileActions.cancelEdit());
+    }, []);
+
+    const onSave = useCallback(() => {
+        dispatch(profileActions.cancelEdit());
     }, []);
 
     return (
@@ -38,8 +42,11 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeaderProps) => {
                 </Button>
             ) : (
                 <>
-                    <Button className={Styles.editButton} theme={ButtonTheme.OUTLINE} onClick={onCancelEdit}>
+                    <Button className={Styles.editButton} theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
                         {t('Отменить')}
+                    </Button>
+                    <Button className={Styles.saveButton} theme={ButtonTheme.OUTLINE} onClick={onSave}>
+                        {t('Сохранить')}
                     </Button>
                 </>
             )}

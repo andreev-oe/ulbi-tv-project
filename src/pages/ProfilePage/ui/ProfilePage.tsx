@@ -1,11 +1,13 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 
 import {
     fetchProfileData,
+    profileActions,
     ProfileCard,
-    profileDataSelector,
     profileErrorSelector,
+    profileFormDataSelector,
     profileIsLoadingSelector,
+    profileReadonlySelector,
     profileReducer,
 } from 'entities/Profile';
 import { useSelector } from 'react-redux';
@@ -25,9 +27,26 @@ const reducers: TReducersList = {
 
 export const ProfilePage = memo(({ className }: IProfilePageProps) => {
     const dispatch = useAppDispatch();
-    const data = useSelector(profileDataSelector);
+    const formData = useSelector(profileFormDataSelector);
     const error = useSelector(profileErrorSelector);
+    const readonly = useSelector(profileReadonlySelector);
     const isLoading = useSelector(profileIsLoadingSelector);
+
+    const onChangeFirstname = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ first: value ?? '' }));
+    }, []);
+
+    const onChangeLastname = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ lastname: value ?? '' }));
+    }, []);
+
+    const onChangeAge = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ age: Number(value) || undefined }));
+    }, []);
+
+    const onChangeCity = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ city: value ?? '' }));
+    }, []);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -37,7 +56,16 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames({ rootClass: '', additionalClasses: [className] })}>
                 <ProfilePageHeader />
-                <ProfileCard data={data} isLoading={isLoading} error={error} />
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    readonly={readonly}
+                />
             </div>
         </DynamicModuleLoader>
     );
