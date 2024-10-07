@@ -1,6 +1,7 @@
 import { profileDataSelector } from './model/selectors/profileDataSelector/profileDataSelector';
 import { profileErrorSelector } from './model/selectors/profileErrorSelector/profileErrorSelector';
 import { profileIsLoadingSelector } from './model/selectors/profileIsLoadingSelector/profileIsLoadingSelector';
+import { profileReadonlySelector } from './model/selectors/profileReadonlySelector/profileReadonlySelector';
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 import { profileReducer, profileActions } from './model/slice/profileSlice';
 import { IProfile, IProfileSchema } from './model/types/types';
@@ -15,5 +16,6 @@ export {
     profileDataSelector,
     profileErrorSelector,
     profileIsLoadingSelector,
+    profileReadonlySelector,
     ProfileCard,
 };

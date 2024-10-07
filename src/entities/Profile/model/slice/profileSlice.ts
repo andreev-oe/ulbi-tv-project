@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProfileData } from 'entities/Profile';
 import { IProfileSchema } from 'entities/Profile/model/types/types';
 
@@ -12,7 +12,11 @@ const initialState: IProfileSchema = {
 export const profileSlice = createSlice({
     name: 'profile',
     initialState: initialState,
-    reducers: {},
+    reducers: {
+        setReadonly: (state, action: PayloadAction<boolean>) => {
+            state.readonly = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchProfileData.pending, (state) => {
