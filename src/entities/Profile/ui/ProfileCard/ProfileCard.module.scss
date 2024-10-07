@@ -5,18 +5,13 @@
     padding: $base * 5;
 }
 
-.header {
-    display: flex;
-}
-
-.editButton {
-    margin-left: auto;
-}
-
-.data {
-    margin-top: $base * 7.5;
-}
-
 .input {
     margin-top: $base * 2.5;
+}
+
+.loader {
+    align-items: center;
+    display: flex;
+    height: 300px;
+    justify-content: center;
 }

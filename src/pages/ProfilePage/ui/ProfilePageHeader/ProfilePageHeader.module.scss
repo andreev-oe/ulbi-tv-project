@@ -1,0 +1,10 @@
+@import 'app/styles/variables/common';
+
+.ProfilePageHeader {
+    display: flex;
+    margin-bottom: $base * 5;
+}
+
+.editButton {
+    margin-left: auto;
+}

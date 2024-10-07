@@ -3,7 +3,7 @@ import { ECountry, ECurrency } from 'shared/consts/common';
 export interface IProfile {
     first: string;
     lastname: string;
-    age: 22;
+    age: number;
     currency: ECurrency;
     country: ECountry;
     city: string;

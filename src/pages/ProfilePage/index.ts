@@ -1,3 +1,4 @@
-import { ProfilePageLazy } from 'pages/ProfilePage/ui/ProfilePage.lazy';
+import { ProfilePageLazy } from './ui/ProfilePage.lazy';
+import { ProfilePageHeader } from './ui/ProfilePageHeader/ProfilePageHeader';
 
-export { ProfilePageLazy };
+export { ProfilePageLazy, ProfilePageHeader };

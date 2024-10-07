@@ -1,37 +1,53 @@
 import { memo } from 'react';
 
-import { profileDataSelector, profileErrorSelector, profileIsLoadingSelector } from 'entities/Profile';
+import { IProfile } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { Text } from 'shared/ui/Text/Text';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { ETextALign, ETextTheme, Text } from 'shared/ui/Text/Text';
 
 import Styles from './ProfileCard.module.scss';
 
 interface IProfileCardProps {
     className?: string;
+    data?: IProfile;
+    isLoading?: boolean;
+    error?: string;
 }
 
-export const ProfileCard = memo(({ className }: IProfileCardProps) => {
+export const ProfileCard = memo(({ className, data, isLoading, error }: IProfileCardProps) => {
     const { t } = useTranslation('profile');
-    const data = useSelector(profileDataSelector);
-    const error = useSelector(profileErrorSelector);
-    const isLoading = useSelector(profileIsLoadingSelector);
+
+    if (isLoading) {
+        return (
+            <div
+                className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className, Styles.loader] })}
+            >
+                <Loader />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div
+                className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className, Styles.error] })}
+            >
+                <Text
+                    theme={ETextTheme.ERROR}
+                    title={t('Произошла ошибка при загрузке профиля')}
+                    text={t('Попробуйте перезагрузить страницу')}
+                    align={ETextALign.CENTER}
+                />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className] })}>
-            <div className={Styles.header}>
-                <Text title={t('Профиль')} />
-                <Button className={Styles.editButton} theme={ButtonTheme.OUTLINE}>
-                    {t('Редактировать')}
-                </Button>
-            </div>
-            <div className={Styles.data}>
-                <Input value={data?.first} label={t('Ваше имя')} className={Styles.input} />
-                <Input value={data?.lastname} label={t('Ваша фамилия')} className={Styles.input} />
-            </div>
+            <Input value={data?.first} label={t('Ваше имя')} className={Styles.input} />
+            <Input value={data?.lastname} label={t('Ваша фамилия')} className={Styles.input} />
         </div>
     );
 });
