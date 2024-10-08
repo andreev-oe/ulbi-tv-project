@@ -1,5 +1,5 @@
+import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'shared/consts/common';
 
 export interface IProfile {
     first?: string;

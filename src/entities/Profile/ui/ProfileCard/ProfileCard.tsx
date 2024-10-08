@@ -1,9 +1,9 @@
 import { memo } from 'react';
 
+import { CountrySelect, ECountry } from 'entities/Country';
 import { CurrencySelect, ECurrency } from 'entities/Currency';
 import { IProfile } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
-import { ECountry } from 'shared/consts/common';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
@@ -137,6 +137,12 @@ export const ProfileCard = memo(
                     className={Styles.input}
                     value={data?.currency}
                     onChange={onChangeCurrency}
+                    readonly={readonly}
+                />
+                <CountrySelect
+                    className={Styles.input}
+                    value={data?.country}
+                    onChange={onChangeCountry}
                     readonly={readonly}
                 />
             </div>

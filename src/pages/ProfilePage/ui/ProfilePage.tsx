@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 
+import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 import {
     fetchProfileData,
@@ -61,6 +62,10 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
         dispatch(profileActions.updateProfile({ currency: value }));
     }, []);
 
+    const onChangeCountry = useCallback((value?: ECountry) => {
+        dispatch(profileActions.updateProfile({ country: value }));
+    }, []);
+
     useEffect(() => {
         dispatch(fetchProfileData());
     }, []);
@@ -80,6 +85,7 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
                     onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                     readonly={readonly}
                 />
             </div>
