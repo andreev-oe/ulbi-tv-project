@@ -1,0 +1,16 @@
+@import 'app/styles/variables/common';
+
+.Wrapper {
+    display: flex;
+    gap: $base;
+}
+
+.select {
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    outline: none;
+    padding-right: $base * 0.5 $base * 2 $base * 0.5 $base * 0.5;
+}
+
+

@@ -1,7 +1,9 @@
 import { memo } from 'react';
 
+import { CurrencySelect, ECurrency } from 'entities/Currency';
 import { IProfile } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
+import { ECountry } from 'shared/consts/common';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
@@ -22,6 +24,8 @@ interface IProfileCardProps {
     onChangeAge?: (value?: string) => void;
     onChangeUsername?: (value?: string) => void;
     onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (value?: ECurrency) => void;
+    onChangeCountry?: (value?: ECountry) => void;
 }
 
 export const ProfileCard = memo(
@@ -37,6 +41,8 @@ export const ProfileCard = memo(
         onChangeAge,
         onChangeUsername,
         onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
     }: IProfileCardProps) => {
         const { t } = useTranslation('profile');
 
@@ -125,6 +131,12 @@ export const ProfileCard = memo(
                     label={t('Аватар')}
                     className={Styles.input}
                     onChange={onChangeAvatar}
+                    readonly={readonly}
+                />
+                <CurrencySelect
+                    className={Styles.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
                     readonly={readonly}
                 />
             </div>
