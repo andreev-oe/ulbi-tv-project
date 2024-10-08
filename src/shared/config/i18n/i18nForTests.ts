@@ -7,6 +7,7 @@ i18n.use(initReactI18next).init({
     debug: false,
     ns: ['translations', 'about', 'main'], // Specify the namespaces you are using
     defaultNS: 'translations', // Set the default namespace
+    resources: { ru: { translations: {} } },
 });
 
 export default i18n;
