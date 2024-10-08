@@ -48,6 +48,14 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
         dispatch(profileActions.updateProfile({ city: value ?? '' }));
     }, []);
 
+    const onChangeUsername = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ username: value ?? '' }));
+    }, []);
+
+    const onChangeAvatar = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ avatar: value ?? '' }));
+    }, []);
+
     useEffect(() => {
         dispatch(fetchProfileData());
     }, []);
@@ -64,6 +72,8 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
                     readonly={readonly}
                 />
             </div>

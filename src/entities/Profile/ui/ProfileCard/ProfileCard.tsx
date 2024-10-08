@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { IProfile } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { ETextALign, ETextTheme, Text } from 'shared/ui/Text/Text';
@@ -19,6 +20,8 @@ interface IProfileCardProps {
     onChangeLastname?: (value?: string) => void;
     onChangeCity?: (value?: string) => void;
     onChangeAge?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
 }
 
 export const ProfileCard = memo(
@@ -32,6 +35,8 @@ export const ProfileCard = memo(
         onChangeLastname,
         onChangeCity,
         onChangeAge,
+        onChangeUsername,
+        onChangeAvatar,
     }: IProfileCardProps) => {
         const { t } = useTranslation('profile');
 
@@ -67,7 +72,18 @@ export const ProfileCard = memo(
         }
 
         return (
-            <div className={classNames({ rootClass: Styles.ProfileCard, additionalClasses: [className] })}>
+            <div
+                className={classNames({
+                    rootClass: Styles.ProfileCard,
+                    conditionalClasses: { [Styles.editing]: !readonly },
+                    additionalClasses: [className],
+                })}
+            >
+                {data?.avatar && (
+                    <div className={Styles.avatarWrapper}>
+                        <Avatar src={data?.avatar} alt="Аватар пользоватля" />
+                    </div>
+                )}
                 <Input
                     value={data?.first}
                     label={t('Ваше имя')}
@@ -95,6 +111,20 @@ export const ProfileCard = memo(
                     label={t('Ваш город')}
                     className={Styles.input}
                     onChange={onChangeCity}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.username}
+                    label={t('Имя пользователя')}
+                    className={Styles.input}
+                    onChange={onChangeUsername}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.avatar}
+                    label={t('Аватар')}
+                    className={Styles.input}
+                    onChange={onChangeAvatar}
                     readonly={readonly}
                 />
             </div>
