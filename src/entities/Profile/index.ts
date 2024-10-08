@@ -3,6 +3,7 @@ import { profileErrorSelector } from './model/selectors/profileErrorSelector/pro
 import { profileFormDataSelector } from './model/selectors/profileFormDataSelector/profileFormDataSelector';
 import { profileIsLoadingSelector } from './model/selectors/profileIsLoadingSelector/profileIsLoadingSelector';
 import { profileReadonlySelector } from './model/selectors/profileReadonlySelector/profileReadonlySelector';
+import { profileValidationErrorsSelector } from './model/selectors/profileValidationErrorsSelector/profileValidationErrorsSelector';
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 import { profileReducer, profileActions } from './model/slice/profileSlice';
@@ -21,5 +22,6 @@ export {
     profileErrorSelector,
     profileIsLoadingSelector,
     profileReadonlySelector,
+    profileValidationErrorsSelector,
     ProfileCard,
 };

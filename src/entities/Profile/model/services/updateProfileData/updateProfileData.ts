@@ -1,20 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from 'app/providers/ReduxStore';
-import i18n from 'shared/config/i18n/i18n';
 
 import { profileFormDataSelector } from '../../selectors/profileFormDataSelector/profileFormDataSelector';
-import { IProfile } from '../../types/types';
+import { EValidateProfileError, IProfile } from '../../types/types';
+import { validateProfileForm } from '../validateProfileForm/validateProfileForm';
 
-export const updateProfileData = createAsyncThunk<IProfile, void, IThunkConfig<string>>(
+export const updateProfileData = createAsyncThunk<IProfile, void, IThunkConfig<EValidateProfileError[]>>(
     'login/updateProfileData',
     async (_, thunkAPI) => {
         const formData = profileFormDataSelector(thunkAPI.getState());
         try {
             const response = await thunkAPI.extra.api.put<IProfile>('/profile', formData);
 
+            const errors = validateProfileForm(formData);
+
+            if (errors?.length) {
+                return thunkAPI.rejectWithValue(errors);
+            }
+
             return response.data;
         } catch (error) {
-            return thunkAPI.rejectWithValue(i18n.t('Ошибка запроса'));
+            return thunkAPI.rejectWithValue([EValidateProfileError.SERVER_ERROR]);
         }
     },
 );
