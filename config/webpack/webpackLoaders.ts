@@ -1,20 +1,12 @@
 import webpack from 'webpack';
 
+import { webpackBabelLoader } from './loaders/webpackBabelLoader';
 import { webpackCssLoader } from './loaders/webpackCssLoader';
 import { webpackSvgLoader } from './loaders/webpackSvgLoader';
 import { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] {
-    const babelLoader = {
-        test: /\.(js|ts|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
-        },
-    };
+    const babelLoader = webpackBabelLoader(options);
 
     const tsLoader = {
         test: /\.tsx?$/,
