@@ -49,6 +49,7 @@ export const profileSlice = createSlice({
             .addCase(updateProfileData.pending, (state) => {
                 state.isLoading = true;
                 state.error = undefined;
+                state.validationErrors = undefined;
             })
             .addCase(updateProfileData.fulfilled, (state, action) => {
                 state.readonly = true;

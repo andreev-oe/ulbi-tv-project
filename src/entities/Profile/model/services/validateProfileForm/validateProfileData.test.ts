@@ -13,6 +13,7 @@ const data = {
     age: 25,
     city: 'Yerevan',
 };
+
 describe('loginByUsername.test', () => {
     test('Все корректно', async () => {
         const result = validateProfileForm(data);
