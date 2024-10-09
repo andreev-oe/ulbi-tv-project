@@ -12,6 +12,10 @@ export const updateProfileData = createAsyncThunk<IProfile, void, IThunkConfig<E
         try {
             const response = await thunkAPI.extra.api.put<IProfile>('/profile', formData);
 
+            if (!response.data) {
+                return thunkAPI.rejectWithValue([EValidateProfileError.NO_DATA]);
+            }
+
             const errors = validateProfileForm(formData);
 
             if (errors?.length) {

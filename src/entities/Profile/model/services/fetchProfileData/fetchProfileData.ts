@@ -9,6 +9,9 @@ export const fetchProfileData = createAsyncThunk<IProfile, void, IThunkConfig<st
         try {
             const response = await thunkAPI.extra.api.get<IProfile>('/profile');
 
+            if (!response.data) {
+                return thunkAPI.rejectWithValue(i18n.t('Ошибка запроса'));
+            }
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(i18n.t('Ошибка запроса'));
