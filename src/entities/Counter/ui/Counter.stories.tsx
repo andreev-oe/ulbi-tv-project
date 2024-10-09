@@ -8,7 +8,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Counter } from './Counter';
 
 export default {
-    title: 'widget/Counter',
+    title: 'entities/Counter',
     component: Counter,
     decorators: [
         (Story) => (

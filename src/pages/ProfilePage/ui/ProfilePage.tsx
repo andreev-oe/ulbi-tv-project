@@ -81,7 +81,9 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
     }, []);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__ENV_TYPE__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, []);
 
     return (

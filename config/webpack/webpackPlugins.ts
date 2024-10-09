@@ -6,7 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { IWebpackOptions } from './types/webpackTypes';
 
-export function webpackPlugins({ paths, isDev, apiUrl }: IWebpackOptions): webpack.WebpackPluginInstance[] {
+export function webpackPlugins({ paths, isDev, apiUrl, envType }: IWebpackOptions): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HTMLWebpackPlugin({ template: paths.html }),
         new webpack.ProgressPlugin(),
@@ -17,6 +17,7 @@ export function webpackPlugins({ paths, isDev, apiUrl }: IWebpackOptions): webpa
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __ENV_TYPE__: JSON.stringify(envType),
         }),
     ];
 

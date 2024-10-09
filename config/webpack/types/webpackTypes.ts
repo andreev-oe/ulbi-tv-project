@@ -19,4 +19,5 @@ export interface IWebpackOptions {
     isDev: boolean;
     port: number;
     apiUrl: string;
+    envType: 'jest' | 'storybook' | 'react';
 }

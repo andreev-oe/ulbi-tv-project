@@ -23,6 +23,7 @@ const config = (env: IWebpackEnv) => {
         isDev,
         apiUrl,
         port: PORT,
+        envType: 'react',
     });
     return config;
 };
