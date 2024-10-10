@@ -1,5 +1,6 @@
 @import 'reset';
 @import 'variables/global';
+@import 'variables/common';
 @import 'themes/light';
 @import 'themes/dark';
 @import 'themes/orange';
@@ -34,5 +35,7 @@ body {
 
 .page-wrapper {
     flex-grow: 1;
-    padding: 20px;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    padding: $base * 5 $base * 5 $base * 5 $base * 9;
 }

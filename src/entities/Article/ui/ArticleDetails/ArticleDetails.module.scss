@@ -1,3 +1,17 @@
+@import 'app/styles/variables/common';
+
 .ArticleDetails {
     min-height: 100%;
+}
+
+.avatar {
+    margin: 0 auto;
+}
+
+.title {
+    margin-top: $base * 5;
+}
+
+.skeleton {
+    margin-top: $base * 3;
 }

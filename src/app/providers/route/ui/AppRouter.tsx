@@ -7,7 +7,12 @@ import { PageLoader } from 'widgets/PageLoader/PageLoader';
 
 export const AppRouter = memo(() => {
     const renderWithWrapper = useCallback(({ element, authOnly, path }: TAppRoutesProps) => {
-        const routeElement = <Suspense fallback={<PageLoader />}>{element}</Suspense>;
+        const routeElement = (
+            <Suspense fallback={<PageLoader />}>
+                <div className="page-wrapper">{element}</div>
+            </Suspense>
+        );
+
         return (
             <Route
                 key={path}
