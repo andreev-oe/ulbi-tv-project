@@ -24,7 +24,7 @@ export const RoutePath: Record<EAppRoutes, string> = {
     [EAppRoutes.ABOUT]: '/about',
     [EAppRoutes.PROFILE]: '/profile',
     [EAppRoutes.ARTICLES]: '/articles',
-    [EAppRoutes.ARTICLE_DETAILS]: '/article-details/:id',
+    [EAppRoutes.ARTICLE_DETAILS]: '/articles/:id',
     [EAppRoutes.NOT_FOUND]: '*',
 };
 
