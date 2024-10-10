@@ -3,7 +3,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
 import HomeIcon from 'shared/assets/icons/home.svg';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { EAppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
 import { SideBarItem } from './SideBarItem';
@@ -14,7 +14,7 @@ export default {
     args: {
         collapsed: false,
         item: {
-            path: RoutePath[AppRoutes.MAIN],
+            path: RoutePath[EAppRoutes.MAIN],
             text: 'text',
             Icon: HomeIcon,
         },

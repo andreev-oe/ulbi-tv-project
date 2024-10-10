@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/themeProvider';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { EAppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
 import { AppLink, AppLinkThemes } from './AppLink';
@@ -11,7 +11,7 @@ export default {
     title: 'shared/AppLink',
     component: AppLink,
     args: {
-        to: RoutePath[AppRoutes.MAIN],
+        to: RoutePath[EAppRoutes.MAIN],
     },
     argTypes: {
         theme: { control: 'select', options: Object.values(AppLinkThemes) },

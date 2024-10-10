@@ -47,7 +47,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'name', 'alt'],
+                ignoreAttribute: ['data-testid', 'name', 'alt', 'to'],
             },
         ],
         '@typescript-eslint/no-unused-vars': [

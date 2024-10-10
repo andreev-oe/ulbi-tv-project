@@ -5,7 +5,7 @@ import { IStateSchema, ReduxStoreProvider } from 'app/providers/ReduxStore';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import i18nForTests from 'shared/config/i18n/i18nForTests';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { EAppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Loader } from 'shared/ui/Loader/Loader';
 
 export interface IComponentRenderOptions {
@@ -14,7 +14,7 @@ export interface IComponentRenderOptions {
 }
 
 export const ComponentRender = (component: ReactNode, options?: IComponentRenderOptions) => {
-    const { route = RoutePath[AppRoutes.MAIN], initialState } = options || {};
+    const { route = RoutePath[EAppRoutes.MAIN], initialState } = options || {};
     return render(
         <Suspense fallback={<Loader />}>
             <ReduxStoreProvider initialState={initialState as IStateSchema}>

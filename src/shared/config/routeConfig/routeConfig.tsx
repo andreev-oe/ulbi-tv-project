@@ -4,39 +4,39 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePageLazy } from 'pages/ProfilePage';
 import { RouteProps } from 'react-router-dom';
 
-type TAppRoutesProps = RouteProps & {
+export type TAppRoutesProps = RouteProps & {
     authOnly?: boolean;
 };
 
-export enum AppRoutes {
+export enum EAppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
     PROFILE = 'profile',
     NOT_FOUND = 'notFound',
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile',
-    [AppRoutes.NOT_FOUND]: '*',
+export const RoutePath: Record<EAppRoutes, string> = {
+    [EAppRoutes.MAIN]: '/',
+    [EAppRoutes.ABOUT]: '/about',
+    [EAppRoutes.PROFILE]: '/profile',
+    [EAppRoutes.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Record<AppRoutes, TAppRoutesProps> = {
-    [AppRoutes.MAIN]: {
+export const routeConfig: Record<EAppRoutes, TAppRoutesProps> = {
+    [EAppRoutes.MAIN]: {
         path: RoutePath.main,
         element: <MainPageLazy />,
     },
-    [AppRoutes.ABOUT]: {
+    [EAppRoutes.ABOUT]: {
         path: RoutePath.about,
         element: <AboutPageLazy />,
     },
-    [AppRoutes.PROFILE]: {
+    [EAppRoutes.PROFILE]: {
         path: RoutePath.notFound,
         element: <ProfilePageLazy />,
         authOnly: true,
     },
-    [AppRoutes.NOT_FOUND]: {
+    [EAppRoutes.NOT_FOUND]: {
         path: RoutePath.notFound,
         element: <NotFoundPage />,
     },
