@@ -1,12 +1,20 @@
-import { memo, ReactElement, useEffect, useMemo } from 'react';
+import { memo, ReactElement, useCallback, useEffect, useMemo } from 'react';
 
+import { EArticleBlockType, TArticleBlock } from 'entities/Article/model/types/articleTypes';
+import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock';
+import { ArticleImageBlock } from 'entities/Article/ui/ArticleDetailsBlock/ArticleImageBlock';
+import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import EyeIcon from 'shared/assets/icons/eye.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { ETextALign, Text } from 'shared/ui/Text/Text';
+import { ETextALign, ETextSize, Text } from 'shared/ui/Text/Text';
 
 import {
     articleDetailsDataSelector,
@@ -38,6 +46,19 @@ export const ArticleDetails = memo(({ className, id }: IArticleDetailsProps) => 
 
     const dispatch = useAppDispatch();
 
+    const renderBlock = useCallback((block: TArticleBlock) => {
+        switch (block.type) {
+            case EArticleBlockType.CODE:
+                return <ArticleCodeBlock key={block.id} block={block} className={Styles.block} />;
+            case EArticleBlockType.IMAGE:
+                return <ArticleImageBlock key={block.id} block={block} className={Styles.block} />;
+            case EArticleBlockType.TEXT:
+                return <ArticleTextBlock key={block.id} className={Styles.block} block={block} />;
+            default:
+                return null;
+        }
+    }, []);
+
     const content = useMemo(() => {
         let result: ReactElement;
 
@@ -54,7 +75,23 @@ export const ArticleDetails = memo(({ className, id }: IArticleDetailsProps) => 
         } else if (error) {
             result = <Text align={ETextALign.CENTER} title={t('Произошла ошибка при загрузке статьи.')} />;
         } else {
-            result = <div>ArticleDetails</div>;
+            result = (
+                <>
+                    <div className={Styles.avatarWrapper}>
+                        <Avatar size={200} src={article?.img} className={Styles.avatar} />
+                    </div>
+                    <Text className={Styles.title} title={article?.title} text={article?.subtitle} size={ETextSize.L} />
+                    <div className={Styles.articleInfo}>
+                        <Icon className={Styles.icon} Svg={EyeIcon} />
+                        <Text text={String(article?.views)} />
+                    </div>
+                    <div className={Styles.articleInfo}>
+                        <Icon className={Styles.icon} Svg={CalendarIcon} />
+                        <Text text={article?.createdAt} />
+                    </div>
+                    {article?.blocks.map(renderBlock)}
+                </>
+            );
         }
 
         return result;

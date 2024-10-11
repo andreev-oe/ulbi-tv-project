@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import Styles from './Button.module.scss';
 
-export enum ButtonTheme {
+export enum EButtonTheme {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
@@ -13,7 +13,7 @@ export enum ButtonTheme {
     BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
-export enum ButtonSize {
+export enum EButtonSize {
     S = 'size_s',
     M = 'size_m',
     L = 'size_l',
@@ -21,9 +21,9 @@ export enum ButtonSize {
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    theme?: ButtonTheme;
+    theme?: EButtonTheme;
     square?: boolean;
-    size?: ButtonSize;
+    size?: EButtonSize;
     disabled?: boolean;
 }
 
@@ -31,9 +31,9 @@ export const Button: FC<IButtonProps> = memo(
     ({
         className,
         children,
-        theme = ButtonTheme.OUTLINE,
+        theme = EButtonTheme.OUTLINE,
         square,
-        size = ButtonSize.S,
+        size = EButtonSize.S,
         disabled,
         ...other
     }: IButtonProps) => (

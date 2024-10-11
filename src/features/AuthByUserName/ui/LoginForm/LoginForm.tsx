@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 
@@ -81,7 +81,7 @@ export const LoginForm = memo(({ className, onSuccess }: ILoginFormProps) => {
                 <Button
                     disabled={isLoading}
                     className={Styles.loginBtn}
-                    theme={ButtonTheme.OUTLINE}
+                    theme={EButtonTheme.OUTLINE}
                     onClick={onLoginClick}
                 >
                     {t('Войти')}

@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, EButtonSize, EButtonTheme } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
@@ -29,10 +29,10 @@ export const SideBar = memo(({ className }: ISideBarProps) => {
         >
             <Button
                 className={Styles.toggler}
-                theme={ButtonTheme.BACKGROUND}
+                theme={EButtonTheme.BACKGROUND}
                 data-testid="sidebar-toggle"
                 type="button"
-                size={ButtonSize.L}
+                size={EButtonSize.L}
                 square
                 onClick={onToggle}
             >

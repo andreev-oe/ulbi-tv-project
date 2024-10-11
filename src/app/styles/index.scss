@@ -38,4 +38,5 @@ body {
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
     padding: $base * 5 $base * 5 $base * 5 $base * 9;
+    width: 100%;
 }

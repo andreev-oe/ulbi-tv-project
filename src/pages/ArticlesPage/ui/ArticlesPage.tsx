@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 export const ArticlesPage = memo(() => {
-    return <div>ARTICLES PAGE</div>;
+    return <div />;
 });
 
 ArticlesPage.displayName = 'ArticlesPage';

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import Styles from './ProfilePageHeader.module.scss';
@@ -37,15 +37,15 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeaderProps) => {
         <div className={classNames({ rootClass: Styles.ProfilePageHeader, additionalClasses: [className] })}>
             <Text title={t('Профиль')} />
             {readonly ? (
-                <Button className={Styles.editButton} theme={ButtonTheme.OUTLINE} onClick={onEdit}>
+                <Button className={Styles.editButton} theme={EButtonTheme.OUTLINE} onClick={onEdit}>
                     {t('Редактировать')}
                 </Button>
             ) : (
                 <>
-                    <Button className={Styles.editButton} theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
+                    <Button className={Styles.editButton} theme={EButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
                         {t('Отменить')}
                     </Button>
-                    <Button className={Styles.saveButton} theme={ButtonTheme.OUTLINE} onClick={onSave}>
+                    <Button className={Styles.saveButton} theme={EButtonTheme.OUTLINE} onClick={onSave}>
                         {t('Сохранить')}
                     </Button>
                 </>
