@@ -4,6 +4,12 @@
     color: var(--primary-color);
     cursor: pointer;
     padding: $base * 2.5 $base * 3.5;
+
+    &:hover {
+        fill-opacity: 80%;
+        opacity: 0.8;
+        stroke-opacity: 80%;
+    }
 }
 
 .clear {
