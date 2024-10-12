@@ -2,47 +2,47 @@ import { memo } from 'react';
 
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
+import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
 
+import { articleDetailsCommentsIsLoadingSelector, articleDetailsCommentsSelector } from '../model/selectors/comments';
+import { articleDetailsCommentsReducer } from '../model/slices/articleDetailsCommentsSlice';
+
 import Styles from './ArticleDetailsPage.module.scss';
+
+const reducers: TReducersList = {
+    articleDetailsComments: articleDetailsCommentsReducer,
+};
 
 export const ArticleDetailsPage = memo(() => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
+    const dispatch = useAppDispatch();
+    const comments = useSelector(articleDetailsCommentsSelector.selectAll);
+    const isLoading = useSelector(articleDetailsCommentsIsLoadingSelector);
+
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+    });
 
     if (!id) {
         return <div>{t('Статья не найдена')}</div>;
     }
 
     return (
-        <div className={Styles.ArticleDetailsPage}>
-            <ArticleDetails id={id} />
-            <Text className={Styles.commentTitle} title={t('Комментарии')} />
-            <CommentList
-                isLoading={false}
-                comments={[
-                    {
-                        id: '1',
-                        text: 'asd',
-                        user: {
-                            id: '1',
-                            username: 'asd',
-                            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
-                        },
-                    },
-                    {
-                        id: '2',
-                        text: 'qwe',
-                        user: {
-                            id: '2',
-                            username: 'qwe',
-                        },
-                    },
-                ]}
-            />
-        </div>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <div className={Styles.ArticleDetailsPage}>
+                <ArticleDetails id={id} />
+                <Text className={Styles.commentTitle} title={t('Комментарии')} />
+                <CommentList isLoading={isLoading} comments={comments} />
+            </div>
+        </DynamicModuleLoader>
     );
 });
 

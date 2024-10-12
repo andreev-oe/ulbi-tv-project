@@ -13,14 +13,7 @@ const initialState: IArticleDetailsSchema = {
 export const articleDetailsSlice = createSlice({
     name: 'articleDetails',
     initialState,
-    reducers: {
-        // update: (state, action: PayloadAction<IArticle>) => {
-        //     state.data = { ...state.data, ...action.payload };
-        // },
-        // revert: (state) => {
-        //     state.validationErrors = undefined;
-        // },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticleById.pending, (state) => {

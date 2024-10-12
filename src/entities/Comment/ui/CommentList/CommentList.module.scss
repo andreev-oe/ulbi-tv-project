@@ -5,3 +5,18 @@
     flex-direction: column;
     gap: $base * 5;
 }
+
+.skeleton {
+    &CommentCard {
+        display: flex;
+        flex-direction: column;
+        gap: $base * 3;
+        padding: $base * 2;
+    }
+
+    &Header {
+        align-items: center;
+        display: flex;
+        gap: $base * 5;
+    }
+}

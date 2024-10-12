@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
@@ -80,11 +81,9 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
         dispatch(profileActions.updateProfile({ country: value }));
     }, []);
 
-    useEffect(() => {
-        if (__ENV_TYPE__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, []);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData());
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
