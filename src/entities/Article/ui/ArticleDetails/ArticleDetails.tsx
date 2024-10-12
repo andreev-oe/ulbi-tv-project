@@ -2,7 +2,7 @@ import { memo, ReactElement, useCallback, useEffect, useMemo } from 'react';
 
 import { EArticleBlockType, TArticleBlock } from 'entities/Article/model/types/articleTypes';
 import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock';
-import { ArticleImageBlock } from 'entities/Article/ui/ArticleDetailsBlock/ArticleImageBlock';
+import { ArticleImageBlock } from 'entities/Article/ui/ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

@@ -1,0 +1,10 @@
+@import 'app/styles/variables/common';
+
+.ArticleDetailsPage {
+    min-height: 100%;
+}
+
+.commentTitle {
+    margin-bottom: $base * 5;
+    margin-top: $base * 5;
+}
