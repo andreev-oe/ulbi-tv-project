@@ -1,4 +1,4 @@
-import { memo, ReactElement, useCallback, useEffect, useMemo } from 'react';
+import { memo, ReactElement, useCallback, useMemo } from 'react';
 
 import { EArticleBlockType, TArticleBlock } from 'entities/Article/model/types/articleTypes';
 import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock';
@@ -11,6 +11,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
@@ -97,9 +98,9 @@ export const ArticleDetails = memo(({ className, id }: IArticleDetailsProps) => 
         return result;
     }, [isLoading, error, article]);
 
-    useEffect(() => {
+    useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    }, [id]);
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
