@@ -43,11 +43,12 @@ module.exports = {
         'no-param-reassign': 'off',
         'object-shorthand': 'off',
         'no-undef': 'off',
+        'react/no-array-index-key': 'off',
         'i18next/no-literal-string': [
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'name', 'alt', 'to'],
+                ignoreAttribute: ['data-testid', 'name', 'alt', 'to', 'title', 'text'],
             },
         ],
         '@typescript-eslint/no-unused-vars': [

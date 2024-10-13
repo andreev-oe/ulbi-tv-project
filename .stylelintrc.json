@@ -9,6 +9,7 @@
         "selector-no-qualifying-type": null,
         "property-no-vendor-prefix": null,
         "selector-class-pattern": "^[A-Za-z][A-Za-z0-9_-]*$",
-        "indentation": 4
+        "indentation": 4,
+        "max-nesting-depth": 2
     }
 }
