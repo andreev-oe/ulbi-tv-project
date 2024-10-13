@@ -22,18 +22,33 @@ export const CommentList = memo(({ className, comments, isLoading }: ICommentLis
     if (isLoading) {
         return (
             <div className={classNames({ rootClass: Styles.skeletonCommentCard, additionalClasses: [className] })}>
-                <div className={Styles.skeletonHeader}>
-                    <Skeleton width="30px" height="30px" borderRadius="50%" />
-                    <Skeleton width="200px" height="30px" />
-                </div>
-                <Skeleton width="100%" height="100px" />
+                {comments?.length ? (
+                    comments.map((comment) => (
+                        <>
+                            <div className={Styles.skeletonHeader}>
+                                <Skeleton width="30px" height="30px" borderRadius="50%" />
+                                <Skeleton width="200px" height="30px" />
+                            </div>
+                            <Skeleton width="100%" height="100px" />
+                        </>
+                    ))
+                ) : (
+                    <>
+                        <div className={Styles.skeletonHeader}>
+                            <Skeleton width="30px" height="30px" borderRadius="50%" />
+                            <Skeleton width="200px" height="30px" />
+                        </div>
+                        <Skeleton width="100%" height="100px" />
+                    </>
+                )}
             </div>
         );
     }
+
     return (
         <div className={classNames({ rootClass: Styles.CommentList, additionalClasses: [className] })}>
             {comments?.length ? (
-                comments.map((comment) => <CommentCard comment={comment} />)
+                comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)
             ) : (
                 <Text text={t('Комментарий отсутствует')} />
             )}

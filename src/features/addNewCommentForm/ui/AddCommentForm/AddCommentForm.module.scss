@@ -1,0 +1,13 @@
+@import 'app/styles/variables/common';
+
+.AddCommentForm {
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    padding: $base * 5;
+}
+
+.input {
+    flex-grow: 1;
+}

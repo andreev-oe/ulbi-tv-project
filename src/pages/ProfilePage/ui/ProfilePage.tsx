@@ -16,6 +16,7 @@ import {
 import { EValidateProfileError } from 'entities/Profile/model/types/types';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -40,6 +41,7 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
     const readonly = useSelector(profileReadonlySelector);
     const isLoading = useSelector(profileIsLoadingSelector);
     const validationErrors = useSelector(profileValidationErrorsSelector);
+    const { id } = useParams<{ id: string }>();
 
     const validationErrorsTranslation = {
         [EValidateProfileError.INVALID_AGE]: t('Некорректный возраст'),
@@ -82,7 +84,9 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
     }, []);
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     return (

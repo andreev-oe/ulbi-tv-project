@@ -5,6 +5,7 @@ import { IArticleDetailsSchema } from 'entities/Article';
 import { ICounterSchema } from 'entities/Counter';
 import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
+import { IAddNewCommentFormSchema } from 'features/addNewCommentForm';
 import { ILoginSchema } from 'features/AuthByUserName';
 import { IArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import type { ReducersMapObject } from 'redux';
@@ -18,6 +19,7 @@ export interface IStateSchema {
     profile?: IProfileSchema;
     articleDetails?: IArticleDetailsSchema;
     articleDetailsComments?: IArticleDetailsCommentSchema;
+    addNewCommentForm?: IAddNewCommentFormSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;
