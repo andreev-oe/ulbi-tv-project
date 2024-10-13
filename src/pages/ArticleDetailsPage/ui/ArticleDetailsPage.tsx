@@ -5,10 +5,12 @@ import { CommentList } from 'entities/Comment';
 import { AddCommentFormLazy } from 'features/addNewCommentForm';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import { articleDetailsCommentsIsLoadingSelector, articleDetailsCommentsSelector } from '../model/selectors/comments';
@@ -28,6 +30,11 @@ export const ArticleDetailsPage = memo(() => {
     const dispatch = useAppDispatch();
     const comments = useSelector(articleDetailsCommentsSelector.selectAll);
     const isLoading = useSelector(articleDetailsCommentsIsLoadingSelector);
+    const navigate = useNavigate();
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -44,6 +51,9 @@ export const ArticleDetailsPage = memo(() => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={Styles.ArticleDetailsPage}>
+                <Button className={Styles.backButton} theme={EButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text className={Styles.commentTitle} title={t('Комментарии')} />
                 <AddCommentFormLazy onSendComment={onSendComment} />

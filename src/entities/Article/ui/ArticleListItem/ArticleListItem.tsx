@@ -5,6 +5,7 @@ import { generatePath, useNavigate } from 'react-router-dom';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
@@ -24,8 +25,12 @@ interface IArticleListItemProps {
 
 export const ArticleListItem = memo((props: IArticleListItemProps) => {
     const { className, article, view } = props;
+
     const { t } = useTranslation();
+
     const navigate = useNavigate();
+
+    const [isHovered, bindHover] = useHover();
 
     const onOpenArticle = useCallback(() => {
         const path = generatePath(RoutePath.articleDetails, { id: article.id });
@@ -33,6 +38,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
     }, [article.id, navigate]);
 
     const types = <Text text={article.type.join(', ')} className={Styles.types} />;
+
     const views = (
         <>
             <Text text={String(article.views)} className={Styles.views} />
@@ -73,6 +79,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
 
     return (
         <div
+            {...bindHover}
             className={classNames({ rootClass: Styles.ArticleListItem, additionalClasses: [className, Styles[view]] })}
         >
             <Card className={Styles.card} onClick={onOpenArticle}>
