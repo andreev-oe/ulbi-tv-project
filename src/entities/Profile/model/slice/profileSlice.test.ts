@@ -6,6 +6,7 @@ import { EValidateProfileError } from 'entities/Profile/model/types/types';
 import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
+    id: '1',
     username: 'John Doe',
     country: ECountry.Armenia,
     first: 'John',

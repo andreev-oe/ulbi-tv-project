@@ -5,6 +5,7 @@ import { EValidateProfileError } from 'entities/Profile/model/types/types';
 import { validateProfileForm } from './validateProfileForm';
 
 const data = {
+    id: '1',
     username: 'John Doe',
     country: ECountry.Armenia,
     first: 'John',
