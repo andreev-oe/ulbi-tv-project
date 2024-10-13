@@ -1,3 +1,5 @@
+@import 'app/styles/variables/common';
+
 .BIG {
     .views {
         margin-left: auto;
@@ -9,7 +11,7 @@
     }
 
     .username {
-        margin-left: 8px;
+        margin-left: $base * 2;
     }
 
     .date {
@@ -17,12 +19,12 @@
     }
 
     .title {
-        margin-top: 8px;
+        margin-top: $base * 2;
     }
 
     .img {
-        margin: 16px 0;
-        max-height: 250px;
+        margin: $base * 4 0;
+        max-height: $base * 62;
         object-fit: cover;
         width: 100%;
     }
@@ -30,11 +32,11 @@
     .footer {
         align-items: center;
         display: flex;
-        margin-top: 16px;
+        margin-top: $base * 4;
     }
 
     .textBlock {
-        max-height: 200px;
+        max-height: $base * 50;
         overflow-y: hidden;
     }
 }
@@ -42,7 +44,7 @@
 .SMALL {
     cursor: pointer;
     transition: 0.2s;
-    width: 230px;
+    width: $base * 58;
 
     .date {
         display: none;
@@ -61,43 +63,43 @@
     }
 
     .imageWrapper {
-        height: 200px;
+        height: $base * 50;
         position: relative;
-        width: 200px;
+        width: $base * 50;
     }
 
     .img {
-        height: 200px;
+        height: $base * 50;
         object-fit: cover;
-        width: 200px;
+        width: $base * 50;
     }
 
     .infoWrapper {
         align-items: center;
         display: flex;
-        margin-top: 8px;
+        margin-top: $base * 2;
     }
 
     .types p {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: 115px;
+        width: $base * 29;
     }
 
     .views {
         margin-left: auto;
-        margin-right: 8px;
+        margin-right: $base * 2;
     }
 
     .title {
-        margin-top: 8px;
+        margin-top: $base * 2;
     }
 
     .title p {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: 200px;
+        width: $base * 50;
     }
 }
