@@ -37,8 +37,8 @@ export enum EArticleType {
 }
 
 export enum EArticlesView {
-    BIG = 'BIG',
-    SMALL = 'SMALL',
+    LIST = 'LIST',
+    TILED = 'TILED',
 }
 
 export interface IArticle {

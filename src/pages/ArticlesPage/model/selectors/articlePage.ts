@@ -9,4 +9,4 @@ export const articlesPageSelector = articlesPageAdapter.getSelectors<IStateSchem
 
 export const articlesPageIsLoadingSelector = (state: IStateSchema) => state.articlesPage?.isLoading;
 export const articlesPageErrorSelector = (state: IStateSchema) => state.articlesPage?.error;
-export const articlesPageViewSelector = (state: IStateSchema) => state.articlesPage?.view || EArticlesView.SMALL;
+export const articlesPageViewSelector = (state: IStateSchema) => state.articlesPage?.view || EArticlesView.TILED;

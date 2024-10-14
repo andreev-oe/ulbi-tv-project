@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { userAuthDataSelector } from 'entities/User';
 import { generatePath } from 'react-router-dom';
+import AboutIcon from 'shared/assets/icons/about.svg';
 import ArticleIcon from 'shared/assets/icons/article.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
-import ListIcon from 'shared/assets/icons/list.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
@@ -18,7 +18,7 @@ export const sidebarItemsSelector = createSelector(userAuthDataSelector, (userDa
         },
         {
             path: RoutePath.about,
-            Icon: ListIcon,
+            Icon: AboutIcon,
             text: 'О сайте',
         },
     ];

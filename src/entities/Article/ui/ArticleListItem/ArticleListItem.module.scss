@@ -1,6 +1,6 @@
 @import 'app/styles/variables/common';
 
-.BIG {
+.LIST {
     .views {
         margin-left: auto;
     }
@@ -41,7 +41,7 @@
     }
 }
 
-.SMALL {
+.TILED {
     cursor: pointer;
     transition: 0.2s;
     width: $base * 58;

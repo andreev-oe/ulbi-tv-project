@@ -16,7 +16,7 @@ interface IArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProps) => {
     const { className, view } = props;
 
-    if (view === EArticlesView.BIG) {
+    if (view === EArticlesView.LIST) {
         return (
             <div
                 className={classNames({

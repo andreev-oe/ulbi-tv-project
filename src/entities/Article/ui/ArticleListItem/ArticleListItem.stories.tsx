@@ -86,14 +86,14 @@ const article = {
     ],
 } as IArticle;
 
-export const Big = Template.bind({});
-Big.args = {
-    view: EArticlesView.BIG,
+export const List = Template.bind({});
+List.args = {
+    view: EArticlesView.LIST,
     article,
 };
 
-export const Small = Template.bind({});
-Small.args = {
-    view: EArticlesView.SMALL,
+export const Tiled = Template.bind({});
+Tiled.args = {
+    view: EArticlesView.TILED,
     article,
 };

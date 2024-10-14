@@ -3,6 +3,7 @@ import { IArticleDetailsSchema } from './model/types/articleDetailsSchema';
 import { EArticleBlockType, EArticlesView, IArticle } from './model/types/articleTypes';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { ArticleList } from './ui/ArticleList/ArticleList';
+import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
     ArticleDetails,
@@ -12,4 +13,5 @@ export {
     EArticleBlockType,
     ArticleList,
     EArticlesView,
+    ArticleViewSelector,
 };

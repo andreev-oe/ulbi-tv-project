@@ -1,12 +1,12 @@
 @import 'app/styles/variables/common';
 
-.BIG {
+.LIST {
     display: flex;
     flex-direction: column;
     gap: $base * 6;
 }
 
-.SMALL {
+.TILED {
     display: flex;
     flex-wrap: wrap;
     gap: $base * 6;

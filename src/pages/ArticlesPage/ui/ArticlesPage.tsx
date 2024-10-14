@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 
-import { ArticleList, EArticlesView } from 'entities/Article';
+import { ArticleList, ArticleViewSelector, EArticlesView } from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -13,7 +13,7 @@ import {
     articlesPageViewSelector,
 } from '../model/selectors/articlePage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageReducer } from '../model/slice/articlesPageSlice';
+import { articlesPageAtions, articlesPageReducer } from '../model/slice/articlesPageSlice';
 
 const reducers: TReducersList = {
     articlesPage: articlesPageReducer,
@@ -30,13 +30,22 @@ export const ArticlesPage = memo(() => {
 
     const view = useSelector(articlesPageViewSelector);
 
+    const onChangeView = useCallback(
+        (view: EArticlesView) => {
+            dispatch(articlesPageAtions.setView(view));
+        },
+        [dispatch],
+    );
+
     useInitialEffect(() => {
+        dispatch(articlesPageAtions.initiateState());
         dispatch(fetchArticlesList());
     });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>
+                <ArticleViewSelector view={view} onChangeView={onChangeView} />
                 <ArticleList isLoading={isLoading} view={view} articles={articles} />
             </div>
         </DynamicModuleLoader>

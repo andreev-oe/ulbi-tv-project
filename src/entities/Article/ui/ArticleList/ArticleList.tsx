@@ -16,12 +16,12 @@ interface IArticleListProps {
 }
 
 const getSkeletons = (view: EArticlesView) =>
-    new Array(view === EArticlesView.SMALL ? 18 : 3)
+    new Array(view === EArticlesView.TILED ? 18 : 3)
         .fill(0)
         .map((_, index) => <ArticleListItemSkeleton className={Styles.card} key={index} view={view} />);
 
 export const ArticleList = memo((props: IArticleListProps) => {
-    const { className, articles, view = EArticlesView.SMALL, isLoading } = props;
+    const { className, articles, view = EArticlesView.TILED, isLoading } = props;
 
     if (isLoading) {
         return (
