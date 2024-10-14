@@ -8,6 +8,7 @@ import { IUserSchema } from 'entities/User';
 import { IAddNewCommentFormSchema } from 'features/addNewCommentForm';
 import { ILoginSchema } from 'features/AuthByUserName';
 import { IArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import type { ReducersMapObject } from 'redux';
 
 export interface IStateSchema {
@@ -20,6 +21,7 @@ export interface IStateSchema {
     articleDetails?: IArticleDetailsSchema;
     articleDetailsComments?: IArticleDetailsCommentSchema;
     addNewCommentForm?: IAddNewCommentFormSchema;
+    articlesPage?: IArticlesPageSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;

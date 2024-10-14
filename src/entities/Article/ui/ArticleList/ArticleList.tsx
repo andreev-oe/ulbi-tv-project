@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { IArticle, EArticleView } from '../../model/types/articleTypes';
+import { IArticle, EArticlesView } from '../../model/types/articleTypes';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 import Styles from './ArticleList.module.scss';
@@ -12,16 +12,16 @@ interface IArticleListProps {
     className?: string;
     articles: IArticle[];
     isLoading?: boolean;
-    view?: EArticleView;
+    view?: EArticlesView;
 }
 
-const getSkeletons = (view: EArticleView) =>
-    new Array(view === EArticleView.SMALL ? 18 : 3)
+const getSkeletons = (view: EArticlesView) =>
+    new Array(view === EArticlesView.SMALL ? 18 : 3)
         .fill(0)
         .map((_, index) => <ArticleListItemSkeleton className={Styles.card} key={index} view={view} />);
 
 export const ArticleList = memo((props: IArticleListProps) => {
-    const { className, articles, view = EArticleView.SMALL, isLoading } = props;
+    const { className, articles, view = EArticlesView.SMALL, isLoading } = props;
 
     if (isLoading) {
         return (

@@ -4,19 +4,19 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 
-import { EArticleView } from '../../model/types/articleTypes';
+import { EArticlesView } from '../../model/types/articleTypes';
 
 import Styles from './ArticleListItem.module.scss';
 
 interface IArticleListItemSkeletonProps {
     className?: string;
-    view: EArticleView;
+    view: EArticlesView;
 }
 
 export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProps) => {
     const { className, view } = props;
 
-    if (view === EArticleView.BIG) {
+    if (view === EArticlesView.BIG) {
         return (
             <div
                 className={classNames({

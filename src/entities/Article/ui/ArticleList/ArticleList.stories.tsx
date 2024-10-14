@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { EArticleView, IArticle } from '../../model/types/articleTypes';
+import { EArticlesView, IArticle } from '../../model/types/articleTypes';
 
 import { ArticleList } from './ArticleList';
 
@@ -90,14 +90,14 @@ export const LoadingBig = Template.bind({});
 LoadingBig.args = {
     articles: [],
     isLoading: true,
-    view: EArticleView.BIG,
+    view: EArticlesView.BIG,
 };
 
 export const LoadingSmall = Template.bind({});
 LoadingSmall.args = {
     articles: [],
     isLoading: true,
-    view: EArticleView.SMALL,
+    view: EArticlesView.SMALL,
 };
 
 export const ListSmall = Template.bind({});
@@ -107,7 +107,7 @@ ListSmall.args = {
         id: String(index),
     })),
     isLoading: false,
-    view: EArticleView.SMALL,
+    view: EArticlesView.SMALL,
 };
 
 export const ListBig = Template.bind({});
@@ -117,5 +117,5 @@ ListBig.args = {
         id: String(index),
     })),
     isLoading: false,
-    view: EArticleView.BIG,
+    view: EArticlesView.BIG,
 };

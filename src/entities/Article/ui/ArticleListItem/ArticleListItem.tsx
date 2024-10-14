@@ -12,7 +12,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 
-import { EArticleBlockType, EArticleView, IArticle, IArticleTextBlock } from '../../model/types/articleTypes';
+import { EArticleBlockType, EArticlesView, IArticle, IArticleTextBlock } from '../../model/types/articleTypes';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import Styles from './ArticleListItem.module.scss';
@@ -20,7 +20,7 @@ import Styles from './ArticleListItem.module.scss';
 interface IArticleListItemProps {
     className?: string;
     article: IArticle;
-    view: EArticleView;
+    view: EArticlesView;
 }
 
 export const ArticleListItem = memo((props: IArticleListItemProps) => {
@@ -46,7 +46,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
         </>
     );
 
-    if (view === EArticleView.BIG) {
+    if (view === EArticlesView.BIG) {
         const textBlock = article.blocks.find((block) => block.type === EArticleBlockType.TEXT) as IArticleTextBlock;
 
         return (

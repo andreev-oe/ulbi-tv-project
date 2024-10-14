@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { EArticleView, IArticle } from '../../model/types/articleTypes';
+import { EArticlesView, IArticle } from '../../model/types/articleTypes';
 
 import { ArticleListItem } from './ArticleListItem';
 
@@ -88,12 +88,12 @@ const article = {
 
 export const Big = Template.bind({});
 Big.args = {
-    view: EArticleView.BIG,
+    view: EArticlesView.BIG,
     article,
 };
 
 export const Small = Template.bind({});
 Small.args = {
-    view: EArticleView.SMALL,
+    view: EArticlesView.SMALL,
     article,
 };

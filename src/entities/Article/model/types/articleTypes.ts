@@ -36,7 +36,7 @@ export enum EArticleType {
     ECONOMICS = 'ECONOMICS',
 }
 
-export enum EArticleView {
+export enum EArticlesView {
     BIG = 'BIG',
     SMALL = 'SMALL',
 }

@@ -5,6 +5,7 @@ import { profileReducer } from 'entities/Profile';
 import { addNewCommentFormReducer } from 'features/addNewCommentForm/model/slice/addNewCommentFormSlice';
 import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage';
+import { articlesPageReducer } from 'pages/ArticlesPage';
 import { ReducersMapObject } from 'redux';
 import { TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 
@@ -14,6 +15,7 @@ const defaultAsyncReducers: TReducersList = {
     articleDetails: articleDetailsReducer,
     addNewCommentForm: addNewCommentFormReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
+    articlesPage: articlesPageReducer,
 };
 
 export const ReduxStoreDecorator = (
