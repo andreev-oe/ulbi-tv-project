@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 
 import { ArticleList, ArticleViewSelector, EArticlesView } from 'entities/Article';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -24,11 +25,15 @@ export const ArticlesPage = memo(() => {
 
     const view = useSelector(articlesPageViewSelector);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, []);
+
     const onChangeView = useCallback(
         (view: EArticlesView) => {
             dispatch(articlesPageAtions.setView(view));
         },
-        [dispatch],
+        [view],
     );
 
     useInitialEffect(() => {
@@ -38,7 +43,7 @@ export const ArticlesPage = memo(() => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page>
+            <Page onScrollEnd={onLoadNextPart}>
                 <ArticleViewSelector view={view} onChangeView={onChangeView} />
                 <ArticleList isLoading={isLoading} view={view} articles={articles} />
             </Page>

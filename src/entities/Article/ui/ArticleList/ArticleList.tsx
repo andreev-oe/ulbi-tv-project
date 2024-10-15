@@ -23,16 +23,6 @@ const getSkeletons = (view: EArticlesView) =>
 export const ArticleList = memo((props: IArticleListProps) => {
     const { className, articles, view = EArticlesView.TILED, isLoading } = props;
 
-    if (isLoading) {
-        return (
-            <div
-                className={classNames({ rootClass: Styles.ArticleList, additionalClasses: [className, Styles[view]] })}
-            >
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: IArticle) => (
         <ArticleListItem article={article} view={view} className={Styles.card} key={article.id} />
     );
@@ -40,6 +30,9 @@ export const ArticleList = memo((props: IArticleListProps) => {
     return (
         <div className={classNames({ rootClass: Styles.ArticleList, additionalClasses: [className, Styles[view]] })}>
             {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });
+
+ArticleList.displayName = 'ArticleList';
