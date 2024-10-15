@@ -13,10 +13,13 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
-import { articleDetailsCommentsIsLoadingSelector, articleDetailsCommentsSelector } from '../model/selectors/comments';
+import { articleDetailsCommentsIsLoadingSelector } from '../model/selectors/comments';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer } from '../model/slices/articleDetailsCommentsSlice';
+import {
+    articleDetailsCommentsReducer,
+    articleDetailsCommentsSelector,
+} from '../model/slices/articleDetailsCommentsSlice';
 
 import Styles from './ArticleDetailsPage.module.scss';
 

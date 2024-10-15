@@ -3,13 +3,23 @@ import { IThunkConfig } from 'app/providers/ReduxStore';
 import { IArticle } from 'entities/Article';
 import i18n from 'shared/config/i18n/i18n';
 
-export const fetchArticlesList = createAsyncThunk<IArticle[], void, IThunkConfig<string>>(
+import { articlesPageLimitSelector } from '../../selectors/articlePage';
+
+interface IFetchArticlesListProps {
+    page?: number;
+}
+
+export const fetchArticlesList = createAsyncThunk<IArticle[], IFetchArticlesListProps, IThunkConfig<string>>(
     'articlesPage/fetchArticlesList',
-    async (_, thunkAPI) => {
+    async (props, thunkAPI) => {
+        const { page = 1 } = props;
+        const limit = articlesPageLimitSelector(thunkAPI.getState());
         try {
             const response = await thunkAPI.extra.api.get<IArticle[]>('/articles', {
                 params: {
                     _expand: 'user',
+                    _limit: limit,
+                    _page: page,
                 },
             });
 

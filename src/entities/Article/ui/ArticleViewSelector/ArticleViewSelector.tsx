@@ -37,6 +37,7 @@ export const ArticleViewSelector = memo(({ className, view, onChangeView }: IArt
                 return (
                     <Button theme={EButtonTheme.CLEAR} onClick={onClick(viewType.view)}>
                         <Icon
+                            key={viewType.view}
                             Svg={viewType.icon}
                             className={classNames({
                                 conditionalClasses: { [Styles.selected]: viewType.view === view },

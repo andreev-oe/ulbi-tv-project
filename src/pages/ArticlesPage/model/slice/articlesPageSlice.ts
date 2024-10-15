@@ -1,4 +1,5 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IStateSchema } from 'app/providers/ReduxStore';
 import { EArticlesView, IArticle } from 'entities/Article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
 
@@ -10,6 +11,10 @@ export const articlesPageAdapter = createEntityAdapter<IArticle>({
     selectId: (comment) => comment.id,
 });
 
+export const articlesPageSelector = articlesPageAdapter.getSelectors<IStateSchema>((state) => {
+    return state.articlesPage || articlesPageAdapter.getInitialState();
+});
+
 const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState: articlesPageAdapter.getInitialState<IArticlesPageSchema>({
@@ -18,6 +23,9 @@ const articlesPageSlice = createSlice({
         ids: [],
         entities: {},
         view: EArticlesView.TILED,
+        page: 1,
+        limit: 10,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action: PayloadAction<EArticlesView>) => {
@@ -25,7 +33,9 @@ const articlesPageSlice = createSlice({
             localStorage.setItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY, action.payload);
         },
         initiateState: (state) => {
-            state.view = localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY) as EArticlesView;
+            const view = localStorage.getItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY) as EArticlesView;
+            state.view = view;
+            state.limit = view === EArticlesView.LIST ? 5 : 18;
         },
     },
     extraReducers: (builder) => {

@@ -6,14 +6,9 @@ import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
-import {
-    articlesPageErrorSelector,
-    articlesPageIsLoadingSelector,
-    articlesPageSelector,
-    articlesPageViewSelector,
-} from '../model/selectors/articlePage';
+import { articlesPageIsLoadingSelector, articlesPageViewSelector } from '../model/selectors/articlePage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageAtions, articlesPageReducer } from '../model/slice/articlesPageSlice';
+import { articlesPageAtions, articlesPageReducer, articlesPageSelector } from '../model/slice/articlesPageSlice';
 
 const reducers: TReducersList = {
     articlesPage: articlesPageReducer,
@@ -26,8 +21,6 @@ export const ArticlesPage = memo(() => {
 
     const isLoading = useSelector(articlesPageIsLoadingSelector);
 
-    const error = useSelector(articlesPageErrorSelector);
-
     const view = useSelector(articlesPageViewSelector);
 
     const onChangeView = useCallback(
@@ -39,7 +32,7 @@ export const ArticlesPage = memo(() => {
 
     useInitialEffect(() => {
         dispatch(articlesPageAtions.initiateState());
-        dispatch(fetchArticlesList());
+        dispatch(fetchArticlesList({ page: 1 }));
     });
 
     return (
