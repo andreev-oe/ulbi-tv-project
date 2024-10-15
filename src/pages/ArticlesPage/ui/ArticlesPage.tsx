@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 
 import { articlesPageIsLoadingSelector, articlesPageViewSelector } from '../model/selectors/articlePage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
@@ -37,10 +38,10 @@ export const ArticlesPage = memo(() => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div>
+            <Page>
                 <ArticleViewSelector view={view} onChangeView={onChangeView} />
                 <ArticleList isLoading={isLoading} view={view} articles={articles} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

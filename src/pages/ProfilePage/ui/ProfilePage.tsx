@@ -21,6 +21,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
@@ -91,7 +92,7 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames({ rootClass: '', additionalClasses: [className] })}>
+            <Page className={classNames({ rootClass: '', additionalClasses: [className] })}>
                 <ProfilePageHeader />
                 {validationErrors?.length &&
                     validationErrors.map((error) => (
@@ -111,7 +112,7 @@ export const ProfilePage = memo(({ className }: IProfilePageProps) => {
                     onChangeCountry={onChangeCountry}
                     readonly={readonly}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

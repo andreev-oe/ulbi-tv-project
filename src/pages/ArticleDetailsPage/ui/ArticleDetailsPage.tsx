@@ -11,6 +11,7 @@ import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
+import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import { articleDetailsCommentsIsLoadingSelector } from '../model/selectors/comments';
@@ -53,7 +54,7 @@ export const ArticleDetailsPage = memo(() => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={Styles.ArticleDetailsPage}>
+            <Page className={Styles.ArticleDetailsPage}>
                 <Button className={Styles.backButton} theme={EButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -61,7 +62,7 @@ export const ArticleDetailsPage = memo(() => {
                 <Text className={Styles.commentTitle} title={t('Комментарии')} />
                 <AddCommentFormLazy onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });
