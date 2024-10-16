@@ -7,3 +7,4 @@ export const articlesPagePageSelector = (state: IStateSchema) => state.articlesP
 export const articlesPageLimitSelector = (state: IStateSchema) => state.articlesPage?.limit;
 export const articlesPageHasMoreSelector = (state: IStateSchema) => state.articlesPage?.hasMore;
 export const articlesPageViewSelector = (state: IStateSchema) => state.articlesPage?.view || EArticlesView.TILED;
+export const articlesPageIsInitializedSelector = (state: IStateSchema) => state.articlesPage?._isInitialized;
