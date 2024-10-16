@@ -1159,6 +1159,12 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "dgdff",
+      "id": "DM475gt"
     }
   ],
   "users": [

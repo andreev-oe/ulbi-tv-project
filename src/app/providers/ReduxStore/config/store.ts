@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { scrollPositionReducer } from 'features/ScrollPosition';
 import type { ReducersMapObject } from 'redux';
 import { api } from 'shared/api/api';
 
@@ -12,6 +13,7 @@ export const createReduxStore = (initialState: IStateSchema, asyncReducers?: Red
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollPosition: scrollPositionReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);

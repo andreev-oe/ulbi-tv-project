@@ -4,7 +4,7 @@ import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 export const MainPage = memo(() => {
     const { t } = useTranslation('main');

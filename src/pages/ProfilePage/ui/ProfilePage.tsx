@@ -21,8 +21,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page/Page';
 
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 

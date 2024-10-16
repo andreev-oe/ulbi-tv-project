@@ -7,6 +7,7 @@ import { IProfileSchema } from 'entities/Profile';
 import { IUserSchema } from 'entities/User';
 import { IAddNewCommentFormSchema } from 'features/addNewCommentForm';
 import { ILoginSchema } from 'features/AuthByUserName';
+import { IScrollPositionSchema } from 'features/ScrollPosition';
 import { IArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import type { ReducersMapObject } from 'redux';
@@ -14,6 +15,7 @@ import type { ReducersMapObject } from 'redux';
 export interface IStateSchema {
     counter: ICounterSchema;
     user: IUserSchema;
+    scrollPosition: IScrollPositionSchema;
 
     // Асинхронные редюсеры
     loginForm?: ILoginSchema;
