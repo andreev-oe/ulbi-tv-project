@@ -1,7 +1,6 @@
 import { memo, useCallback } from 'react';
 
 import { ArticleList } from 'entities/Article';
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
@@ -13,6 +12,7 @@ import { articlesPageIsLoadingSelector, articlesPageViewSelector } from '../../m
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initiateArticlesPage } from '../../model/services/initiateArticlesPage/initiateArticlesPage';
 import { articlesPageReducer, articlesPageSelector } from '../../model/slice/articlesPageSlice';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import Styles from './ArticlesPage.module.scss';
 

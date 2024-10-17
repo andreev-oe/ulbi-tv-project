@@ -1,3 +1,5 @@
+import { ArticleViewField } from 'entities/Article/ui/ArticleViewField/ArticleViewField';
+
 import { articleDetailsDataSelector } from './model/selectors/articleDetails';
 import { IArticleDetailsSchema } from './model/types/articleDetailsSchema';
 import {
@@ -10,7 +12,6 @@ import {
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { ArticleList } from './ui/ArticleList/ArticleList';
 import { ArticlesSortField } from './ui/ArticlesSortField/ArticlesSortField';
-import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
     ArticleDetails,
@@ -20,7 +21,7 @@ export {
     EArticleBlockType,
     ArticleList,
     EArticlesView,
-    ArticleViewSelector,
+    ArticleViewField,
     EArticlesSortField,
     EArticleType,
     ArticlesSortField,

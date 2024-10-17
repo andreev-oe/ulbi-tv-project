@@ -5,7 +5,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticlesSortField } from './ArticlesSortField';
 
 export default {
-    title: 'ArticlesSortField/ArticlesSortField',
+    title: 'entities/Article/ArticlesSortField',
     component: ArticlesSortField,
 } as ComponentMeta<typeof ArticlesSortField>;
 

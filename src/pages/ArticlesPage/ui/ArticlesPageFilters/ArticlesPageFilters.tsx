@@ -1,12 +1,7 @@
 import { memo, useCallback } from 'react';
 
-import {
-    ArticlesSortField,
-    ArticleViewSelector,
-    EArticlesSortField,
-    EArticlesView,
-    EArticleType,
-} from 'entities/Article';
+import { ArticlesSortField, ArticleViewField, EArticlesSortField, EArticlesView, EArticleType } from 'entities/Article';
+import { ArticlesTypeTabs } from 'entities/Article/ui/ArticlesTypeTabs/ArticlesTypeTabs';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -99,11 +94,12 @@ export const ArticlesPageFilters = memo(({ className }: IArticlesPageFiltersProp
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
                 />
-                <ArticleViewSelector view={view} onChangeView={onChangeView} />
+                <ArticleViewField view={view} onChangeView={onChangeView} />
             </div>
-            <Card className={Styles.search}>
+            <Card>
                 <Input onChange={onChangeSearch} value={search} label={t('Поиск')} />
             </Card>
+            <ArticlesTypeTabs value={type} onChangeType={onChangeType} />
         </div>
     );
 });

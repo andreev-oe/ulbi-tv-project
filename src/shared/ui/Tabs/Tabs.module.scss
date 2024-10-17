@@ -1,0 +1,7 @@
+@import 'app/styles/variables/common';
+
+.Tabs {
+    cursor: pointer;
+    display: flex;
+    gap: $base * 2;
+}

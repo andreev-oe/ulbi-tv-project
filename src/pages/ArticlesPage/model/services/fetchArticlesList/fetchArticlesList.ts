@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from 'app/providers/ReduxStore';
-import { IArticle } from 'entities/Article';
+import { EArticleType, IArticle } from 'entities/Article';
 import i18n from 'shared/config/i18n/i18n';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 
@@ -30,6 +30,7 @@ export const fetchArticlesList = createAsyncThunk<IArticle[], IFetchArticlesList
         addQueryParams({
             sort,
             order,
+            type,
             search,
         });
 
@@ -42,6 +43,7 @@ export const fetchArticlesList = createAsyncThunk<IArticle[], IFetchArticlesList
                     _sort: sort,
                     _order: order,
                     q: search,
+                    type: type === EArticleType.ALL ? undefined : type,
                 },
             });
 

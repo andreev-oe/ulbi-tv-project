@@ -7,7 +7,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 
-import Styles from './ArticleViewSelector.module.scss';
+import Styles from './ArticleViewField.module.scss';
 
 interface IArticleViewSelectorProps {
     className?: string;
@@ -15,24 +15,24 @@ interface IArticleViewSelectorProps {
     onChangeView?: (view: EArticlesView) => void;
 }
 
-const viewTypes = [
-    {
-        view: EArticlesView.TILED,
-        icon: TiledIcon,
-    },
-    {
-        view: EArticlesView.LIST,
-        icon: ListIcon,
-    },
-];
+export const ArticleViewField = memo(({ className, view, onChangeView }: IArticleViewSelectorProps) => {
+    const viewTypes = [
+        {
+            view: EArticlesView.TILED,
+            icon: TiledIcon,
+        },
+        {
+            view: EArticlesView.LIST,
+            icon: ListIcon,
+        },
+    ];
 
-export const ArticleViewSelector = memo(({ className, view, onChangeView }: IArticleViewSelectorProps) => {
     const onClick = (newView: EArticlesView) => () => {
         onChangeView?.(newView);
     };
 
     return (
-        <div className={classNames({ rootClass: Styles.ArticleViewSelector, additionalClasses: [className] })}>
+        <div className={classNames({ rootClass: Styles.ArticleViewField, additionalClasses: [className] })}>
             {viewTypes.map((viewType) => {
                 return (
                     <Button key={viewType.view} theme={EButtonTheme.CLEAR} onClick={onClick(viewType.view)}>
@@ -48,3 +48,5 @@ export const ArticleViewSelector = memo(({ className, view, onChangeView }: IArt
         </div>
     );
 });
+
+ArticleViewField.displayName = 'ArticleViewField';

@@ -56,3 +56,5 @@ export const ArticleListItemSkeleton = memo((props: IArticleListItemSkeletonProp
         </div>
     );
 });
+
+ArticleListItemSkeleton.displayName = 'ArticleListItemSkeleton';
