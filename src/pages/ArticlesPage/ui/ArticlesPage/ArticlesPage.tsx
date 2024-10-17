@@ -1,16 +1,19 @@
 import { memo, useCallback } from 'react';
 
-import { ArticleList, ArticleViewSelector, EArticlesView } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
 
-import { articlesPageIsLoadingSelector, articlesPageViewSelector } from '../model/selectors/articlePage';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initiateArticlesPage } from '../model/services/initiateArticlesPage/initiateArticlesPage';
-import { articlesPageAtions, articlesPageReducer, articlesPageSelector } from '../model/slice/articlesPageSlice';
+import { articlesPageIsLoadingSelector, articlesPageViewSelector } from '../../model/selectors/articlePage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initiateArticlesPage } from '../../model/services/initiateArticlesPage/initiateArticlesPage';
+import { articlesPageReducer, articlesPageSelector } from '../../model/slice/articlesPageSlice';
+
+import Styles from './ArticlesPage.module.scss';
 
 const reducers: TReducersList = {
     articlesPage: articlesPageReducer,
@@ -29,21 +32,14 @@ export const ArticlesPage = memo(() => {
         dispatch(fetchNextArticlesPage());
     }, []);
 
-    const onChangeView = useCallback(
-        (view: EArticlesView) => {
-            dispatch(articlesPageAtions.setView(view));
-        },
-        [view],
-    );
-
     useInitialEffect(() => {
         dispatch(initiateArticlesPage());
     });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page onScrollEnd={onLoadNextPart}>
-                <ArticleViewSelector view={view} onChangeView={onChangeView} />
+            <Page className={Styles.ArticlesPage} onScrollEnd={onLoadNextPart}>
+                <ArticlesPageFilters />
                 <ArticleList isLoading={isLoading} view={view} articles={articles} />
             </Page>
         </DynamicModuleLoader>

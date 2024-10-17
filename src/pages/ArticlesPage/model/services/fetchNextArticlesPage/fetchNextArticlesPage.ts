@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from 'app/providers/ReduxStore';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageAtions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
+import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPageSlice';
 
 import {
     articlesPageHasMoreSelector,
@@ -17,7 +17,7 @@ export const fetchNextArticlesPage = createAsyncThunk<void, void, IThunkConfig<s
         const isLoading = articlesPageIsLoadingSelector(thunkAPI.getState());
 
         if (hasMore && !isLoading) {
-            thunkAPI.dispatch(articlesPageAtions.setPage(page + 1));
+            thunkAPI.dispatch(articlesPageActions.setPage(page + 1));
             thunkAPI.dispatch(fetchArticlesList({ page: page + 1 }));
         }
     },

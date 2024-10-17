@@ -1,7 +1,8 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/ReduxStore';
-import { EArticlesView, IArticle } from 'entities/Article';
+import { EArticlesSortField, EArticlesView, EArticleType, IArticle } from 'entities/Article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
+import { TSortOrder } from 'shared/types';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { IArticlesPageSchema } from '../types/articlePage';
@@ -26,6 +27,10 @@ const articlesPageSlice = createSlice({
         page: 1,
         limit: 10,
         hasMore: true,
+        order: 'asc',
+        sort: EArticlesSortField.CREATED_AT,
+        search: '',
+        type: EArticleType.ALL,
         _isInitialized: false,
     }),
     reducers: {
@@ -41,6 +46,18 @@ const articlesPageSlice = createSlice({
             state.view = view;
             state._isInitialized = true;
             state.limit = view === EArticlesView.LIST ? 5 : 18;
+        },
+        setOrder: (state, action: PayloadAction<TSortOrder>) => {
+            state.order = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
+        },
+        setSort: (state, action: PayloadAction<EArticlesSortField>) => {
+            state.sort = action.payload;
+        },
+        setType: (state, action: PayloadAction<EArticleType>) => {
+            state.type = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -62,4 +79,4 @@ const articlesPageSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { reducer: articlesPageReducer, actions: articlesPageAtions } = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;

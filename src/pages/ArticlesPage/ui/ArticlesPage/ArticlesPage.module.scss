@@ -1,0 +1,7 @@
+@import 'app/styles/variables/common';
+
+.ArticlesPage {
+    display: flex;
+    flex-direction: column;
+    gap: $base * 5;
+}

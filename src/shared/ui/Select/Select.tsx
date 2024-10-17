@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import Styles from './Select.module.scss';
 
-interface ISelectOption {
+export interface ISelectOption {
     value: string;
     content: string;
 }

@@ -1,0 +1,7 @@
+@import 'app/styles/variables/common';
+
+.ArticlesSortField {
+    align-items: center;
+    display: flex;
+    gap: $base * 4;
+}
