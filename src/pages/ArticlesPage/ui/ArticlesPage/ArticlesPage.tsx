@@ -3,6 +3,7 @@ import { memo, useCallback } from 'react';
 import { ArticleList } from 'entities/Article';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -20,6 +21,8 @@ const reducers: TReducersList = {
 };
 
 export const ArticlesPage = memo(() => {
+    const [searchParams] = useSearchParams();
+
     const dispatch = useAppDispatch();
 
     const articles = useSelector(articlesPageSelector.selectAll);
@@ -33,7 +36,7 @@ export const ArticlesPage = memo(() => {
     }, []);
 
     useInitialEffect(() => {
-        dispatch(initiateArticlesPage());
+        dispatch(initiateArticlesPage(searchParams));
     });
 
     return (
