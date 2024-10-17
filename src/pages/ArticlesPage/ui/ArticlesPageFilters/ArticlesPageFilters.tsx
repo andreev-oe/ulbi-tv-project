@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TSortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
@@ -22,6 +23,7 @@ import {
     articlesPageTypeSelector,
     articlesPageViewSelector,
 } from '../../model/selectors/articlePage';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 
 import Styles from './ArticlesPageFilters.module.scss';
@@ -40,8 +42,10 @@ export const ArticlesPageFilters = memo(({ className }: IArticlesPageFiltersProp
     const type = useSelector(articlesPageTypeSelector);
 
     const fetchData = useCallback(() => {
-        // dispatch(fetchArticlesList({ replace: true }));
+        dispatch(fetchArticlesList({ replace: true }));
     }, [dispatch]);
+
+    const debouncedFetchData = useDebounce(fetchData, 500);
 
     const onChangeView = useCallback(
         (view: EArticlesView) => {
@@ -72,9 +76,9 @@ export const ArticlesPageFilters = memo(({ className }: IArticlesPageFiltersProp
         (search: string) => {
             dispatch(articlesPageActions.setSearch(search));
             dispatch(articlesPageActions.setPage(1));
-            fetchData();
+            debouncedFetchData();
         },
-        [fetchData],
+        [debouncedFetchData],
     );
 
     const onChangeType = useCallback(
@@ -98,7 +102,7 @@ export const ArticlesPageFilters = memo(({ className }: IArticlesPageFiltersProp
                 <ArticleViewSelector view={view} onChangeView={onChangeView} />
             </div>
             <Card className={Styles.search}>
-                <Input value={search} label={t('Поиск')} />
+                <Input onChange={onChangeSearch} value={search} label={t('Поиск')} />
             </Card>
         </div>
     );
