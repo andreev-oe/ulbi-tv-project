@@ -3,6 +3,7 @@ import { memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { AddCommentFormLazy } from 'features/addNewCommentForm';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -19,20 +20,13 @@ import { articleDetailsRecommendationsIsLoadingSelector } from '../model/selecto
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import {
-    articleDetailsCommentsReducer,
-    articleDetailsCommentsSelector,
-} from '../model/slices/articleDetailsCommentsSlice';
-import {
-    articleDetailsPageRecommendationsReducer,
-    articleDetailsPageRecommendationsSelector,
-} from '../model/slices/articleDetailsPageRecommendationsSlice';
+import { articleDetailsCommentsSelector } from '../model/slices/articleDetailsCommentsSlice';
+import { articleDetailsPageRecommendationsSelector } from '../model/slices/articleDetailsPageRecommendationsSlice';
 
 import Styles from './ArticleDetailsPage.module.scss';
 
 const reducers: TReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
+    articleDetailsPageSchema: articleDetailsPageReducer,
 };
 
 export const ArticleDetailsPage = memo(() => {

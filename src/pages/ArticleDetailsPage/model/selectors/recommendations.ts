@@ -1,6 +1,6 @@
 import { IStateSchema } from 'app/providers/ReduxStore';
 
 export const articleDetailsRecommendationsIsLoadingSelector = (state: IStateSchema) =>
-    state.articleDetailsRecommendations?.isLoading;
+    state.articleDetailsPageSchema?.recommendations.isLoading;
 export const articleDetailsRecommendationsErrorSelector = (state: IStateSchema) =>
-    state.articleDetailsRecommendations?.error;
+    state.articleDetailsPageSchema?.recommendations.error;

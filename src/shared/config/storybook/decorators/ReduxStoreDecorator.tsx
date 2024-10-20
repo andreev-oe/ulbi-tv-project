@@ -4,7 +4,7 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { profileReducer } from 'entities/Profile';
 import { addNewCommentFormReducer } from 'features/addNewCommentForm/model/slice/addNewCommentFormSlice';
 import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
 import { articlesPageReducer } from 'pages/ArticlesPage';
 import { ReducersMapObject } from 'redux';
 import { TReducersList } from 'shared/lib/components/DynamicModuleLoader';
@@ -14,7 +14,7 @@ const defaultAsyncReducers: TReducersList = {
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addNewCommentForm: addNewCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPageSchema: articleDetailsPageReducer,
     articlesPage: articlesPageReducer,
 };
 

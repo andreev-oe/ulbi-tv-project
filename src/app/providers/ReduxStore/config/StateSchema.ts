@@ -8,7 +8,7 @@ import { IUserSchema } from 'entities/User';
 import { IAddNewCommentFormSchema } from 'features/addNewCommentForm';
 import { ILoginSchema } from 'features/AuthByUserName';
 import { IScrollPositionSchema } from 'features/ScrollPosition';
-import { IArticleDetailsCommentSchema, IArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
+import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import type { ReducersMapObject } from 'redux';
 
@@ -21,10 +21,9 @@ export interface IStateSchema {
     loginForm?: ILoginSchema;
     profile?: IProfileSchema;
     articleDetails?: IArticleDetailsSchema;
-    articleDetailsComments?: IArticleDetailsCommentSchema;
-    articleDetailsRecommendations?: IArticleDetailsRecommendationsSchema;
     addNewCommentForm?: IAddNewCommentFormSchema;
     articlesPage?: IArticlesPageSchema;
+    articleDetailsPageSchema?: IArticleDetailsPageSchema;
 }
 
 export type TStateSchemaKey = keyof IStateSchema;
