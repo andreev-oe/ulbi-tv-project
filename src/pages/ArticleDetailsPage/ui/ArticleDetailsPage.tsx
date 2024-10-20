@@ -64,7 +64,7 @@ export const ArticleDetailsPage = memo(() => {
                 </Button>
                 <ArticleDetails id={id} />
                 <Text className={Styles.commentTitle} title={t('Рекомендуем')} />
-                <ArticleList articles={recommendations} isLoading={recommendationsIsLoading} />
+                <ArticleList articles={recommendations} isLoading={recommendationsIsLoading} target="_blank" />
                 <Text className={Styles.commentTitle} title={t('Комментарии')} />
                 <AddCommentFormLazy onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />

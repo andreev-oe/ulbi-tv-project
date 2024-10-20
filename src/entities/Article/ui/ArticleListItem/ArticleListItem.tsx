@@ -1,11 +1,12 @@
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import { generatePath, useNavigate } from 'react-router-dom';
+import { generatePath } from 'react-router-dom';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
@@ -21,21 +22,17 @@ interface IArticleListItemProps {
     className?: string;
     article: IArticle;
     view: EArticlesView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: IArticleListItemProps) => {
-    const { className, article, view } = props;
+    const { className, article, view, target } = props;
 
     const { t } = useTranslation();
 
-    const navigate = useNavigate();
-
     const [isHovered, bindHover] = useHover();
 
-    const onOpenArticle = useCallback(() => {
-        const path = generatePath(RoutePath.articleDetails, { id: article.id });
-        navigate(path);
-    }, [article.id, navigate]);
+    const path = generatePath(RoutePath.articleDetails, { id: article.id });
 
     const types = <Text text={article.type.join(', ')} className={Styles.types} />;
 
@@ -67,9 +64,9 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
                     <img src={article.img} className={Styles.img} alt={article.title} />
                     {textBlock && <ArticleTextBlock block={textBlock} className={Styles.textBlock} />}
                     <div className={Styles.footer}>
-                        <Button onClick={onOpenArticle} theme={EButtonTheme.OUTLINE}>
-                            {t('Читать далее...')}
-                        </Button>
+                        <AppLink to={path} target={target}>
+                            <Button theme={EButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
+                        </AppLink>
                         {views}
                     </div>
                 </Card>
@@ -78,11 +75,13 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
     }
 
     return (
-        <div
+        <AppLink
             {...bindHover}
+            to={path}
+            target={target}
             className={classNames({ rootClass: Styles.ArticleListItem, additionalClasses: [className, Styles[view]] })}
         >
-            <Card className={Styles.card} onClick={onOpenArticle}>
+            <Card className={Styles.card}>
                 <div className={Styles.imageWrapper}>
                     <img alt={article.title} src={article.img} className={Styles.img} />
                     <Text text={article.createdAt} className={Styles.date} />
@@ -93,7 +92,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
                 </div>
                 <Text text={article.title} className={Styles.title} />
             </Card>
-        </div>
+        </AppLink>
     );
 });
 
