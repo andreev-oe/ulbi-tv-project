@@ -32,3 +32,18 @@ body {
 .content-page {
     display: flex;
 }
+
+*::-webkit-scrollbar {
+    height: $base * 2;
+    width: $base * 3;               /* ширина scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);        /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color);    /* цвет плашки */
+    border: $base * 0.5 solid var(--primary-color);  /* padding вокруг плашки */
+    border-radius: $base * 5;       /* закругления плашки */
+}
