@@ -7,6 +7,7 @@ import Styles from './Text.module.scss';
 export enum ETextTheme {
     PRIMARY = 'primary',
     ERROR = 'error',
+    INVERTED = 'inverted',
 }
 
 export enum ETextALign {

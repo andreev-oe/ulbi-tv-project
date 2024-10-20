@@ -1,5 +1,6 @@
 import { AboutPageLazy } from 'pages/AboutPage';
 import { ArticleDetailsPageLazy } from 'pages/ArticleDetailsPage';
+import { ArticleEditPageLazy } from 'pages/ArticleEditPage';
 import { ArticlesPageLazy } from 'pages/ArticlesPage';
 import { MainPageLazy } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
@@ -16,6 +17,8 @@ export enum EAppRoutes {
     PROFILE = 'profile',
     ARTICLES = 'articles',
     ARTICLE_DETAILS = 'articleDetails',
+    ARTICLE_CREATE = 'articleCreate',
+    ARTICLE_EDIT = 'articleEdit',
     NOT_FOUND = 'notFound',
 }
 
@@ -25,6 +28,8 @@ export const RoutePath: Record<EAppRoutes, string> = {
     [EAppRoutes.PROFILE]: '/profile/:id',
     [EAppRoutes.ARTICLES]: '/articles',
     [EAppRoutes.ARTICLE_DETAILS]: '/articles/:id',
+    [EAppRoutes.ARTICLE_CREATE]: '/articles/create',
+    [EAppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
     [EAppRoutes.NOT_FOUND]: '*',
 };
 
@@ -53,5 +58,13 @@ export const routeConfig: Record<EAppRoutes, TAppRoutesProps> = {
     [EAppRoutes.NOT_FOUND]: {
         path: RoutePath[EAppRoutes.NOT_FOUND],
         element: <NotFoundPage />,
+    },
+    [EAppRoutes.ARTICLE_CREATE]: {
+        path: RoutePath[EAppRoutes.ARTICLE_CREATE],
+        element: <ArticleEditPageLazy />,
+    },
+    [EAppRoutes.ARTICLE_EDIT]: {
+        path: RoutePath[EAppRoutes.ARTICLE_EDIT],
+        element: <ArticleEditPageLazy />,
     },
 };
