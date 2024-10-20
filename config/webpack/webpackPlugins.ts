@@ -1,4 +1,5 @@
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
@@ -18,6 +19,9 @@ export function webpackPlugins({ paths, isDev, apiUrl, envType }: IWebpackOption
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __ENV_TYPE__: JSON.stringify(envType),
+        }),
+        new CopyPlugin({
+            patterns: [{ from: paths.locales, to: paths.buildLocales }],
         }),
     ];
 

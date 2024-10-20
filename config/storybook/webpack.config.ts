@@ -11,6 +11,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
         build: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: '',
+        buildLocales: '',
     };
     const definePlugin = new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
