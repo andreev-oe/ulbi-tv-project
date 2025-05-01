@@ -1,17 +1,15 @@
 import { memo, useCallback } from 'react';
 
-import { ArticleList } from 'entities/Article';
-import { useSelector } from 'react-redux';
+import { ArticleInfiniteList } from 'pages/ArticlesPage/ui/ArticleInfiniteList/ArticleInfiniteList';
 import { useSearchParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
 
-import { articlesPageIsLoadingSelector, articlesPageViewSelector } from '../../model/selectors/articlePage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initiateArticlesPage } from '../../model/services/initiateArticlesPage/initiateArticlesPage';
-import { articlesPageReducer, articlesPageSelector } from '../../model/slice/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import Styles from './ArticlesPage.module.scss';
@@ -25,12 +23,6 @@ export const ArticlesPage = memo(() => {
 
     const dispatch = useAppDispatch();
 
-    const articles = useSelector(articlesPageSelector.selectAll);
-
-    const isLoading = useSelector(articlesPageIsLoadingSelector);
-
-    const view = useSelector(articlesPageViewSelector);
-
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, []);
@@ -43,7 +35,7 @@ export const ArticlesPage = memo(() => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page className={Styles.ArticlesPage} onScrollEnd={onLoadNextPart}>
                 <ArticlesPageFilters />
-                <ArticleList isLoading={isLoading} view={view} articles={articles} />
+                <ArticleInfiniteList className={Styles.list} />
             </Page>
         </DynamicModuleLoader>
     );
