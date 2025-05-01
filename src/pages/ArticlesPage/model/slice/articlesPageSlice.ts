@@ -1,11 +1,11 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IStateSchema } from 'app/providers/ReduxStore';
 import { EArticlesSortField, EArticlesView, EArticleType, IArticle } from 'entities/Article';
+import { IArticlesPageSchema } from 'pages/ArticlesPage';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
 import { TSortOrder } from 'shared/types';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { IArticlesPageSchema } from '../types/articlePage';
 
 export const articlesPageAdapter = createEntityAdapter<IArticle>({
     // Assume IDs are stored in a field other than `book.id`

@@ -8,7 +8,7 @@ import { ReduxStoreDecorator } from 'shared/config/storybook/decorators/ReduxSto
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
 } as ComponentMeta<typeof ArticleDetails>;
 
