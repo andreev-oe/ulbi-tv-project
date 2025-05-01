@@ -1,4 +1,5 @@
-import { ProfilePageLazy } from './ui/ProfilePage.lazy';
-import { ProfilePageHeader } from './ui/ProfilePageHeader/ProfilePageHeader';
+import { EditableProfileCardHeader } from 'features/EditableProfileCard/ui/EditableProfilePageHeader/EditableProfileCardHeader';
 
-export { ProfilePageLazy, ProfilePageHeader };
+import { ProfilePageLazy } from './ui/ProfilePage.lazy';
+
+export { ProfilePageLazy, EditableProfileCardHeader };

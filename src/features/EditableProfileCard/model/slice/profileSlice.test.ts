@@ -1,7 +1,9 @@
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
-import { IProfileSchema, updateProfileData } from 'entities/Profile';
-import { EValidateProfileError } from 'entities/Profile/model/types/types';
+import { IProfileSchema } from 'features/EditableProfileCard';
+import { EValidateProfileError } from 'features/EditableProfileCard/model/types/types';
+
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 import { profileActions, profileReducer } from './profileSlice';
 

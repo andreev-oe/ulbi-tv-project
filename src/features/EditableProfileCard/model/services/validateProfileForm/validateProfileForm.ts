@@ -1,5 +1,5 @@
 import { IProfile } from 'entities/Profile';
-import { EValidateProfileError } from 'entities/Profile/model/types/types';
+import { EValidateProfileError } from 'features/EditableProfileCard/model/types/types';
 
 export const validateProfileForm = (profile?: IProfile) => {
     if (!profile) {

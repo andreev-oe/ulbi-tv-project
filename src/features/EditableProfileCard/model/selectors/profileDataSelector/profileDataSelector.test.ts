@@ -1,7 +1,8 @@
 import { IStateSchema } from 'app/providers/ReduxStore';
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
-import { profileDataSelector } from 'entities/Profile';
+
+import { profileDataSelector } from './profileDataSelector';
 
 describe('profileDataSelector.test', () => {
     test('should return data', () => {

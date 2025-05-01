@@ -1,17 +1,18 @@
 import { IStateSchema } from 'app/providers/ReduxStore';
-import { profileErrorSelector } from 'entities/Profile';
+
+import { profileIsLoadingSelector } from './profileIsLoadingSelector';
 
 describe('profileDataSelector.test', () => {
-    test('should return error', () => {
+    test('should return isLoading', () => {
         const state: TDeepPartial<IStateSchema> = {
             profile: {
-                error: 'error',
+                isLoading: true,
             },
         };
-        expect(profileErrorSelector(state as IStateSchema)).toEqual('error');
+        expect(profileIsLoadingSelector(state as IStateSchema)).toEqual(true);
     });
     test('should work with empty state', () => {
         const state: TDeepPartial<IStateSchema> = {};
-        expect(profileErrorSelector(state as IStateSchema)).toEqual(undefined);
+        expect(profileIsLoadingSelector(state as IStateSchema)).toEqual(undefined);
     });
 });

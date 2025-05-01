@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 import { IStateSchema, ReduxStoreProvider } from 'app/providers/ReduxStore';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { profileReducer } from 'entities/Profile';
 import { addNewCommentFormReducer } from 'features/AddNewCommentForm/model/slice/addNewCommentFormSlice';
 import { loginReducer } from 'features/AuthByUserName/model/slice/loginSlice';
+import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
 import { articlesPageReducer } from 'pages/ArticlesPage';
 import { ReducersMapObject } from 'redux';

@@ -1,5 +1,6 @@
 import { IStateSchema } from 'app/providers/ReduxStore';
-import { profileReadonlySelector } from 'entities/Profile';
+
+import { profileReadonlySelector } from './profileReadonlySelector';
 
 describe('profileDataSelector.test', () => {
     test('should return readonly', () => {

@@ -1,6 +1,7 @@
 import { IStateSchema } from 'app/providers/ReduxStore';
-import { profileValidationErrorsSelector } from 'entities/Profile';
-import { EValidateProfileError } from 'entities/Profile/model/types/types';
+import { EValidateProfileError } from 'features/EditableProfileCard/model/types/types';
+
+import { profileValidationErrorsSelector } from './profileValidationErrorsSelector';
 
 describe('profileDataSelector.test', () => {
     test('should work with filled state', () => {

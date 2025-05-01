@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 
-import { profileActions, profileDataSelector, profileReadonlySelector, updateProfileData } from 'entities/Profile';
 import { userAuthDataSelector } from 'entities/User';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -9,13 +8,18 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
-import Styles from './ProfilePageHeader.module.scss';
+import { profileDataSelector } from '../../model/selectors/profileDataSelector/profileDataSelector';
+import { profileReadonlySelector } from '../../model/selectors/profileReadonlySelector/profileReadonlySelector';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
+
+import Styles from './EditableProfileCardHeader.module.scss';
 
 interface IProfilePageHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = ({ className }: IProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = ({ className }: IProfilePageHeaderProps) => {
     const { t } = useTranslation();
 
     const authData = useSelector(userAuthDataSelector);
@@ -41,7 +45,7 @@ export const ProfilePageHeader = ({ className }: IProfilePageHeaderProps) => {
     }, []);
 
     return (
-        <div className={classNames({ rootClass: Styles.ProfilePageHeader, additionalClasses: [className] })}>
+        <div className={classNames({ rootClass: Styles.EditableProfileCardHeader, additionalClasses: [className] })}>
             <Text title={t('Профиль')} />
             {canEdit && (
                 <div className={Styles.buttonWrapper}>
