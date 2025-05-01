@@ -48,7 +48,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'name', 'alt', 'to', 'title', 'text', 'target'],
+                ignoreAttribute: ['as', 'role', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
             },
         ],
         '@typescript-eslint/no-unused-vars': [
@@ -98,7 +98,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
             },

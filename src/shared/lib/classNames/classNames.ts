@@ -1,4 +1,4 @@
-type TClassNames = Record<string, string | boolean | undefined>;
+export type TClassNames = Record<string, string | boolean | undefined>;
 
 export const classNames = ({
     rootClass,

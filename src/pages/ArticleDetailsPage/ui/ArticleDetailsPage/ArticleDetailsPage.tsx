@@ -1,8 +1,9 @@
 import { memo, useCallback } from 'react';
 
-import { ArticleDetails, ArticleList } from 'entities/Article';
+import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { AddCommentFormLazy } from 'features/addNewCommentForm';
+import { AddCommentFormLazy } from 'features/AddNewCommentForm';
+import { ArticleRecommendationsListLazy } from 'features/ArticleRecommendationsList';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { useTranslation } from 'react-i18next';
@@ -15,12 +16,9 @@ import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
 
 import { articleDetailsCommentsIsLoadingSelector } from '../../model/selectors/comments';
-import { articleDetailsRecommendationsIsLoadingSelector } from '../../model/selectors/recommendations';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsSelector } from '../../model/slices/articleDetailsCommentsSlice';
-import { articleDetailsPageRecommendationsSelector } from '../../model/slices/articleDetailsPageRecommendationsSlice';
 
 import Styles from './ArticleDetailsPage.module.scss';
 
@@ -33,9 +31,7 @@ export const ArticleDetailsPage = memo(() => {
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
     const comments = useSelector(articleDetailsCommentsSelector.selectAll);
-    const recommendations = useSelector(articleDetailsPageRecommendationsSelector.selectAll);
     const isLoading = useSelector(articleDetailsCommentsIsLoadingSelector);
-    const recommendationsIsLoading = useSelector(articleDetailsRecommendationsIsLoadingSelector);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -43,7 +39,6 @@ export const ArticleDetailsPage = memo(() => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
-        dispatch(fetchArticleRecommendations());
     });
 
     if (!id) {
@@ -55,8 +50,7 @@ export const ArticleDetailsPage = memo(() => {
             <Page className={Styles.ArticleDetailsPage}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                <Text className={Styles.commentTitle} title={t('Рекомендуем')} />
-                <ArticleList articles={recommendations} isLoading={recommendationsIsLoading} target="_blank" />
+                <ArticleRecommendationsListLazy />
                 <Text className={Styles.commentTitle} title={t('Комментарии')} />
                 <AddCommentFormLazy onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />

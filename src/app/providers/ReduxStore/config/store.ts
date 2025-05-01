@@ -1,9 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { CombinedState, configureStore, Reducer } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { scrollPositionReducer } from 'features/ScrollPosition';
 import type { ReducersMapObject } from 'redux';
 import { api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 
 import { createReducerManager } from './reducerManager';
 import { IStateSchema } from './StateSchema';
@@ -14,12 +15,13 @@ export const createReduxStore = (initialState: IStateSchema, asyncReducers?: Red
         counter: counterReducer,
         user: userReducer,
         scrollPosition: scrollPositionReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
 
     const store = configureStore({
-        reducer: reducerManager.reduce as unknown as ReducersMapObject<IStateSchema>,
+        reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
@@ -29,7 +31,7 @@ export const createReduxStore = (initialState: IStateSchema, asyncReducers?: Red
                         api: api,
                     },
                 },
-            }),
+            }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore
