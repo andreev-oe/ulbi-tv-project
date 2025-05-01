@@ -30,7 +30,7 @@ export const ArticleListItem = memo((props: IArticleListItemProps) => {
 
     const { t } = useTranslation();
 
-    const [isHovered, bindHover] = useHover();
+    const [_, bindHover] = useHover();
 
     const path = generatePath(RoutePath.articleDetails, { id: article.id });
 
