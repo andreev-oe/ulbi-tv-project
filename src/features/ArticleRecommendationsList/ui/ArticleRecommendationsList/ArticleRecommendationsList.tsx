@@ -21,6 +21,10 @@ export const ArticleRecommendationsList = memo(({ className }: IArticleRecommend
         return <Skeleton className={Styles.skeleton} width="100%" height={200} />;
     }
 
+    if (!articles) {
+        return null;
+    }
+
     return (
         <VStack gap="8" className={classNames({ additionalClasses: [className] })}>
             <Text size={ETextSize.L} title={t('Рекомендуем')} />

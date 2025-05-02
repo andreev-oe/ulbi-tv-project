@@ -2,7 +2,7 @@
 
 .Page {
     flex-grow: 1;
-    height: calc(100vh - var(--navbar-height));
+    height: calc(100% - var(--navbar-height));
     overflow-y: auto;
     padding: $base * 5 $base * 5 $base * 5 $base * 9;
     width: 100%;
