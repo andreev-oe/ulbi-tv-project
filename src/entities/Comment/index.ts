@@ -1,5 +1,4 @@
-import { CommentList } from 'entities/Comment/ui/CommentList/CommentList';
-
 import { IComment } from './model/types/comment';
+import { CommentList } from './ui/CommentList/CommentList';
 
 export { CommentList, IComment };

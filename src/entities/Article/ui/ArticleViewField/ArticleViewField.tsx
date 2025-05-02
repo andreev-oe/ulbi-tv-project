@@ -1,11 +1,12 @@
 import { memo } from 'react';
 
-import { EArticlesView } from 'entities/Article';
 import ListIcon from 'shared/assets/icons/list.svg';
 import TiledIcon from 'shared/assets/icons/tiled.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, EButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
+
+import { EArticlesView } from '../..';
 
 import Styles from './ArticleViewField.module.scss';
 

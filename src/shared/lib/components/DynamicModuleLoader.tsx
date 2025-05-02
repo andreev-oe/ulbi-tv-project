@@ -4,7 +4,8 @@ import { Reducer } from '@reduxjs/toolkit';
 import { IReduxStoreWithManager } from 'app/providers/ReduxStore';
 import { TStateSchemaKey } from 'app/providers/ReduxStore/config/StateSchema';
 import { useStore } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+
+import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
 
 export type TReducersList = {
     [name in TStateSchemaKey]?: Reducer;

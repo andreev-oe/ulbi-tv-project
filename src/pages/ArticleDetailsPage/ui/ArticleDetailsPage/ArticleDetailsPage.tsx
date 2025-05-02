@@ -2,12 +2,12 @@ import { memo } from 'react';
 
 import { ArticleDetails } from 'entities/Article';
 import { ArticleRecommendationsListLazy } from 'features/ArticleRecommendationsList';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { Page } from 'widgets/Page/Page';
 
+import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 

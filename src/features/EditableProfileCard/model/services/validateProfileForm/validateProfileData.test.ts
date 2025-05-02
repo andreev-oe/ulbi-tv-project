@@ -1,6 +1,7 @@
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
-import { EValidateProfileError } from 'features/EditableProfileCard/model/types/types';
+
+import { EValidateProfileError } from '../../types/types';
 
 import { validateProfileForm } from './validateProfileForm';
 

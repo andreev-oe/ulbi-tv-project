@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { IArticle } from 'entities/Article';
-import { EArticleBlockType, EArticleType } from 'entities/Article/model/types/articleTypes';
 import { ReduxStoreDecorator } from 'shared/config/storybook/decorators/ReduxStoreDecorator';
+
+import { IArticle } from '../..';
+import { EArticleBlockType, EArticleType } from '../../model/types/articleTypes';
 
 import { ArticleDetails } from './ArticleDetails';
 

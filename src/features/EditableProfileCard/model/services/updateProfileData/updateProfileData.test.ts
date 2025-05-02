@@ -1,7 +1,8 @@
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
-import { EValidateProfileError } from 'features/EditableProfileCard/model/types/types';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+
+import { EValidateProfileError } from '../../types/types';
 
 import { updateProfileData } from './updateProfileData';
 

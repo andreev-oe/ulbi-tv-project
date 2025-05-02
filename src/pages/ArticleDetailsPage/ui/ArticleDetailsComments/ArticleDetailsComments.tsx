@@ -2,7 +2,6 @@ import { memo, useCallback } from 'react';
 
 import { CommentList } from 'entities/Comment';
 import { AddCommentFormLazy } from 'features/AddNewCommentForm';
-import Styles from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -14,6 +13,7 @@ import { articleDetailsCommentsIsLoadingSelector } from '../../model/selectors/c
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsSelector } from '../../model/slices/articleDetailsCommentsSlice';
+import Styles from '../ArticleDetailsPage/ArticleDetailsPage.module.scss';
 
 interface IArticleDetailsCommentsProps {
     className?: string;

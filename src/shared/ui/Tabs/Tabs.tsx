@@ -1,7 +1,8 @@
 import { memo, ReactNode, useCallback } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Card, ECardTheme } from 'shared/ui/Card/Card';
+
+import { Card, ECardTheme } from '../Card/Card';
 
 import Styles from './Tabs.module.scss';
 

@@ -1,9 +1,5 @@
 import { memo, ReactElement, useCallback, useMemo } from 'react';
 
-import { EArticleBlockType, TArticleBlock } from 'entities/Article/model/types/articleTypes';
-import { ArticleCodeBlock } from 'entities/Article/ui/ArticleCodeBlock/ArticleCodeBlock';
-import { ArticleImageBlock } from 'entities/Article/ui/ArticleImageBlock/ArticleImageBlock';
-import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
@@ -24,6 +20,10 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { EArticleBlockType, TArticleBlock } from '../../model/types/articleTypes';
+import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
+import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import Styles from './ArticleDetails.module.scss';
 

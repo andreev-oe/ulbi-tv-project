@@ -20,7 +20,14 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'eslint-plugin-import-helpers', 'react-hooks'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'eslint-plugin-import-helpers',
+        'react-hooks',
+        'ulbi-tv2-plugin',
+    ],
     rules: {
         'property-no-vendor-prefix': 'off',
         'react/jsx-no-useless-fragment': 'off',
@@ -102,6 +109,7 @@ module.exports = {
         ],
         'jsx-a11y/no-static-element-interactions': ['off'],
         'jsx-a11y/click-events-have-key-events': ['off'],
+        'ulbi-tv2-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: 'readonly',

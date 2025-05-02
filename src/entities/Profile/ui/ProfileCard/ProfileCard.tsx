@@ -2,13 +2,14 @@ import { memo } from 'react';
 
 import { CountrySelect, ECountry } from 'entities/Country';
 import { CurrencySelect, ECurrency } from 'entities/Currency';
-import { IProfile } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { ETextALign, ETextTheme, Text } from 'shared/ui/Text/Text';
+
+import { IProfile } from '../..';
 
 import Styles from './ProfileCard.module.scss';
 

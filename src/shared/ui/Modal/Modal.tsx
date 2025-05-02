@@ -1,7 +1,8 @@
 import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal/Portal';
+
+import { Portal } from '../Portal/Portal';
 
 import Styles from './Modal.module.scss';
 

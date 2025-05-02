@@ -1,6 +1,5 @@
 import { memo, useCallback } from 'react';
 
-import { loginByUsername } from 'features/AuthByUserName/model/services/loginByUserName/loginByUsername';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -14,6 +13,7 @@ import { loginErrorSelector } from '../../model/selectors/loginErrorSelector/log
 import { loginIsLoadingSelector } from '../../model/selectors/loginIsLoadingSelector/loginIsLoadingSelector';
 import { loginPasswordSelector } from '../../model/selectors/loginPasswordSelector/loginPasswordSelector';
 import { loginUsernameSelector } from '../../model/selectors/loginUsernameSelector/loginUsernameSelector';
+import { loginByUsername } from '../../model/services/loginByUserName/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import Styles from './LoginForm.module.scss';

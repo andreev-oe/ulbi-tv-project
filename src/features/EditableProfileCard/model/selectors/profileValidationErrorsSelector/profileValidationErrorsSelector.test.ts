@@ -1,5 +1,6 @@
 import { IStateSchema } from 'app/providers/ReduxStore';
-import { EValidateProfileError } from 'features/EditableProfileCard/model/types/types';
+
+import { EValidateProfileError } from '../../types/types';
 
 import { profileValidationErrorsSelector } from './profileValidationErrorsSelector';
 

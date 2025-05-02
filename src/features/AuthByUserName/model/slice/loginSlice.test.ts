@@ -1,4 +1,4 @@
-import { ILoginSchema } from 'features/AuthByUserName';
+import { ILoginSchema } from '../..';
 
 import { loginReducer, loginActions } from './loginSlice';
 
