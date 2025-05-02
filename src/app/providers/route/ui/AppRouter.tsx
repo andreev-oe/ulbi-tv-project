@@ -6,14 +6,14 @@ import { routeConfig, TAppRoutesProps } from 'shared/config/routeConfig/routeCon
 import { PageLoader } from 'widgets/PageLoader/PageLoader';
 
 export const AppRouter = memo(() => {
-    const renderWithWrapper = useCallback(({ element, authOnly, path }: TAppRoutesProps) => {
+    const renderWithWrapper = useCallback(({ element, authOnly, path, roles }: TAppRoutesProps) => {
         const routeElement = <Suspense fallback={<PageLoader />}>{element}</Suspense>;
 
         return (
             <Route
                 key={path}
                 path={path}
-                element={authOnly ? <RequireAuth>{routeElement}</RequireAuth> : routeElement}
+                element={authOnly ? <RequireAuth roles={roles}>{routeElement}</RequireAuth> : routeElement}
             />
         );
     }, []);

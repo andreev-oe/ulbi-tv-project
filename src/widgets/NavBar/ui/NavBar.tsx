@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 
-import { userActions, userAuthDataSelector } from 'entities/User';
+import { isUserAdmin, isUserManager, userActions, userAuthDataSelector } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -19,14 +19,15 @@ interface INavBarProps {
 
 export const NavBar = memo((props: INavBarProps) => {
     const { className } = props;
-
     const { t } = useTranslation();
-
     const dispatch = useAppDispatch();
-
     const authData = useSelector(userAuthDataSelector);
-
     const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
+
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     const onCloseModal = useCallback(() => {
         setIsAuthModalOpened(false);
@@ -45,6 +46,11 @@ export const NavBar = memo((props: INavBarProps) => {
             <div className={classNames({ rootClass: Styles.NavBar, additionalClasses: [className] })}>
                 <Text className={Styles.appName} title={t('Ulbi TV App')} theme={ETextTheme.INVERTED} />
                 <div className={Styles.links}>
+                    {isAdminPanelAvailable && (
+                        <AppLink to={RoutePath.adminPanel} theme={AppLinkThemes.SECONDARY} className={Styles.createBtn}>
+                            {t('Панель администратора')}
+                        </AppLink>
+                    )}
                     <AppLink to={RoutePath.articleCreate} theme={AppLinkThemes.SECONDARY} className={Styles.createBtn}>
                         {t('Создать статью')}
                     </AppLink>

@@ -1226,14 +1226,21 @@
       "id": "1",
       "username": "oleg",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
     {
       "id": "2",
-      "username": "andrey",
+      "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://avatars.mds.yandex.net/i?id=0e75a6f62fbdfb3bb6f3894ae98be494f94c1ffd-12543315-images-thumbs&n=13"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://avatars.mds.yandex.net/i?id=0e75a6f62fbdfb3bb6f3894ae98be494f94c1ffd-12543315-images-thumbs&n=13"
     }
   ],
@@ -1258,6 +1265,17 @@
       "country": "Russia",
       "city": "Краснодар",
       "username": "andrey",
+      "avatar": "https://avatars.mds.yandex.net/i?id=0e75a6f62fbdfb3bb6f3894ae98be494f94c1ffd-12543315-images-thumbs&n=13"
+    },
+    {
+      "id": "3",
+      "first": "Менеджер",
+      "lastname": "Менеджер",
+      "age": 31,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Краснодар",
+      "username": "manager",
       "avatar": "https://avatars.mds.yandex.net/i?id=0e75a6f62fbdfb3bb6f3894ae98be494f94c1ffd-12543315-images-thumbs&n=13"
     }
   ]

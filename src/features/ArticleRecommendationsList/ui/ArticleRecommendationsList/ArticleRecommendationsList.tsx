@@ -26,7 +26,7 @@ export const ArticleRecommendationsList = memo(({ className }: IArticleRecommend
     }
 
     return (
-        <VStack gap="8" className={classNames({ additionalClasses: [className] })}>
+        <VStack gap="8" max className={classNames({ additionalClasses: [className] })}>
             <Text size={ETextSize.L} title={t('Рекомендуем')} />
             <ArticleList articles={articles} target="_blank" />
         </VStack>
