@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 import { ECountry } from '../../model/types/country';
 
@@ -34,13 +34,15 @@ export const CountrySelect = ({ className, value, onChange, readonly }: ICountry
     );
 
     return (
-        <Select
+        <ListBox
             className={classNames({ rootClass: '', additionalClasses: [className] })}
             label={t('Страна')}
-            options={options}
+            defaultValue={value}
+            items={options}
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}
+            direction="top"
         />
     );
 };

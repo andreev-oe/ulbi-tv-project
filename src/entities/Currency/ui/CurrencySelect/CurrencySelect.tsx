@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 import { ECurrency } from '../../model/types/curency';
 
@@ -32,13 +32,15 @@ export const CurrencySelect = ({ className, value, onChange, readonly }: ICurren
     );
 
     return (
-        <Select
+        <ListBox
             className={classNames({ rootClass: '', additionalClasses: [className] })}
             label={t('Валюта')}
-            options={options}
+            defaultValue={value}
+            items={options}
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}
+            direction="top"
         />
     );
 };
