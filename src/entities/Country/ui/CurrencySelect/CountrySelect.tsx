@@ -42,7 +42,7 @@ export const CountrySelect = ({ className, value, onChange, readonly }: ICountry
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}
-            direction="top"
+            direction="top right"
         />
     );
 };

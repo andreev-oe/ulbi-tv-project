@@ -8,7 +8,9 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, EButtonSize, EButtonTheme } from 'shared/ui/Button/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 
 import Styles from './NavBar.module.scss';
@@ -46,17 +48,25 @@ export const NavBar = memo((props: INavBarProps) => {
             <div className={classNames({ rootClass: Styles.NavBar, additionalClasses: [className] })}>
                 <Text className={Styles.appName} title={t('Ulbi TV App')} theme={ETextTheme.INVERTED} />
                 <div className={Styles.links}>
-                    {isAdminPanelAvailable && (
-                        <AppLink to={RoutePath.adminPanel} theme={AppLinkThemes.SECONDARY} className={Styles.createBtn}>
-                            {t('Панель администратора')}
-                        </AppLink>
-                    )}
                     <AppLink to={RoutePath.articleCreate} theme={AppLinkThemes.SECONDARY} className={Styles.createBtn}>
                         {t('Создать статью')}
                     </AppLink>
-                    <Button theme={EButtonTheme.CLEAR_INVERTED} onClick={onLogout} size={EButtonSize.M}>
-                        {t('Выйти')}
-                    </Button>
+                    <Dropdown
+                        direction="bottom left"
+                        className={Styles.dropdown}
+                        items={[
+                            {
+                                content: t('Панель администратора'),
+                                href: RoutePath.adminPanel,
+                                disabled: !isAdminPanelAvailable,
+                            },
+                            {
+                                content: t('Выйти'),
+                                onClick: onLogout,
+                            },
+                        ]}
+                        trigger={<Avatar size={30} src={authData.avatar} />}
+                    />
                 </div>
             </div>
         );

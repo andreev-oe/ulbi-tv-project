@@ -1,7 +1,8 @@
-import { Fragment, ReactNode, useState } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { TDropdownDirection } from 'shared/types';
 
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
@@ -13,8 +14,6 @@ export interface IListBoxItem {
     content: ReactNode;
     disabled?: boolean;
 }
-
-type TDropdownDirection = 'top' | 'bottom';
 
 interface IListBoxProps {
     items?: IListBoxItem[];
@@ -28,12 +27,14 @@ interface IListBoxProps {
 }
 
 const mapDirectionClass: Record<TDropdownDirection, string> = {
-    bottom: Styles.optionsBottom,
-    top: Styles.optionsTop,
+    'bottom left': Styles.optionsBottomLeft,
+    'bottom right': Styles.optionsBottomRight,
+    'top right': Styles.optionsTopRight,
+    'top left': Styles.optionsTopLeft,
 };
 
 export const ListBox = (props: IListBoxProps) => {
-    const { className, items, value, defaultValue, onChange, readonly, direction = 'bottom', label } = props;
+    const { className, items, value, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
 

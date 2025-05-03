@@ -40,7 +40,7 @@ export const CurrencySelect = ({ className, value, onChange, readonly }: ICurren
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}
-            direction="top"
+            direction="top right"
         />
     );
 };
