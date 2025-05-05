@@ -8,11 +8,8 @@ import type { IWebpackOptions } from './types/webpackTypes';
 export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] {
     const babelLoader = webpackBabelLoader(options);
 
-    const tsLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    const codeBabelLoader = webpackBabelLoader({ ...options, isTSX: false });
+    const tsxCodeBabelLoader = webpackBabelLoader({ ...options, isTSX: true });
 
     const cssLoader = webpackCssLoader(options.isDev);
 
@@ -27,5 +24,5 @@ export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] 
         ],
     };
 
-    return [babelLoader, tsLoader, cssLoader, svgLoader, fileLoader];
+    return [babelLoader, codeBabelLoader, tsxCodeBabelLoader, cssLoader, svgLoader, fileLoader];
 }
