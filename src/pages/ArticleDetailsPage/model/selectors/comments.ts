@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/ReduxStore';
+import type { IStateSchema } from 'app/providers/ReduxStore';
 
 export const articleDetailsCommentsIsLoadingSelector = (state: IStateSchema) =>
     state.articleDetailsPageSchema?.comments.isLoading;

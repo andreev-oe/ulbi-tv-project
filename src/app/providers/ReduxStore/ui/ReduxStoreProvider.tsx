@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Provider } from 'react-redux';
-import { ReducersMapObject } from 'redux';
+import type { ReducersMapObject } from 'redux';
 
-import { IStateSchema } from '../config/StateSchema';
+import type { IStateSchema } from '../config/StateSchema';
 import { createReduxStore } from '../config/store';
 
 interface IReduxStoreProviderProps {

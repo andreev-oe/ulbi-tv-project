@@ -1,10 +1,12 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import type { HTMLAttributeAnchorTarget } from 'react';
+import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
 
-import { IArticle, EArticlesView } from '../../model/types/articleTypes';
+import { EArticlesView } from '../..';
+import type { IArticle } from '../../model/types/articleTypes';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 

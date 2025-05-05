@@ -1,13 +1,7 @@
-import { IStateSchema, IReduxStoreWithManager, IThunkExtraArg, IThunkConfig } from './config/StateSchema';
-import { createReduxStore, TAppDispatch } from './config/store';
+import type { IStateSchema, IReduxStoreWithManager, IThunkExtraArg, IThunkConfig } from './config/StateSchema';
+import type { TAppDispatch } from './config/store';
+import { createReduxStore } from './config/store';
 import { ReduxStoreProvider } from './ui/ReduxStoreProvider';
 
-export {
-    ReduxStoreProvider,
-    createReduxStore,
-    IStateSchema,
-    IReduxStoreWithManager,
-    TAppDispatch,
-    IThunkExtraArg,
-    IThunkConfig,
-};
+export { ReduxStoreProvider, createReduxStore };
+export type { IStateSchema, IReduxStoreWithManager, TAppDispatch, IThunkExtraArg, IThunkConfig };

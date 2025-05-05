@@ -1,6 +1,6 @@
-import webpack from 'webpack';
+import type webpack from 'webpack';
 
-import { IWebpackOptions } from './types/webpackTypes';
+import type { IWebpackOptions } from './types/webpackTypes';
 import { webpackDevServer } from './webpackDevServer';
 import { webpackLoaders } from './webpackLoaders';
 import { webpackOptimization } from './webpackOptimization';
@@ -24,7 +24,7 @@ export function webpackConfig(options: IWebpackOptions): webpack.Configuration {
         module: {
             rules: webpackLoaders(options),
         },
-        devtool: isDev ? 'inline-source-map' : false,
+        devtool: isDev ? 'source-map' : false,
         devServer: isDev ? webpackDevServer(options) : undefined,
     };
 }

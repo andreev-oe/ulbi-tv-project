@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
 import { Input } from './Input';
@@ -26,4 +26,4 @@ Dark.args = {
     value: 'Логин',
     label: 'Введите логин',
 };
-Dark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+Dark.decorators = [GlobalThemeDecorator(ETheme.DARK)];

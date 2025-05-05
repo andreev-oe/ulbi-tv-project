@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text } from 'shared/ui/Text/Text';
 
-import { IComment } from '../../model/types/comment';
+import type { IComment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 import Styles from './CommentList.module.scss';

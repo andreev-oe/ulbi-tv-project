@@ -1,6 +1,6 @@
-import { IStateSchema } from 'app/providers/ReduxStore';
+import type { IStateSchema } from 'app/providers/ReduxStore';
 
-import { EValidateProfileError } from '../../types/types';
+import { EValidateProfileError } from '../../consts/enums';
 
 import { profileValidationErrorsSelector } from './profileValidationErrorsSelector';
 

@@ -1,13 +1,7 @@
-import { ECountry } from 'entities/Country';
-import { ECurrency } from 'entities/Currency';
+import type { ECountry } from 'entities/Country';
+import type { ECurrency } from 'entities/Currency';
 
-export enum EValidateProfileError {
-    INVALID_USER_DATA = 'INVALID_USER_DATA',
-    INVALID_AGE = 'INVALID_AGE',
-    INVALID_COUNTRY = 'INVALID_COUNTRY',
-    SERVER_ERROR = 'SERVER_ERROR',
-    NO_DATA = 'NO_DATA',
-}
+import type { EValidateProfileError } from '../consts/enums';
 
 export interface IProfile {
     id?: string;

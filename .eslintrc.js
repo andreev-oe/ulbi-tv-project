@@ -29,6 +29,7 @@ module.exports = {
         'ulbi-tv2-plugin',
     ],
     rules: {
+        '@typescript-eslint/consistent-type-imports': 'error',
         'property-no-vendor-prefix': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react-hooks/rules-of-hooks': 'error',

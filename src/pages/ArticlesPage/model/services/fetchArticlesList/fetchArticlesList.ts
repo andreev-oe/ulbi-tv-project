@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from 'app/providers/ReduxStore';
-import { EArticleType, IArticle } from 'entities/Article';
+import type { IThunkConfig } from 'app/providers/ReduxStore';
+import type { IArticle } from 'entities/Article';
+import { EArticleType } from 'entities/Article';
 import i18n from 'shared/config/i18n/i18n';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 

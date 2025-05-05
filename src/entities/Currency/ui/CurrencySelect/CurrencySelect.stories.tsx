@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Loader } from 'shared/ui/Loader/Loader';
 
 import { CurrencySelect } from './CurrencySelect';

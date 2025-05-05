@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from 'app/providers/ReduxStore';
+import type { IThunkConfig } from 'app/providers/ReduxStore';
 
 import {
     articlesPageHasMoreSelector,

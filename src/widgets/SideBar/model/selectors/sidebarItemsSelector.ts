@@ -7,7 +7,7 @@ import HomeIcon from 'shared/assets/icons/home.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
-import { ISidebarItem } from '../types/sidebar';
+import type { ISidebarItem } from '../types/sidebar';
 
 export const sidebarItemsSelector = createSelector(userAuthDataSelector, (userData) => {
     const sidebarItemsList: ISidebarItem[] = [

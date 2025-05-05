@@ -1,7 +1,7 @@
 import path from 'path';
-import webpack from 'webpack';
+import type webpack from 'webpack';
 
-import { IBuildPaths, IWebpackEnv } from './config/webpack/types/webpackTypes';
+import type { IBuildPaths, IWebpackEnv } from './config/webpack/types/webpackTypes';
 import { webpackConfig } from './config/webpack/webpackConfig';
 
 const config = (env: IWebpackEnv) => {

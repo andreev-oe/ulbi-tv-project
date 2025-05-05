@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, ETextALign } from 'shared/ui/Text/Text';
 
-import { IArticleImageBlock } from '../../model/types/articleTypes';
+import type { IArticleImageBlock } from '../../model/types/articleTypes';
 
 import Styles from './ArticleImageBlock.module.scss';
 

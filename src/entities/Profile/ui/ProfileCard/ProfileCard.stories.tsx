@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 import avatar from 'shared/assets/tests/defaultAvatar.jpg';
@@ -47,7 +47,7 @@ DefaultDark.args = {
         avatar: avatar,
     },
 };
-DefaultDark.decorators = [GlobalThemeDecorator(Theme.DARK), StoryDecorator];
+DefaultDark.decorators = [GlobalThemeDecorator(ETheme.DARK), StoryDecorator];
 
 export const Loading: ComponentStory<typeof ProfileCard> = Template.bind({});
 Loading.args = {

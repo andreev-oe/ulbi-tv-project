@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 import avatar from 'shared/assets/tests/defaultAvatar.jpg';
@@ -40,7 +40,7 @@ Light.decorators = [
 
 export const Dark: ComponentStory<typeof ProfilePage> = Template.bind({});
 Dark.decorators = [
-    GlobalThemeDecorator(Theme.DARK),
+    GlobalThemeDecorator(ETheme.DARK),
     ReduxStoreDecorator({
         profile: {
             formData: data,

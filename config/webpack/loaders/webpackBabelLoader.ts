@@ -1,4 +1,4 @@
-import { IWebpackOptions } from '../types/webpackTypes';
+import type { IWebpackOptions } from '../types/webpackTypes';
 
 export const webpackBabelLoader = (options: IWebpackOptions) => {
     return {

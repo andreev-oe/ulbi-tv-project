@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
 import { Button, EButtonSize, EButtonTheme } from './Button';
@@ -35,7 +35,7 @@ OutlineDark.args = {
     children: 'Button',
     theme: EButtonTheme.OUTLINE,
 };
-OutlineDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+OutlineDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const SquareSizeS: ComponentStory<typeof Button> = Template.bind({});
 SquareSizeS.args = {

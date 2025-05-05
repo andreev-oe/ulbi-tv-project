@@ -1,8 +1,9 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/ReduxStore';
-import { IArticle } from 'entities/Article';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import type { IStateSchema } from 'app/providers/ReduxStore';
+import type { IArticle } from 'entities/Article';
 
-import { IArticleDetailsRecommendationsSchema } from '../..';
+import type { IArticleDetailsRecommendationsSchema } from '../..';
 import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 export const recommendationsAdapter = createEntityAdapter<IArticle>({

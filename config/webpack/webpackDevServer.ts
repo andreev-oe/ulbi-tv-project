@@ -1,6 +1,6 @@
-import { Configuration } from 'webpack-dev-server';
+import type { Configuration } from 'webpack-dev-server';
 
-import { IWebpackOptions } from './types/webpackTypes';
+import type { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackDevServer(options: IWebpackOptions): Configuration {
     const { port } = options;

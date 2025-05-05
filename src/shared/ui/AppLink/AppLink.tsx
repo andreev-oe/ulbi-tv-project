@@ -1,6 +1,7 @@
 import { memo } from 'react';
 
-import { Link, LinkProps } from 'react-router-dom';
+import type { LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import Styles from './AppLink.module.scss';

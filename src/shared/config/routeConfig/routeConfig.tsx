@@ -8,12 +8,8 @@ import { ForbiddenPageLazy } from 'pages/ForbiddenPage';
 import { MainPageLazy } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePageLazy } from 'pages/ProfilePage';
-import { RouteProps } from 'react-router-dom';
 
-export type TAppRoutesProps = RouteProps & {
-    authOnly?: boolean;
-    roles?: EUserRole[];
-};
+import type { TAppRoutesProps } from './types';
 
 export enum EAppRoutes {
     MAIN = 'main',

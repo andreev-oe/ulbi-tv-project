@@ -1,17 +1,19 @@
 import { memo, useCallback } from 'react';
 
-import { ECountry } from 'entities/Country';
-import { ECurrency } from 'entities/Currency';
+import type { ECountry } from 'entities/Country';
+import type { ECurrency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import type { TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack';
 import { ETextTheme, Text } from 'shared/ui/Text/Text';
 
+import { EValidateProfileError } from '../../model/consts/enums';
 import { profileErrorSelector } from '../../model/selectors/profileErrorSelector/profileErrorSelector';
 import { profileFormDataSelector } from '../../model/selectors/profileFormDataSelector/profileFormDataSelector';
 import { profileIsLoadingSelector } from '../../model/selectors/profileIsLoadingSelector/profileIsLoadingSelector';
@@ -19,7 +21,6 @@ import { profileReadonlySelector } from '../../model/selectors/profileReadonlySe
 import { profileValidationErrorsSelector } from '../../model/selectors/profileValidationErrorsSelector/profileValidationErrorsSelector';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { EValidateProfileError } from '../../model/types/types';
 import { EditableProfileCardHeader } from '../EditableProfilePageHeader/EditableProfileCardHeader';
 
 interface IEditableProfileCardProps {

@@ -1,9 +1,9 @@
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 
-import { IProfileSchema } from '../..';
+import type { IProfileSchema } from '../..';
+import { EValidateProfileError } from '../consts/enums';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { EValidateProfileError } from '../types/types';
 
 import { profileActions, profileReducer } from './profileSlice';
 

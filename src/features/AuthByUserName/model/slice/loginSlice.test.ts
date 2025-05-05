@@ -1,4 +1,4 @@
-import { ILoginSchema } from '../..';
+import type { ILoginSchema } from '../..';
 
 import { loginReducer, loginActions } from './loginSlice';
 

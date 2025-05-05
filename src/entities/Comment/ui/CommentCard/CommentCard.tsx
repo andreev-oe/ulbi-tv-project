@@ -7,7 +7,7 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 
-import { IComment } from '../../model/types/comment';
+import type { IComment } from '../../model/types/comment';
 
 import Styles from './CommentCard.module.scss';
 

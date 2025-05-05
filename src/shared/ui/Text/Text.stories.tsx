@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
 import { ETextTheme, Text } from './Text';
@@ -32,14 +32,14 @@ ErrorDark.args = {
     text: 'Text Text',
     theme: ETextTheme.ERROR,
 };
-ErrorDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+ErrorDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const PrimaryDark: ComponentStory<typeof Text> = Template.bind({});
 PrimaryDark.args = {
     title: 'Text Title',
     text: 'Text Text',
 };
-PrimaryDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const onlyTitle: ComponentStory<typeof Text> = Template.bind({});
 onlyTitle.args = {
@@ -50,7 +50,7 @@ export const onlyTitleDark: ComponentStory<typeof Text> = Template.bind({});
 onlyTitleDark.args = {
     title: 'Text Title',
 };
-onlyTitleDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+onlyTitleDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const onlyText: ComponentStory<typeof Text> = Template.bind({});
 onlyText.args = {
@@ -61,4 +61,4 @@ export const onlyTextDark: ComponentStory<typeof Text> = Template.bind({});
 onlyTextDark.args = {
     text: 'Text Text',
 };
-onlyTextDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+onlyTextDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];

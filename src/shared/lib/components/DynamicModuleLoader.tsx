@@ -1,8 +1,9 @@
-import { FC, ReactNode, useEffect } from 'react';
+import type { FC, ReactNode } from 'react';
+import { useEffect } from 'react';
 
-import { Reducer } from '@reduxjs/toolkit';
-import { IReduxStoreWithManager } from 'app/providers/ReduxStore';
-import { TStateSchemaKey } from 'app/providers/ReduxStore/config/StateSchema';
+import type { Reducer } from '@reduxjs/toolkit';
+import type { IReduxStoreWithManager } from 'app/providers/ReduxStore';
+import type { TStateSchemaKey } from 'app/providers/ReduxStore/config/StateSchema';
 import { useStore } from 'react-redux';
 
 import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';

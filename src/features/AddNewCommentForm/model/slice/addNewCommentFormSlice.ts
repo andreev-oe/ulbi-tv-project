@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { IAddNewCommentFormSchema } from '../types/addNewCommentFormSchema';
+import type { IAddNewCommentFormSchema } from '../types/addNewCommentFormSchema';
 
 const initialState: IAddNewCommentFormSchema = {
     error: '',

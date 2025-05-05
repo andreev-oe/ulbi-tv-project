@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
 import { Skeleton } from './Skeleton';
@@ -24,14 +24,14 @@ DefaultDark.args = {
     width: '100%',
     height: '200px',
 };
-DefaultDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+DefaultDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const DefaultOrange: ComponentStory<typeof Skeleton> = Template.bind({});
 DefaultOrange.args = {
     width: '100%',
     height: '200px',
 };
-DefaultOrange.decorators = [GlobalThemeDecorator(Theme.ORANGE)];
+DefaultOrange.decorators = [GlobalThemeDecorator(ETheme.ORANGE)];
 
 export const Circle: ComponentStory<typeof Skeleton> = Template.bind({});
 Circle.args = {
@@ -46,7 +46,7 @@ CircleDark.args = {
     height: '100px',
     borderRadius: '50%',
 };
-CircleDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+CircleDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const CircleOrange: ComponentStory<typeof Skeleton> = Template.bind({});
 CircleOrange.args = {
@@ -54,4 +54,4 @@ CircleOrange.args = {
     height: '100px',
     borderRadius: '50%',
 };
-CircleOrange.decorators = [GlobalThemeDecorator(Theme.ORANGE)];
+CircleOrange.decorators = [GlobalThemeDecorator(ETheme.ORANGE)];

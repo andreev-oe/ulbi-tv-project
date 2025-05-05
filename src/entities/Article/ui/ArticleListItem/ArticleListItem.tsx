@@ -1,4 +1,5 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import type { HTMLAttributeAnchorTarget } from 'react';
+import { memo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { generatePath } from 'react-router-dom';
@@ -13,7 +14,9 @@ import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 
-import { EArticleBlockType, EArticlesView, IArticle, IArticleTextBlock } from '../../model/types/articleTypes';
+import { EArticlesView } from '../..';
+import { EArticleBlockType } from '../../model/consts/enums';
+import type { IArticle, IArticleTextBlock } from '../../model/types/articleTypes';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import Styles from './ArticleListItem.module.scss';

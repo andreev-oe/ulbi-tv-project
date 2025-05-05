@@ -1,6 +1,7 @@
-import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
+import type { MutableRefObject, ReactNode, UIEvent } from 'react';
+import { memo, useRef } from 'react';
 
-import { IStateSchema } from 'app/providers/ReduxStore';
+import type { IStateSchema } from 'app/providers/ReduxStore';
 import { scrollPositionActions, scrollPositionByPath } from 'features/ScrollPosition';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';

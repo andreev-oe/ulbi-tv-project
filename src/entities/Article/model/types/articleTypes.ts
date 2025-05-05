@@ -1,10 +1,6 @@
-import { IUser } from 'entities/User';
+import type { IUser } from 'entities/User';
 
-export enum EArticleBlockType {
-    CODE = 'CODE',
-    IMAGE = 'IMAGE',
-    TEXT = 'TEXT',
-}
+import type { EArticleBlockType, EArticleType } from '../consts/enums';
 
 export interface IArticleBlockBase {
     id: string;
@@ -29,24 +25,6 @@ export interface IArticleTextBlock extends IArticleBlockBase {
 }
 
 export type TArticleBlock = IArticleCodeBlock | IArticleImageBlock | IArticleTextBlock;
-
-export enum EArticleType {
-    ALL = 'ALL',
-    IT = 'IT',
-    SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS',
-}
-
-export enum EArticlesView {
-    LIST = 'LIST',
-    TILED = 'TILED',
-}
-
-export enum EArticlesSortField {
-    VIEWS = 'views',
-    TITLE = 'title',
-    CREATED_AT = 'createdAt',
-}
 
 export interface IArticle {
     id: string;

@@ -1,4 +1,4 @@
-import { IArticleDetailsCommentSchema, IArticleDetailsRecommendationsSchema } from '../..';
+import type { IArticleDetailsCommentSchema, IArticleDetailsRecommendationsSchema } from '../..';
 
 export interface IArticleDetailsPageSchema {
     comments: IArticleDetailsCommentSchema;

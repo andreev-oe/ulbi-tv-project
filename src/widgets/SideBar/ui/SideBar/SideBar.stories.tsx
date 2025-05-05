@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 import { ReduxStoreDecorator } from 'shared/config/storybook/decorators/ReduxStoreDecorator';
 
@@ -25,7 +25,7 @@ Light.decorators = [
 export const Dark: ComponentStory<typeof SideBar> = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-    GlobalThemeDecorator(Theme.DARK),
+    GlobalThemeDecorator(ETheme.DARK),
     ReduxStoreDecorator({
         user: { authData: {} },
     }),

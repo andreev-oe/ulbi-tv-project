@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import HomeIcon from 'shared/assets/icons/home.svg';
 import { EAppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
@@ -28,4 +28,4 @@ Light.args = {};
 
 export const Dark: ComponentStory<typeof SideBarItem> = Template.bind({});
 Dark.args = {};
-Dark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+Dark.decorators = [GlobalThemeDecorator(ETheme.DARK)];

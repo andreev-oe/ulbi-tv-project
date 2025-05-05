@@ -1,10 +1,12 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/ReduxStore';
-import { EArticlesSortField, EArticlesView, EArticleType, IArticle } from 'entities/Article';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import type { IStateSchema } from 'app/providers/ReduxStore';
+import type { IArticle } from 'entities/Article';
+import { EArticlesSortField, EArticlesView, EArticleType } from 'entities/Article';
 import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
-import { TSortOrder } from 'shared/types';
+import type { TSortOrder } from 'shared/types';
 
-import { IArticlesPageSchema } from '../..';
+import type { IArticlesPageSchema } from '../..';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
 export const articlesPageAdapter = createEntityAdapter<IArticle>({

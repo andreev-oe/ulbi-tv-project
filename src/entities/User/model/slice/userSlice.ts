@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
 
-import { IUserSchema, IUser } from '../types/userSchema';
+import type { IUserSchema, IUser } from '../types/userSchema';
 
 const initialState: IUserSchema = {
     _inited: false,

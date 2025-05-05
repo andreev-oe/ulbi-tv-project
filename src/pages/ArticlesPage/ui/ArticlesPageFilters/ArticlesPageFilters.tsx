@@ -1,13 +1,14 @@
 import { memo, useCallback } from 'react';
 
-import { ArticlesSortField, ArticleViewField, EArticlesSortField, EArticlesView, EArticleType } from 'entities/Article';
+import type { EArticlesSortField, EArticlesView, EArticleType } from 'entities/Article';
+import { ArticlesSortField, ArticleViewField } from 'entities/Article';
 import { ArticlesTypeTabs } from 'entities/Article/ui/ArticlesTypeTabs/ArticlesTypeTabs';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TSortOrder } from 'shared/types';
+import type { TSortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 

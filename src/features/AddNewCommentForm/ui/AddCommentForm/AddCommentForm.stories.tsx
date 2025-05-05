@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { action } from '@storybook/addon-actions';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ReduxStoreDecorator } from 'shared/config/storybook/decorators/ReduxStoreDecorator';
 
 import { AddCommentForm } from './AddCommentForm';

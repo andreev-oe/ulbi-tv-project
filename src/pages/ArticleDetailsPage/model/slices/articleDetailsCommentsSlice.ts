@@ -1,9 +1,10 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/ReduxStore';
-import { IComment } from 'entities/Comment';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import type { IStateSchema } from 'app/providers/ReduxStore';
+import type { IComment } from 'entities/Comment';
 
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { IArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
+import type { IArticleDetailsCommentSchema } from '../types/ArticleDetailsCommentSchema';
 
 export const commentsAdapter = createEntityAdapter<IComment>({
     // Assume IDs are stored in a field other than `book.id`

@@ -4,7 +4,8 @@ import { ArticleDetails } from 'entities/Article';
 import { ArticleRecommendationsListLazy } from 'features/ArticleRecommendationsList';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import type { TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { Page } from 'widgets/Page/Page';
 
 import { articleDetailsPageReducer } from '../../model/slices';

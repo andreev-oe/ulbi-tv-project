@@ -1,17 +1,17 @@
-import { AnyAction, CombinedState, Reducer } from '@reduxjs/toolkit';
-import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
-import { AxiosInstance } from 'axios';
-import { IArticleDetailsSchema } from 'entities/Article';
-import { ICounterSchema } from 'entities/Counter';
-import { IUserSchema } from 'entities/User';
-import { IAddNewCommentFormSchema } from 'features/AddNewCommentForm';
-import { ILoginSchema } from 'features/AuthByUserName';
-import { IProfileSchema } from 'features/EditableProfileCard/model/types/types';
-import { IScrollPositionSchema } from 'features/ScrollPosition';
-import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { IArticlesPageSchema } from 'pages/ArticlesPage';
+import type { AnyAction, CombinedState, Reducer } from '@reduxjs/toolkit';
+import type { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
+import type { AxiosInstance } from 'axios';
+import type { IArticleDetailsSchema } from 'entities/Article';
+import type { ICounterSchema } from 'entities/Counter';
+import type { IUserSchema } from 'entities/User';
+import type { IAddNewCommentFormSchema } from 'features/AddNewCommentForm';
+import type { ILoginSchema } from 'features/AuthByUserName';
+import type { IProfileSchema } from 'features/EditableProfileCard/model/types/types';
+import type { IScrollPositionSchema } from 'features/ScrollPosition';
+import type { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import type { IArticlesPageSchema } from 'pages/ArticlesPage';
 import type { ReducersMapObject } from 'redux';
-import { rtkApi } from 'shared/api/rtkApi';
+import type { rtkApi } from 'shared/api/rtkApi';
 
 export interface IStateSchema {
     counter: ICounterSchema;

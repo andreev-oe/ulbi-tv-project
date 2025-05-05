@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 
-import { EArticlesView } from '../../model/types/articleTypes';
+import { EArticlesView } from '../..';
 
 import Styles from './ArticleListItem.module.scss';
 

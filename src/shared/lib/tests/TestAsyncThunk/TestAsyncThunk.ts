@@ -1,6 +1,7 @@
-import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { IStateSchema } from 'app/providers/ReduxStore';
-import axios, { AxiosStatic } from 'axios';
+import type { AsyncThunkAction } from '@reduxjs/toolkit';
+import type { IStateSchema } from 'app/providers/ReduxStore';
+import type { AxiosStatic } from 'axios';
+import axios from 'axios';
 
 type TActionCreatorType<Return, Arg, RejectedValue> = (
     arg: Arg,

@@ -1,3 +1,3 @@
-import { IStateSchema } from 'app/providers/ReduxStore';
+import type { IStateSchema } from 'app/providers/ReduxStore';
 
 export const userAuthDataSelector = (state: IStateSchema) => state.user.authData;

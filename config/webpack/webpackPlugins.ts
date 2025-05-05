@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-import { IWebpackOptions } from './types/webpackTypes';
+import type { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackPlugins({ paths, isDev, apiUrl, envType }: IWebpackOptions): webpack.WebpackPluginInstance[] {
     const plugins = [

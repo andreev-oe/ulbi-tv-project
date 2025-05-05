@@ -1,4 +1,5 @@
-import { IProfile } from './model/types/types';
+import type { IProfile } from './model/types/types';
 import { ProfileCard } from './ui/ProfileCard/ProfileCard';
 
-export { IProfile, ProfileCard };
+export { ProfileCard };
+export type { IProfile };

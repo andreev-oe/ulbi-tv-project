@@ -1,4 +1,5 @@
-import { CombinedState, configureStore, Reducer } from '@reduxjs/toolkit';
+import type { CombinedState, Reducer } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { scrollPositionReducer } from 'features/ScrollPosition';
@@ -7,7 +8,7 @@ import { api } from 'shared/api/api';
 import { rtkApi } from 'shared/api/rtkApi';
 
 import { createReducerManager } from './reducerManager';
-import { IStateSchema } from './StateSchema';
+import type { IStateSchema } from './StateSchema';
 
 export const createReduxStore = (initialState: IStateSchema, asyncReducers?: ReducersMapObject<IStateSchema>) => {
     const rootReducer: ReducersMapObject<IStateSchema> = {

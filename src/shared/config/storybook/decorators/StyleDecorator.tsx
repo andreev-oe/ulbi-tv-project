@@ -1,5 +1,5 @@
 import 'app/styles/index.scss';
-import { Story } from '@storybook/react';
+import type { Story } from '@storybook/react';
 
 export const StoryDecorator = (StoryComponent: Story) => {
     return (

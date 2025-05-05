@@ -1,6 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
-import { classNames, TClassNames } from 'shared/lib/classNames/classNames';
+import type { TClassNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 import Styles from './Flex.module.scss';
 

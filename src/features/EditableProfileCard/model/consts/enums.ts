@@ -1,0 +1,7 @@
+export enum EValidateProfileError {
+    INVALID_USER_DATA = 'INVALID_USER_DATA',
+    INVALID_AGE = 'INVALID_AGE',
+    INVALID_COUNTRY = 'INVALID_COUNTRY',
+    SERVER_ERROR = 'SERVER_ERROR',
+    NO_DATA = 'NO_DATA',
+}

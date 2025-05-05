@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ETheme } from 'app/providers/themeProvider';
 import { EAppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 
@@ -32,7 +32,7 @@ PrimaryDark.args = {
     theme: AppLinkThemes.PRIMARY,
     children: 'Dark',
 };
-PrimaryDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];
 
 export const Secondary: ComponentStory<typeof AppLink> = Template.bind({});
 Secondary.args = {
@@ -45,4 +45,4 @@ SecondaryDark.args = {
     theme: AppLinkThemes.SECONDARY,
     children: 'Dark',
 };
-SecondaryDark.decorators = [GlobalThemeDecorator(Theme.DARK)];
+SecondaryDark.decorators = [GlobalThemeDecorator(ETheme.DARK)];

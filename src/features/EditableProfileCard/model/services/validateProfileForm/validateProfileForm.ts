@@ -1,6 +1,6 @@
-import { IProfile } from 'entities/Profile';
+import type { IProfile } from 'entities/Profile';
 
-import { EValidateProfileError } from '../../types/types';
+import { EValidateProfileError } from '../../consts/enums';
 
 export const validateProfileForm = (profile?: IProfile) => {
     if (!profile) {

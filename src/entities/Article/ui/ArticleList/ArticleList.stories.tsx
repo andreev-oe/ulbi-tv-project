@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { EArticlesView, IArticle } from '../../model/types/articleTypes';
+import { EArticlesView } from '../..';
+import type { IArticle } from '../../model/types/articleTypes';
 
 import { ArticleList } from './ArticleList';
 

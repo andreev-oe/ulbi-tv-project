@@ -5,7 +5,8 @@ import { profileReducer } from 'features/EditableProfileCard/model/slice/profile
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import type { TReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';

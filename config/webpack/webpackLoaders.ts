@@ -1,9 +1,9 @@
-import webpack from 'webpack';
+import type webpack from 'webpack';
 
 import { webpackBabelLoader } from './loaders/webpackBabelLoader';
 import { webpackCssLoader } from './loaders/webpackCssLoader';
 import { webpackSvgLoader } from './loaders/webpackSvgLoader';
-import { IWebpackOptions } from './types/webpackTypes';
+import type { IWebpackOptions } from './types/webpackTypes';
 
 export function webpackLoaders(options: IWebpackOptions): webpack.RuleSetRule[] {
     const babelLoader = webpackBabelLoader(options);

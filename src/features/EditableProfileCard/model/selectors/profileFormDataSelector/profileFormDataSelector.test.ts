@@ -1,4 +1,4 @@
-import { IStateSchema } from 'app/providers/ReduxStore';
+import type { IStateSchema } from 'app/providers/ReduxStore';
 import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 

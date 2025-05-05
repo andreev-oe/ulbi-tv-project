@@ -1,4 +1,5 @@
-import { memo, SVGProps, VFC } from 'react';
+import type { SVGProps, VFC } from 'react';
+import { memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 

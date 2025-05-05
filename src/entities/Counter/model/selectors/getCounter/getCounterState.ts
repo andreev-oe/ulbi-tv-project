@@ -1,3 +1,3 @@
-import { IStateSchema } from 'app/providers/ReduxStore';
+import type { IStateSchema } from 'app/providers/ReduxStore';
 
 export const getCounterState = (state: IStateSchema) => state.counter;

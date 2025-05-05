@@ -1,5 +1,5 @@
 import { addDecorator } from '@storybook/react';
-import { Theme } from 'app/providers/themeProvider';
+import { ETheme } from 'app/providers/themeProvider';
 import { GlobalThemeDecorator } from 'shared/config/storybook/decorators/GlobalThemeDecorator';
 import { ReduxStoreDecorator } from 'shared/config/storybook/decorators/ReduxStoreDecorator';
 import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator';
@@ -17,4 +17,4 @@ export const parameters = {
 addDecorator(StoryDecorator);
 addDecorator(RouterDecorator);
 addDecorator(ReduxStoreDecorator({ counter: { value: 10 } }));
-addDecorator(GlobalThemeDecorator(Theme.LIGHT));
+addDecorator(GlobalThemeDecorator(ETheme.LIGHT));

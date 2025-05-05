@@ -2,7 +2,7 @@ import { ECountry } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
-import { EValidateProfileError } from '../../types/types';
+import { EValidateProfileError } from '../../consts/enums';
 
 import { updateProfileData } from './updateProfileData';
 

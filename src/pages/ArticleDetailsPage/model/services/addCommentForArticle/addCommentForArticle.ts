@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IThunkConfig } from 'app/providers/ReduxStore';
+import type { IThunkConfig } from 'app/providers/ReduxStore';
 import { articleDetailsDataSelector } from 'entities/Article';
-import { IComment } from 'entities/Comment';
+import type { IComment } from 'entities/Comment';
 import { userAuthDataSelector } from 'entities/User';
 import i18n from 'shared/config/i18n/i18n';
 

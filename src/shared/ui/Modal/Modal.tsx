@@ -1,4 +1,5 @@
-import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 

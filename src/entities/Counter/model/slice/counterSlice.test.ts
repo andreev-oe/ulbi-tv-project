@@ -1,4 +1,4 @@
-import { ICounterSchema } from '../types/CounterSchema';
+import type { ICounterSchema } from '../types/CounterSchema';
 
 import { counterReducer, counterActions } from './counterSlice';
 

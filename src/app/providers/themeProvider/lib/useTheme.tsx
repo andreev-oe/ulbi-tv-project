@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 
 import { defaultTheme } from '../ui/ThemeProvider';
 
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY, ETheme, ThemeContext } from './ThemeContext';
 
 interface IUseThemeResult {
     toggleTheme?: () => void;
@@ -13,19 +13,19 @@ export const useTheme = (): IUseThemeResult => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const toggleTheme = () => {
-        let newTheme: Theme;
+        let newTheme: ETheme;
         switch (theme) {
-            case Theme.DARK:
-                newTheme = Theme.LIGHT;
+            case ETheme.DARK:
+                newTheme = ETheme.LIGHT;
                 break;
-            case Theme.LIGHT:
-                newTheme = Theme.ORANGE;
+            case ETheme.LIGHT:
+                newTheme = ETheme.ORANGE;
                 break;
-            case Theme.ORANGE:
-                newTheme = Theme.DARK;
+            case ETheme.ORANGE:
+                newTheme = ETheme.DARK;
                 break;
             default:
-                newTheme = Theme.LIGHT;
+                newTheme = ETheme.LIGHT;
         }
         setTheme?.(newTheme);
         document.body.className = newTheme;
@@ -36,5 +36,5 @@ export const useTheme = (): IUseThemeResult => {
         document.body.className = defaultTheme;
     }, []);
 
-    return { theme: theme ?? Theme.LIGHT, toggleTheme };
+    return { theme: theme ?? ETheme.LIGHT, toggleTheme };
 };

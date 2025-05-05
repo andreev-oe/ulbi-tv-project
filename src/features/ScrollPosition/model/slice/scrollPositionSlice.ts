@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { IScrollPositionSchema } from '../types/ScrollPositionSchema';
+import type { IScrollPositionSchema } from '../types/ScrollPositionSchema';
 
 const initialState: IScrollPositionSchema = {
     scroll: {},

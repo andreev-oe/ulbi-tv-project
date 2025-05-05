@@ -2,8 +2,9 @@ import { memo, useCallback, useMemo } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { TSortOrder } from 'shared/types';
-import { ISelectOption, Select } from 'shared/ui/Select/Select';
+import type { TSortOrder } from 'shared/types';
+import type { ISelectOption } from 'shared/ui/Select/Select';
+import { Select } from 'shared/ui/Select/Select';
 
 import { EArticlesSortField } from '../..';
 

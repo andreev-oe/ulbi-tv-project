@@ -1,4 +1,5 @@
-import { HTMLAttributes, memo, ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
