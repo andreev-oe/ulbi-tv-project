@@ -4,31 +4,31 @@
 
 .btn {
     background: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    border: none;
+    border: 0;
     cursor: pointer;
+    margin: 0;
+    outline: none;
+    padding: 0;
 }
 
 .menu {
     background: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     z-index: 10000;
-    border-radius: 8px;
-    border: 1px solid var(--primary-color);
-    flex-direction: column;
-    display: flex;
 }
 
 .item {
-    padding: 10px 25px;
-    width: 100%;
-    border: none;
     background: none;
-    outline: none;
+    border: 0;
     color: var(--primary-color);
     cursor: pointer;
+    outline: none;
+    padding: 10px 25px;
+    width: 100%;
 }
 
 .active {
@@ -36,13 +36,13 @@
 }
 
 .optionsBottomLeft {
-    top: 100%;
     right: 0;
+    top: 100%;
 }
 
 .optionsBottomRight {
-    top: 100%;
     left: 0;
+    top: 100%;
 }
 
 .optionsTopRight {
@@ -51,6 +51,6 @@
 }
 
 .optionsTopLeft {
-    right: 0;
     bottom: 100%;
+    right: 0;
 }
